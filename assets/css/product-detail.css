@@ -1,0 +1,419 @@
+﻿/**
+ * Aura Skincare - Single Product Detail Page Stylesheet
+ *
+ * @package Aura_Skincare
+ */
+
+/* ==========================================================================
+   Product Detail Layout
+   ========================================================================== */
+.product-detail-page {
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(4rem, 7vw, 6.5rem);
+  background-color: var(--color-bg-body);
+}
+
+.product-detail-breadcrumb {
+  margin-bottom: 2rem;
+  font-size: 0.78rem;
+  color: var(--color-text-subtle);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.product-detail-breadcrumb a {
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.product-detail-breadcrumb a:hover {
+  color: var(--color-heading);
+}
+
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: flex-start;
+}
+
+/* Left Column: Product Gallery */
+.product-gallery-sticky {
+  position: sticky;
+  top: 100px;
+}
+
+.product-main-gallery-frame {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: #f7f4ef;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.product-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-main-gallery-frame:hover .product-gallery-img {
+  transform: scale(1.03);
+}
+
+.gallery-floating-badge {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 2;
+}
+
+.gallery-thumbs-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.gallery-thumb-btn {
+  width: 80px;
+  height: 96px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 2px solid transparent;
+  background-color: #f7f4ef;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.gallery-thumb-btn.active,
+.gallery-thumb-btn:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+.gallery-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right Column: Product Narrative & Actions */
+.product-info-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-eyebrow-tag {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.product-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 400;
+  color: var(--color-heading);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.product-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+
+.product-price-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-current-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.product-volume-pill {
+  font-size: 0.8rem;
+  color: var(--color-text-subtle);
+  background: var(--color-bg-subtle);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+}
+
+.product-narrative-text {
+  font-size: 1.02rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Key Benefits Checklist */
+.product-benefits-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2.2rem;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.benefit-check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-heading);
+}
+
+.benefit-check-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-gold-light);
+  color: #8c6a38;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.benefit-check-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Purchase Controls */
+.product-purchase-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.product-qty-selector {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-pill);
+  padding: 4px 8px;
+  height: 52px;
+}
+
+.product-qty-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--color-heading);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.product-qty-btn:hover {
+  background-color: var(--color-bg-subtle);
+}
+
+.product-qty-input {
+  width: 44px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.product-add-to-bag-btn {
+  flex: 1;
+  height: 52px;
+  font-size: 0.88rem;
+  letter-spacing: 0.1em;
+}
+
+/* Guarantee Strip */
+.product-guarantee-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+}
+
+.guarantee-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.guarantee-item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-gold);
+}
+
+/* ==========================================================================
+   Mid-Section: The Science of Actives Grid
+   ========================================================================== */
+.science-ingredients-section {
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  background-color: #ffffff;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.science-ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.science-card {
+  padding: clamp(2rem, 3vw, 2.8rem) clamp(1.5rem, 2.5vw, 2.2rem);
+  background-color: var(--color-bg-body);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.science-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(197, 168, 128, 0.4);
+}
+
+.science-card-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--color-gold-light);
+  border: 1px solid rgba(197, 168, 128, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: #8c6a38;
+}
+
+.science-card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.science-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-heading);
+  margin-bottom: 0.75rem;
+}
+
+.science-card-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Editorial Testimonial Quote Split
+   ========================================================================== */
+.product-reviews-quote-section {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+  background-color: var(--color-bg-subtle);
+}
+
+.quote-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.editorial-quote-card {
+  background-color: #ffffff;
+  padding: clamp(2rem, 4vw, 3rem);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.editorial-quote-card .quote-text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--color-heading);
+  margin-bottom: 1.5rem;
+}
+
+.editorial-quote-card .quote-author {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8c6a38;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 992px) {
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .product-gallery-sticky {
+    position: relative;
+    top: 0;
+    max-width: 540px;
+    margin: 0 auto 2rem;
+  }
+  .science-ingredients-grid {
+    grid-template-columns: 1fr;
+  }
+  .quote-split-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-purchase-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .product-qty-selector {
+    justify-content: center;
+  }
+  .product-guarantee-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}

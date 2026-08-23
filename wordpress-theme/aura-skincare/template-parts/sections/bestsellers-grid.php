@@ -18,8 +18,8 @@ $products = aura_get_mock_products();
 		<!-- Section Header -->
 		<?php
 		$bs_eyebrow = get_theme_mod( 'aura_bestsellers_eyebrow', 'The Most Coveted Formulas' );
-		$bs_title   = get_theme_mod( 'aura_bestsellers_title', 'Sacred Botanical Bestsellers' );
-		$bs_desc    = get_theme_mod( 'aura_bestsellers_desc', 'Award-winning bio-compatible rituals formulated to nourish the skin barrier and reveal lit-from-within luminosity.' );
+		$bs_title   = get_theme_mod( 'aura_bestsellers_title', 'Sacred Botanical Formulas' );
+		$bs_desc    = get_theme_mod( 'aura_bestsellers_desc', 'Explore award-winning bio-compatible rituals formulated to nourish the skin barrier and reveal lit-from-within luminosity.' );
 		?>
 		<div class="section-header">
 			<?php if ( ! empty( $bs_eyebrow ) ) : ?>
@@ -31,10 +31,35 @@ $products = aura_get_mock_products();
 			<?php endif; ?>
 		</div>
 
-		<!-- 5-Column Product Grid -->
-		<div class="bestsellers-grid">
-			<?php foreach ( $products as $product ) : ?>
-				<article class="aura-product-card" data-product-id="<?php echo esc_attr( $product['id'] ); ?>">
+		<!-- Interactive Category & Collection Tabs -->
+		<div class="bestsellers-filter-nav" style="display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem;">
+			<button type="button" class="home-tab-btn active" data-filter="all">All Formulas</button>
+			<button type="button" class="home-tab-btn" data-filter="bestseller">Bestsellers</button>
+			<button type="button" class="home-tab-btn" data-filter="new">New Arrivals</button>
+			<button type="button" class="home-tab-btn" data-filter="cleansers">Cleansers</button>
+			<button type="button" class="home-tab-btn" data-filter="serums">Serums & Oils</button>
+			<button type="button" class="home-tab-btn" data-filter="moisturizers">Moisturizers</button>
+			<button type="button" class="home-tab-btn" data-filter="eye-care">Eye Care</button>
+			<button type="button" class="home-tab-btn" data-filter="toners-mists">Toners & Mists</button>
+			<button type="button" class="home-tab-btn" data-filter="sun-protection">Sun Protection</button>
+			<button type="button" class="home-tab-btn" data-filter="sets-kits">Sets & Kits</button>
+		</div>
+
+		<!-- Product Grid -->
+		<div class="bestsellers-grid" id="homeProductsGrid">
+			<?php foreach ( $products as $product ) : 
+				$cat_slug = isset( $product['category_slug'] ) ? $product['category_slug'] : 'serums';
+				$is_bs    = ! empty( $product['is_featured'] ) || stripos( $product['badge'], 'bestseller' ) !== false || stripos( $product['badge'], 'award' ) !== false || stripos( $product['badge'], 'cult' ) !== false;
+				$is_new   = ! empty( $product['is_new'] ) || stripos( $product['badge'], 'new' ) !== false;
+			?>
+				<article 
+					class="aura-product-card" 
+					data-product-id="<?php echo esc_attr( $product['id'] ); ?>"
+					data-category="<?php echo esc_attr( $cat_slug ); ?>"
+					data-is-bestseller="<?php echo $is_bs ? 'true' : 'false'; ?>"
+					data-is-new="<?php echo $is_new ? 'true' : 'false'; ?>"
+					data-category-name="<?php echo esc_attr( $product['category'] ); ?>"
+				>
 					
 					<!-- Product Image Box -->
 					<div class="product-thumbnail-box">

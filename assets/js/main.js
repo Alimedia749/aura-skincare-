@@ -236,11 +236,70 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ==========================================================================
-  // 4. Category Pills Interactive Filtering
+  // 4. Category Pills & Home Tab Interactive Filtering
   // ==========================================================================
   var categoryPills = document.querySelectorAll('.category-pill-item');
-  var productCards = document.querySelectorAll('.aura-product-card');
+  var homeTabs = document.querySelectorAll('.home-tab-btn');
+  var productCards = document.querySelectorAll('#homeProductsGrid .aura-product-card, .bestsellers-grid .aura-product-card');
 
+  function applyProductFilter(targetFilter, activeLabel) {
+    if (!targetFilter) return;
+
+    var filterNormalized = targetFilter.toLowerCase().trim();
+
+    productCards.forEach(function(card) {
+      var cardCat = (card.getAttribute('data-category') || '').toLowerCase();
+      var cardCatName = (card.getAttribute('data-category-name') || '').toLowerCase();
+      var isBs = card.getAttribute('data-is-bestseller') === 'true';
+      var isNew = card.getAttribute('data-is-new') === 'true';
+
+      var shouldShow = false;
+
+      if (filterNormalized === 'all') {
+        shouldShow = true;
+      } else if (filterNormalized === 'bestseller' || filterNormalized === 'bestsellers') {
+        shouldShow = isBs;
+      } else if (filterNormalized === 'new' || filterNormalized === 'new-arrivals') {
+        shouldShow = isNew;
+      } else {
+        shouldShow = (cardCat.indexOf(filterNormalized) !== -1 || cardCatName.indexOf(filterNormalized) !== -1);
+      }
+
+      if (shouldShow) {
+        card.style.display = 'flex';
+        if (window.gsap) {
+          window.gsap.fromTo(card, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35 });
+        }
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (activeLabel) {
+      showAuraToast('Displaying ' + activeLabel);
+    }
+  }
+
+  // Home Tabs Listener
+  homeTabs.forEach(function(tab) {
+    tab.addEventListener('click', function(e) {
+      e.preventDefault();
+      homeTabs.forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+
+      var filter = this.getAttribute('data-filter');
+      var label = this.textContent.trim();
+
+      // Sync category pills state if matching
+      categoryPills.forEach(function(p) {
+        p.classList.toggle('active', p.getAttribute('data-category') === filter);
+      });
+
+      applyProductFilter(filter, label);
+    });
+  });
+
+  // Category Pills Listener
   categoryPills.forEach(function(pill) {
     pill.addEventListener('click', function(e) {
       var targetCat = this.getAttribute('data-category');
@@ -251,23 +310,20 @@ document.addEventListener('DOMContentLoaded', function() {
       categoryPills.forEach(function(p) { p.classList.remove('active'); });
       this.classList.add('active');
 
-      productCards.forEach(function(card) {
-        var cardCat = card.querySelector('.product-card-category');
-        var catText = cardCat ? cardCat.textContent.trim().toLowerCase() : '';
-        if (targetCat === 'all' || catText.indexOf(targetCat.toLowerCase()) !== -1) {
-          card.style.display = 'flex';
-          if (window.gsap) {
-            window.gsap.from(card, { opacity: 0, y: 15, duration: 0.35 });
-          }
-        } else {
-          card.style.display = 'none';
-        }
+      // Sync home tabs if matching
+      homeTabs.forEach(function(t) {
+        t.classList.toggle('active', t.getAttribute('data-filter') === targetCat);
       });
 
-      var catName = this.querySelector('.category-pill-name');
-      if (catName) {
-        showAuraToast('Displaying ' + catName.textContent);
+      var catNameEl = this.querySelector('.category-pill-name');
+      var label = catNameEl ? catNameEl.textContent.trim() : targetCat;
+
+      var bestsellersEl = document.getElementById('bestsellers');
+      if (bestsellersEl) {
+        bestsellersEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+
+      applyProductFilter(targetCat, label);
     });
   });
 

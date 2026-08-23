@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Custom template tags, helpers, and dynamic WooCommerce integration
  *
@@ -86,47 +86,91 @@ function aura_get_mock_products( $limit = 10 ) {
 		if ( ! empty( $wc_products ) ) {
 			foreach ( $wc_products as $wc_p ) {
 				$p_id         = $wc_p->get_id();
+				$p_slug       = $wc_p->get_slug();
 				$image_id     = $wc_p->get_image_id();
-				$img_url      = $image_id ? wp_get_attachment_image_url( $image_id, 'large' ) : $theme_uri . '/assets/images/hero-products.webp';
-				$gallery_ids  = $wc_p->get_gallery_image_ids();
-				$alt_img_url  = ! empty( $gallery_ids ) ? wp_get_attachment_image_url( $gallery_ids[0], 'large' ) : $img_url;
-
+				
 				$cat_names = array();
+				$cat_slugs = array();
 				$terms = get_the_terms( $p_id, 'product_cat' );
 				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 					foreach ( $terms as $t ) {
 						$cat_names[] = $t->name;
+						$cat_slugs[] = $t->slug;
 					}
 				}
 				$category_str = ! empty( $cat_names ) ? implode( ', ', $cat_names ) : 'Rituals';
+				$primary_cat_slug = ! empty( $cat_slugs ) ? $cat_slugs[0] : 'serums';
+
+				// Category-specific high quality luxury images
+				$default_img = $theme_uri . '/assets/images/hero-slide-1.png';
+				$default_alt = $theme_uri . '/assets/images/hero-products.webp';
+
+				if ( in_array( 'cleansers', $cat_slugs, true ) ) {
+					$default_img = $theme_uri . '/assets/images/hero-products.webp';
+					$default_alt = $theme_uri . '/assets/images/ritual-banner.webp';
+				} elseif ( in_array( 'moisturizers', $cat_slugs, true ) ) {
+					$default_img = $theme_uri . '/assets/images/hero-slide-2.png';
+					$default_alt = $theme_uri . '/assets/images/promise-model.webp';
+				} elseif ( in_array( 'botanical-oils', $cat_slugs, true ) ) {
+					$default_img = $theme_uri . '/assets/images/hero-slide-3.png';
+					$default_alt = $theme_uri . '/assets/images/ritual-banner.webp';
+				} elseif ( in_array( 'eye-care', $cat_slugs, true ) ) {
+					$default_img = $theme_uri . '/assets/images/promise-model.webp';
+					$default_alt = $theme_uri . '/assets/images/hero-slide-2.png';
+				} elseif ( in_array( 'sun-protection', $cat_slugs, true ) ) {
+					$default_img = $theme_uri . '/assets/images/hero-slide-3.png';
+					$default_alt = $theme_uri . '/assets/images/hero-slide-1.png';
+				} elseif ( in_array( 'sets-kits', $cat_slugs, true ) ) {
+					$default_img = $theme_uri . '/assets/images/ritual-banner.webp';
+					$default_alt = $theme_uri . '/assets/images/hero-products.webp';
+				}
+
+				$img_url     = $image_id ? wp_get_attachment_image_url( $image_id, 'large' ) : $default_img;
+				$gallery_ids = $wc_p->get_gallery_image_ids();
+				$alt_img_url = ! empty( $gallery_ids ) ? wp_get_attachment_image_url( $gallery_ids[0], 'large' ) : $default_alt;
 
 				$badge = get_post_meta( $p_id, '_aura_badge', true );
 				if ( empty( $badge ) && $wc_p->is_featured() ) {
 					$badge = 'Featured';
 				}
 
+				$is_new = get_post_meta( $p_id, '_aura_is_new', true );
+
 				$volume = get_post_meta( $p_id, '_aura_volume', true );
 				if ( empty( $volume ) ) {
 					$volume = '50 ml / 1.7 fl. oz.';
 				}
 
+				$badge_type = 'award';
+				if ( stripos( $badge, 'new' ) !== false ) {
+					$badge_type = 'new';
+				} elseif ( stripos( $badge, 'cult' ) !== false ) {
+					$badge_type = 'cult';
+				} elseif ( stripos( $badge, 'clinical' ) !== false ) {
+					$badge_type = 'clinical';
+				}
+
 				$products[] = array(
 					'id'            => $p_id,
 					'title'         => $wc_p->get_name(),
+					'slug'          => $p_slug,
 					'subtitle'      => $wc_p->get_short_description() ? wp_strip_all_tags( $wc_p->get_short_description() ) : 'Botanical Bio-Compatible Concentrate',
 					'category'      => $category_str,
+					'category_slug' => $primary_cat_slug,
 					'price'         => (float) $wc_p->get_price(),
 					'regular_price' => (float) $wc_p->get_regular_price(),
 					'rating'        => (float) $wc_p->get_average_rating() > 0 ? (float) $wc_p->get_average_rating() : 4.9,
 					'reviews'       => (int) $wc_p->get_review_count() > 0 ? (int) $wc_p->get_review_count() : 280,
 					'badge'         => $badge ? $badge : 'Best Seller',
-					'badge_type'    => 'award',
+					'badge_type'    => $badge_type,
 					'volume'        => $volume,
 					'image'         => $img_url,
 					'alt_image'     => $alt_img_url,
-					'link'          => home_url( '/product-detail/?product=' . $wc_p->get_slug() ),
+					'link'          => home_url( '/product-detail/?product=' . $p_slug ),
 					'in_stock'      => $wc_p->is_in_stock(),
-					'tags'          => array( 'Clean', 'Botanical' ),
+					'is_featured'   => $wc_p->is_featured(),
+					'is_new'        => $is_new === 'yes',
+					'tags'          => array_merge( array( 'Clean', 'Botanical' ), $cat_names ),
 				);
 			}
 

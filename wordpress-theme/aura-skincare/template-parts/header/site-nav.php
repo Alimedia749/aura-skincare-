@@ -87,8 +87,8 @@ $cart_count = ( function_exists( 'WC' ) && WC()->cart ) ? WC()->cart->get_cart_c
 
 			<!-- Utility Actions: Search, Account, Bag -->
 			<div class="nav-actions">
-				<!-- Search -->
-				<button class="nav-action-btn nav-action-search" aria-label="<?php esc_attr_e( 'Search rituals', 'aura-skincare' ); ?>" onclick="showAuraToast('Search catalog activated')">
+				<!-- Search Trigger -->
+				<button class="nav-action-btn nav-action-search" data-search-toggle="true" aria-label="<?php esc_attr_e( 'Search rituals', 'aura-skincare' ); ?>">
 					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 						<circle cx="11" cy="11" r="8"></circle>
 						<line x1="21" y1="21" x2="16.65" y2="16.65"></line>

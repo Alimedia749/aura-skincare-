@@ -283,6 +283,9 @@ $copyright   = get_theme_mod( 'aura_footer_copyright', 'AURA Skincare. All right
 	<!-- Offcanvas AJAX Cart Drawer -->
 	<?php get_template_part( 'template-parts/cart/cart-drawer' ); ?>
 
+	<!-- Live Search Modal Overlay -->
+	<?php get_template_part( 'template-parts/search/search-modal' ); ?>
+
 	<!-- Toast Notification Container -->
 	<div id="aura-toast" style="position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(100px); background:#141311; color:#fff; padding:12px 24px; border-radius:100px; font-size:14px; font-weight:600; box-shadow:0 8px 30px rgba(0,0,0,0.3); z-index:999999; transition:all 0.3s cubic-bezier(0.16,1,0.3,1); opacity:0; pointer-events:none;">
 		<span id="aura-toast-msg">Added to your ritual bag</span>

@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AURA_VERSION', '1.2.9' );
+define( 'AURA_VERSION', '1.3.0' );
 define( 'AURA_THEME_DIR', get_template_directory() );
 define( 'AURA_THEME_URI', get_template_directory_uri() );
 
@@ -93,6 +93,14 @@ function aura_skincare_scripts() {
 	wp_enqueue_style(
 		'aura-about',
 		AURA_THEME_URI . '/assets/css/about.css',
+		array( 'aura-core-styles' ),
+		AURA_VERSION
+	);
+
+	// Dedicated My Account Portal Styles
+	wp_enqueue_style(
+		'aura-account',
+		AURA_THEME_URI . '/assets/css/account.css',
 		array( 'aura-core-styles' ),
 		AURA_VERSION
 	);

@@ -57,6 +57,11 @@ if ( 'gift-cards' === $page_slug || is_page( 'gift-cards' ) ) {
 	return;
 }
 
+if ( 'my-account' === $page_slug || 'account' === $page_slug || is_page( 'my-account' ) || is_page( 'account' ) || ( function_exists( 'is_account_page' ) && is_account_page() ) ) {
+	require get_template_directory() . '/page-templates/template-account.php';
+	return;
+}
+
 get_header();
 ?>
 <main id="main-content" class="site-main" style="padding: clamp(4rem, 7vw, 7rem) 1.5rem; max-width: 1200px; margin: 0 auto; min-height: 60vh;">

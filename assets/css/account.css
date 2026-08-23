@@ -1,0 +1,408 @@
+﻿/**
+ * Aura Skincare Luxury My Account Portal Stylesheet (Stitch Design)
+ *
+ * @package Aura_Skincare
+ */
+
+.account-portal-page {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+  background-color: #ffffff;
+  min-height: 80vh;
+}
+
+.account-portal-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: clamp(2rem, 4.5vw, 4.5rem);
+  align-items: start;
+}
+
+/* ==========================================================================
+   Left Vertical Navigation Sidebar
+   ========================================================================== */
+.account-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.account-sidebar-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 1.8rem;
+  letter-spacing: -0.01em;
+}
+
+.account-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.account-nav-item {
+  width: 100%;
+}
+
+.account-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+
+.account-nav-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.account-nav-btn:hover {
+  background-color: #FAF7F2;
+  color: var(--color-heading);
+}
+
+.account-nav-btn:hover svg {
+  opacity: 1;
+}
+
+.account-nav-btn.active {
+  background-color: #FAF7F2;
+  color: var(--color-heading);
+  font-weight: 600;
+}
+
+.account-nav-btn.active svg {
+  opacity: 1;
+  stroke: var(--color-gold);
+}
+
+.account-nav-btn.logout-btn {
+  margin-top: 1.25rem;
+  color: #9C3A3A;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.25rem;
+  border-radius: 0 0 8px 8px;
+}
+
+.account-nav-btn.logout-btn:hover {
+  background-color: #FDF2F2;
+  color: #B92525;
+}
+
+/* ==========================================================================
+   Right Main Content Area
+   ========================================================================== */
+.account-main-content {
+  min-height: 500px;
+}
+
+.account-pane {
+  display: none;
+  animation: fadeInPane 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.account-pane.active {
+  display: block;
+}
+
+@keyframes fadeInPane {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Welcome Hero */
+.account-welcome-header {
+  margin-bottom: 2.8rem;
+}
+
+.account-welcome-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  color: var(--color-heading);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.01em;
+}
+
+.account-welcome-subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 3-Column Metrics Row */
+.account-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.account-metric-card {
+  background: #FAF7F2;
+  border: 1px solid #EBE7DF;
+  border-radius: 12px;
+  padding: 1.8rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.account-metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+}
+
+.metric-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.metric-card-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--color-heading);
+}
+
+.metric-card-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.metric-card-value {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: var(--color-heading);
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+
+.metric-card-subtext {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.metric-card-address {
+  font-size: 0.88rem;
+  color: var(--color-text);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+
+.metric-card-action {
+  margin-top: auto;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.metric-card-action:hover {
+  color: var(--color-gold);
+}
+
+.metric-watermark-star {
+  position: absolute;
+  right: 1.2rem;
+  top: 1.2rem;
+  width: 65px;
+  height: 65px;
+  opacity: 0.08;
+  color: var(--color-heading);
+  pointer-events: none;
+}
+
+/* Recent Orders Section */
+.account-section-heading {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-heading);
+  font-weight: 500;
+  margin: 0 0 1.5rem 0;
+}
+
+.orders-table-wrapper {
+  overflow-x: auto;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.account-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.account-orders-table th {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: 0.85rem 1rem 0.85rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.account-orders-table td {
+  padding: 1.2rem 1rem 1.2rem 0;
+  border-bottom: 1px solid #F0ECE4;
+  font-size: 0.92rem;
+  color: var(--color-heading);
+  vertical-align: middle;
+}
+
+.account-orders-table tr:hover td {
+  background-color: #FCFAF7;
+}
+
+.order-number {
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.order-date {
+  color: var(--color-text-muted);
+}
+
+.order-status-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  border-radius: 4px;
+}
+
+.status-processing {
+  background: #FDF3E7;
+  color: #B26A10;
+}
+
+.status-delivered {
+  background: #EBF7EE;
+  color: #2B7A4B;
+}
+
+.status-shipped {
+  background: #EBF2F7;
+  color: #2B5A7A;
+}
+
+.order-total {
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+/* Forms in Addresses & Account Details */
+.account-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.account-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.account-form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.account-form-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.account-form-input {
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #FAF7F2;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-heading);
+  transition: all 0.2s ease;
+}
+
+.account-form-input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .account-portal-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .account-sidebar {
+    position: static;
+  }
+  .account-nav-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .account-nav-item {
+    width: auto;
+  }
+  .account-nav-btn.logout-btn {
+    margin-top: 0;
+    border-top: none;
+    padding-top: 0.75rem;
+    border-radius: 8px;
+  }
+  .account-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

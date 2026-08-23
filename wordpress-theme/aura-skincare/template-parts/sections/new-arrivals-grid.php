@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * 5-Column Bestsellers Showcase Grid Template Part
+ * 6-Column New Arrivals Showcase Grid Template Part
  *
  * @package Aura_Skincare
  */
@@ -9,51 +9,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$products = aura_get_mock_products();
+$all_products = aura_get_mock_products();
+// Filter to New Arrivals or take latest 6
+$new_products = array_filter( $all_products, function( $p ) {
+	return ! empty( $p['is_new'] ) || stripos( $p['badge'], 'new' ) !== false;
+} );
+
+if ( count( $new_products ) < 6 ) {
+	$new_products = array_slice( $all_products, 6, 6 );
+}
 ?>
 
-<section id="bestsellers" class="bestsellers-section" aria-label="<?php esc_attr_e( 'Bestselling Formulas', 'aura-skincare' ); ?>">
+<section id="new-arrivals" class="new-arrivals-section" style="padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: #FAF7F2; border-top: 1px solid #EBE7DF;" aria-label="<?php esc_attr_e( 'New Arrivals You\'ll Love', 'aura-skincare' ); ?>">
 	<div class="aura-container-wide">
 		
 		<!-- Section Header -->
 		<div class="section-header" style="text-align: center; margin-bottom: 2.5rem;">
-			<h2 class="showcase-section-title">BESTSELLERS YOU’LL LOVE</h2>
-		</div>
-
-		<!-- Interactive Category & Collection Filter Tabs -->
-		<div class="bestsellers-filter-nav" style="display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem;">
-			<button type="button" class="home-tab-btn active" data-filter="all">All Formulas</button>
-			<button type="button" class="home-tab-btn" data-filter="bestseller">Bestsellers</button>
-			<button type="button" class="home-tab-btn" data-filter="new">New Arrivals</button>
-			<button type="button" class="home-tab-btn" data-filter="cleansers">Cleansers</button>
-			<button type="button" class="home-tab-btn" data-filter="serums">Serums & Oils</button>
-			<button type="button" class="home-tab-btn" data-filter="moisturizers">Moisturizers</button>
-			<button type="button" class="home-tab-btn" data-filter="eye-care">Eye Care</button>
-			<button type="button" class="home-tab-btn" data-filter="toners-mists">Toners & Mists</button>
-			<button type="button" class="home-tab-btn" data-filter="sun-protection">Sun Protection</button>
-			<button type="button" class="home-tab-btn" data-filter="sets-kits">Sets & Kits</button>
+			<h2 class="showcase-section-title">NEW ARRIVALS YOU’LL LOVE</h2>
 		</div>
 
 		<!-- 6-Column Product Grid -->
-		<div class="bestsellers-grid" id="homeProductsGrid">
-			<?php foreach ( $products as $product ) : 
-				$cat_slug     = isset( $product['category_slug'] ) ? $product['category_slug'] : 'serums';
-				$is_bs        = ! empty( $product['is_featured'] ) || stripos( $product['badge'], 'bestseller' ) !== false || stripos( $product['badge'], 'award' ) !== false || stripos( $product['badge'], 'cult' ) !== false;
-				$is_new       = ! empty( $product['is_new'] ) || stripos( $product['badge'], 'new' ) !== false;
-				$discount_pct = isset( $product['discount_pct'] ) ? (int) $product['discount_pct'] : 25;
+		<div class="bestsellers-grid">
+			<?php foreach ( $new_products as $product ) : 
+				$discount_pct = isset( $product['discount_pct'] ) ? (int) $product['discount_pct'] : 20;
 				$reg_price    = isset( $product['regular_price'] ) ? (float) $product['regular_price'] : round( $product['price'] * 1.35 );
 			?>
 				<article 
 					class="aura-product-card" 
 					data-product-id="<?php echo esc_attr( $product['id'] ); ?>"
-					data-category="<?php echo esc_attr( $cat_slug ); ?>"
-					data-is-bestseller="<?php echo $is_bs ? 'true' : 'false'; ?>"
-					data-is-new="<?php echo $is_new ? 'true' : 'false'; ?>"
-					data-category-name="<?php echo esc_attr( $product['category'] ); ?>"
 					style="background: #ffffff; border: 1px solid #EBE7DF; border-radius: 8px; overflow: hidden; padding-bottom: 0.85rem;"
 				>
-					
-					<!-- Product Image Box with Dark Border & Frame -->
+					<!-- Product Image Box -->
 					<div class="product-thumbnail-box" style="position: relative; aspect-ratio: 1/1; background: #0E1624; border-bottom: 1px solid #EBE7DF; display: flex; align-items: center; justify-content: center; overflow: hidden;">
 						
 						<!-- Circular Discount Badge on Top-Left -->
@@ -76,10 +62,10 @@ $products = aura_get_mock_products();
 							>
 						</a>
 
-						<!-- Order Now Badge Overlay -->
+						<!-- Order Now Button Overlay -->
 						<div class="product-order-now-btn">ORDER NOW ➔</div>
 
-						<!-- Floating Quick Add (+) Button -->
+						<!-- Floating Quick Add Button -->
 						<button 
 							type="button" 
 							class="quick-add-btn" 
@@ -101,7 +87,6 @@ $products = aura_get_mock_products();
 
 					<!-- Centered Product Title & Price Details -->
 					<div class="product-card-details" style="padding: 0.75rem 0.6rem 0.2rem 0.6rem; text-align: center;">
-						
 						<h3 class="card-title-centered">
 							<a href="<?php echo esc_url( $product['link'] ); ?>" style="color: #1A1A1A; text-decoration: none;">
 								<?php echo esc_html( $product['title'] ); ?>

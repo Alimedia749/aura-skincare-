@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * The template for displaying the Aura Skincare luxury front page
  *
@@ -16,10 +16,16 @@ get_header();
 	<!-- 2. Category Navigation Pills -->
 	<?php get_template_part( 'template-parts/sections/category-pills' ); ?>
 
-	<!-- 3. 5-Column Bestsellers Showcase Grid -->
+	<!-- 3. 6-Column Bestsellers Showcase Grid -->
 	<?php get_template_part( 'template-parts/sections/bestsellers-grid' ); ?>
 
-	<!-- 4. The Ritual & Clean Promise Story Banners -->
+	<!-- 4. 6-Column New Arrivals Showcase Grid -->
+	<?php get_template_part( 'template-parts/sections/new-arrivals-grid' ); ?>
+
+	<!-- 5. 6-Column Ritual Sets & Kits Showcase Grid -->
+	<?php get_template_part( 'template-parts/sections/ritual-kits-grid' ); ?>
+
+	<!-- 6. The Ritual & Clean Promise Story Banners -->
 	<?php get_template_part( 'template-parts/sections/editorial-banners' ); ?>
 
 	<!-- 5. Editorial Press & Recognition Strip -->

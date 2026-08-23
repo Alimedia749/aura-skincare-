@@ -150,6 +150,16 @@ function aura_get_mock_products( $limit = 10 ) {
 					$badge_type = 'clinical';
 				}
 
+				$price         = (float) $wc_p->get_price();
+				$regular_price = (float) $wc_p->get_regular_price();
+				if ( $regular_price <= $price || $regular_price <= 0 ) {
+					$regular_price = round( $price * 1.35 );
+				}
+				$discount_pct = round( ( ( $regular_price - $price ) / $regular_price ) * 100 );
+				if ( $discount_pct <= 0 ) {
+					$discount_pct = 25;
+				}
+
 				$products[] = array(
 					'id'            => $p_id,
 					'title'         => $wc_p->get_name(),
@@ -157,8 +167,9 @@ function aura_get_mock_products( $limit = 10 ) {
 					'subtitle'      => $wc_p->get_short_description() ? wp_strip_all_tags( $wc_p->get_short_description() ) : 'Botanical Bio-Compatible Concentrate',
 					'category'      => $category_str,
 					'category_slug' => $primary_cat_slug,
-					'price'         => (float) $wc_p->get_price(),
-					'regular_price' => (float) $wc_p->get_regular_price(),
+					'price'         => $price,
+					'regular_price' => $regular_price,
+					'discount_pct'  => $discount_pct,
 					'rating'        => (float) $wc_p->get_average_rating() > 0 ? (float) $wc_p->get_average_rating() : 4.9,
 					'reviews'       => (int) $wc_p->get_review_count() > 0 ? (int) $wc_p->get_review_count() : 280,
 					'badge'         => $badge ? $badge : 'Best Seller',

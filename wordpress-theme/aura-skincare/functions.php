@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AURA_VERSION', '1.1.1' );
+define( 'AURA_VERSION', '1.1.2' );
 define( 'AURA_THEME_DIR', get_template_directory() );
 define( 'AURA_THEME_URI', get_template_directory_uri() );
 
@@ -77,6 +77,22 @@ function aura_skincare_scripts() {
 	wp_enqueue_style(
 		'aura-checkout',
 		AURA_THEME_URI . '/assets/css/checkout.css',
+		array( 'aura-core-styles' ),
+		AURA_VERSION
+	);
+
+	// Dedicated Shop Catalog Styles
+	wp_enqueue_style(
+		'aura-shop',
+		AURA_THEME_URI . '/assets/css/shop.css',
+		array( 'aura-core-styles' ),
+		AURA_VERSION
+	);
+
+	// Dedicated About Us / Story Styles
+	wp_enqueue_style(
+		'aura-about',
+		AURA_THEME_URI . '/assets/css/about.css',
 		array( 'aura-core-styles' ),
 		AURA_VERSION
 	);
@@ -179,6 +195,43 @@ function aura_add_dropdown_icon_to_menu_items( $title, $item, $args, $depth ) {
 	return $title;
 }
 add_filter( 'nav_menu_item_title', 'aura_add_dropdown_icon_to_menu_items', 10, 4 );
+
+/**
+ * Route custom templates for Shop and About Us
+ */
+function aura_custom_page_templates( $template ) {
+	$page_id = get_queried_object_id();
+	$req_uri = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
+
+	if ( 14 === $page_id || is_page( 'shop' ) || ( function_exists( 'is_shop' ) && is_shop() ) || is_post_type_archive( 'product' ) || strpos( $req_uri, '/shop' ) !== false ) {
+		$shop_file = get_template_directory() . '/page-templates/template-shop.php';
+		if ( file_exists( $shop_file ) ) {
+			return $shop_file;
+		}
+	}
+	if ( 70 === $page_id || is_page( 'about-us' ) || is_page( 'about' ) || strpos( $req_uri, '/about-us' ) !== false || strpos( $req_uri, '/about' ) !== false ) {
+		$about_file = get_template_directory() . '/page-templates/template-about.php';
+		if ( file_exists( $about_file ) ) {
+			return $about_file;
+		}
+	}
+	return $template;
+}
+add_filter( 'template_include', 'aura_custom_page_templates', 9999 );
+
+/**
+ * Filter WooCommerce template loader for archive-product.php
+ */
+function aura_woocommerce_locate_template( $template, $template_name, $template_path ) {
+	if ( 'archive-product.php' === $template_name ) {
+		$custom = get_template_directory() . '/page-templates/template-shop.php';
+		if ( file_exists( $custom ) ) {
+			return $custom;
+		}
+	}
+	return $template;
+}
+add_filter( 'woocommerce_locate_template', 'aura_woocommerce_locate_template', 999, 3 );
 
 /**
  * Add custom body classes

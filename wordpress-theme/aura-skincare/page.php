@@ -1,9 +1,31 @@
-﻿<?php
+<?php
 /**
  * The template for displaying all pages
  *
  * @package Aura_Skincare
  */
+
+$page_slug = get_post_field( 'post_name', get_post() );
+
+if ( 'shop' === $page_slug || is_page( 'shop' ) || ( function_exists( 'is_shop' ) && is_shop() ) || is_post_type_archive( 'product' ) ) {
+	require get_template_directory() . '/page-templates/template-shop.php';
+	return;
+}
+
+if ( 'about-us' === $page_slug || 'about' === $page_slug || is_page( 'about-us' ) || is_page( 'about' ) ) {
+	require get_template_directory() . '/page-templates/template-about.php';
+	return;
+}
+
+if ( 'checkout' === $page_slug || is_page( 'checkout' ) ) {
+	require get_template_directory() . '/page-templates/template-checkout.php';
+	return;
+}
+
+if ( 'product-detail' === $page_slug || is_page( 'product-detail' ) ) {
+	require get_template_directory() . '/page-templates/template-product-detail.php';
+	return;
+}
 
 get_header();
 ?>

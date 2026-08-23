@@ -1,6 +1,6 @@
-﻿<?php
+<?php
 /**
- * 6-Column Ritual Sets & Kits Showcase Grid Template Part
+ * 6-Column New Arrivals Showcase Grid Template Part
  *
  * @package Aura_Skincare
  */
@@ -10,37 +10,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $all_products = aura_get_mock_products();
-// Curated sets, kits and pairings
-$sets_products = array_filter( $all_products, function( $p ) {
-	return ( isset( $p['category_slug'] ) && ( $p['category_slug'] === 'sets-kits' || $p['category_slug'] === 'botanical-oils' || $p['category_slug'] === 'moisturizers' ) );
+// Curated 6 New Arrivals
+$new_products = array_filter( $all_products, function( $p ) {
+	return ! empty( $p['is_new'] ) || stripos( $p['badge'], 'new' ) !== false;
 } );
 
-if ( count( $sets_products ) < 6 ) {
-	$sets_products = array_slice( $all_products, 2, 6 );
+if ( count( $new_products ) < 6 ) {
+	$new_products = array_slice( $all_products, 6, 6 );
 }
 ?>
 
-<section id="ritual-sets" class="ritual-sets-section" style="padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: #FAF7F2; border-top: 1px solid var(--color-border);" aria-label="<?php esc_attr_e( 'Ritual Sets & Kits You\'ll Love', 'aura-skincare' ); ?>">
+<section id="ritual-sets" class="ritual-sets-section" style="padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: #FAF7F2; border-top: 1px solid #EBE7DF;" aria-label="<?php esc_attr_e( 'New Arrivals You\'ll Love', 'aura-skincare' ); ?>">
 	<div class="aura-container-wide">
 		
 		<!-- Section Header -->
 		<div class="section-header" style="text-align: center; margin-bottom: 2.5rem;">
-			<h2 class="showcase-section-title">RITUAL SETS & KITS YOU’LL LOVE</h2>
+			<h2 class="showcase-section-title">RITUAL SETS & KITS YOU�LL LOVE</h2>
 		</div>
 
 		<!-- 6-Column Product Grid -->
 		<div class="bestsellers-grid">
-			<?php foreach ( $sets_products as $product ) : 
-				$reg_price = isset( $product['regular_price'] ) ? (float) $product['regular_price'] : 0;
+			<?php foreach ( $new_products as $product ) : 
+				$reg_price = isset( $product['regular_price'] ) ? (float) $product['regular_price'] : round( $product['price'] * 1.35 );
 				$has_sale  = ( $reg_price > $product['price'] );
 			?>
 				<article 
 					class="aura-product-card" 
 					data-product-id="<?php echo esc_attr( $product['id'] ); ?>"
-					style="background: #ffffff; border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; padding-bottom: 0.85rem;"
+					style="background: #ffffff; border: 1px solid #EBE7DF; border-radius: 8px; overflow: hidden; padding-bottom: 0.85rem;"
 				>
 					<!-- Product Image Box -->
-					<div class="product-thumbnail-box" style="position: relative; aspect-ratio: 1/1; background: #F8F5F0; border-bottom: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+					<div class="product-thumbnail-box" style="position: relative; aspect-ratio: 1/1; background: #F8F6F2; border-bottom: 1px solid #EBE7DF; display: flex; align-items: center; justify-content: center; overflow: hidden;">
 						
 						<a href="<?php echo esc_url( $product['link'] ); ?>" class="product-card-img-link" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
 							<img 
@@ -48,14 +48,14 @@ if ( count( $sets_products ) < 6 ) {
 								alt="<?php echo esc_attr( $product['title'] ); ?>" 
 								class="product-card-img primary-img"
 								loading="lazy"
-								style="max-height: 82%; width: auto; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12));"
+								style="max-height: 82%; width: auto; object-fit: contain; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.1)); margin: auto;"
 							>
 							<img 
 								src="<?php echo esc_url( $product['alt_image'] ); ?>" 
 								alt="<?php echo esc_attr( $product['title'] ); ?>" 
 								class="product-card-img alt-img"
 								loading="lazy"
-								style="max-height: 82%; width: auto; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12));"
+								style="max-height: 82%; width: auto; object-fit: contain; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.1)); margin: auto;"
 							>
 						</a>
 
@@ -80,9 +80,9 @@ if ( count( $sets_products ) < 6 ) {
 					</div>
 
 					<!-- Centered Product Title & Price Details -->
-					<div class="product-card-details" style="padding: 0.75rem 0.6rem 0.2rem 0.6rem; text-align: center;">
+					<div class="product-card-details" style="padding: 0.85rem 0.65rem 0.2rem 0.65rem; text-align: center;">
 						<h3 class="card-title-centered">
-							<a href="<?php echo esc_url( $product['link'] ); ?>" style="color: var(--color-heading); text-decoration: none;">
+							<a href="<?php echo esc_url( $product['link'] ); ?>">
 								<?php echo esc_html( $product['title'] ); ?>
 							</a>
 						</h3>
@@ -91,7 +91,7 @@ if ( count( $sets_products ) < 6 ) {
 							<?php if ( $has_sale ) : ?>
 								<span class="price-strikethrough-red">$<?php echo esc_html( number_format( $reg_price, 2 ) ); ?></span>
 							<?php endif; ?>
-							<span class="price-active-bold" style="color: var(--color-heading); font-weight: 700;">$<?php echo esc_html( number_format( $product['price'], 2 ) ); ?></span>
+							<span class="price-active-bold">$<?php echo esc_html( number_format( $product['price'], 2 ) ); ?></span>
 						</div>
 					</div>
 

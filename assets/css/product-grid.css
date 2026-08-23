@@ -47,91 +47,64 @@
    6-Column Showcase Category Section (Like Reference Design)
    ========================================================================== */
 .showcase-section-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.8vw, 2.9rem);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-style: italic;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-heading);
+  letter-spacing: -0.01em;
+  color: #141414;
   text-align: center;
   margin: 0 0 2.5rem 0;
 }
 
-.discount-circle-badge {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 4;
-  background: #1C3322;
-  color: #55E57E;
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 0.22rem 0.55rem;
-  border-radius: 20px;
-  letter-spacing: 0.02em;
-  border: 1px solid rgba(85, 229, 126, 0.2);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-}
-
-.product-order-now-btn {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  background: #141311;
-  color: #FAF7F2;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.35rem 0.8rem;
-  border-radius: 4px;
-  white-space: nowrap;
-  border: 1px solid rgba(197, 168, 128, 0.4);
-  opacity: 0;
-  transition: all 0.3s ease;
-  z-index: 5;
-  pointer-events: none;
-}
-
-.aura-product-card:hover .product-order-now-btn {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
 .card-title-centered {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   text-align: center !important;
   font-size: 0.95rem !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   line-height: 1.35 !important;
-  min-height: 2.6rem;
+  min-height: 2.7rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  margin: 0.6rem 0 0.4rem 0 !important;
+  margin: 0.7rem 0 0.4rem 0 !important;
+  color: #1A1A1A !important;
+}
+
+.card-title-centered a {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 700 !important;
+  color: #1A1A1A !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+.card-title-centered a:hover {
+  color: #C5A880 !important;
 }
 
 .card-price-centered {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  gap: 0.5rem !important;
+  gap: 0.55rem !important;
   margin-top: auto;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
 .price-strikethrough-red {
-  color: #C85A5A;
-  text-decoration: line-through;
-  font-size: 0.86rem;
+  color: #C24545 !important;
+  text-decoration: line-through !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
 }
 
 .price-active-bold {
-  color: #113264;
-  font-weight: 700;
-  font-size: 0.98rem;
+  color: #1B365D !important;
+  font-weight: 800 !important;
+  font-size: 1.05rem !important;
 }
 
 /* ==========================================================================

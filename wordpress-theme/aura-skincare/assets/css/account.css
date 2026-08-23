@@ -1,9 +1,217 @@
 ﻿/**
- * Aura Skincare Luxury My Account Portal Stylesheet (Stitch Design)
+ * Aura Skincare Luxury My Account Portal & Auth Stylesheet (Stitch Design)
  *
  * @package Aura_Skincare
  */
 
+/* ==========================================================================
+   1. Stitch Luxury Auth / Login & Sign Up Container & Card
+   ========================================================================== */
+.account-auth-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: clamp(3.5rem, 7vw, 6.5rem) 1.5rem !important;
+  min-height: 75vh !important;
+  background: radial-gradient(circle at 50% 30%, #FAF7F2 0%, #F5F1EB 100%) !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.account-auth-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(rgba(197, 168, 128, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.account-auth-card {
+  background: #ffffff !important;
+  border: 1px solid #EBE7DF !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05), 0 4px 16px rgba(0, 0, 0, 0.02) !important;
+  width: 100% !important;
+  max-width: 480px !important;
+  padding: clamp(2.4rem, 4.5vw, 3.5rem) clamp(2rem, 4vw, 3rem) !important;
+  position: relative !important;
+  z-index: 2 !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+
+.auth-card-title {
+  font-family: var(--font-heading, 'Playfair Display', serif) !important;
+  font-size: clamp(2rem, 3.2vw, 2.4rem) !important;
+  font-weight: 500 !important;
+  color: var(--color-heading, #141311) !important;
+  line-height: 1.2 !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+.auth-card-subtitle {
+  color: var(--color-text-muted, #706B65) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.55 !important;
+  margin: 0 0 2.2rem 0 !important;
+}
+
+.auth-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.35rem !important;
+  text-align: left !important;
+}
+
+.auth-field-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.45rem !important;
+}
+
+.auth-field-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.auth-label {
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--color-heading, #141311) !important;
+  font-family: var(--font-body, -apple-system, sans-serif) !important;
+}
+
+.auth-forgot-link {
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: var(--color-text-muted, #706B65) !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.auth-forgot-link:hover {
+  color: var(--color-gold, #C5A880) !important;
+}
+
+.auth-input-wrapper {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.auth-input {
+  width: 100% !important;
+  padding: 0.9rem 1.1rem !important;
+  border: 1px solid #E5E0D8 !important;
+  border-radius: 8px !important;
+  background: #FAF7F2 !important;
+  font-family: var(--font-body, -apple-system, sans-serif) !important;
+  font-size: 0.92rem !important;
+  color: var(--color-heading, #141311) !important;
+  box-sizing: border-box !important;
+  transition: all 0.2s ease !important;
+}
+
+.auth-input:focus {
+  outline: none !important;
+  border-color: var(--color-gold, #C5A880) !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.18) !important;
+}
+
+.auth-password-toggle {
+  position: absolute !important;
+  right: 14px !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  color: var(--color-text-muted, #706B65) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: color 0.2s ease !important;
+}
+
+.auth-password-toggle:hover {
+  color: var(--color-heading, #141311) !important;
+}
+
+.auth-remember-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+  margin-top: -0.2rem !important;
+}
+
+.auth-checkbox {
+  width: 17px !important;
+  height: 17px !important;
+  accent-color: var(--color-heading, #141311) !important;
+  cursor: pointer !important;
+}
+
+.auth-checkbox-label {
+  font-size: 0.88rem !important;
+  color: var(--color-text, #3A3530) !important;
+  cursor: pointer !important;
+}
+
+.auth-submit-btn {
+  width: 100% !important;
+  padding: 1rem 1.5rem !important;
+  background: #141414 !important;
+  color: #FAF7F2 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-family: var(--font-body, -apple-system, sans-serif) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  margin-top: 0.5rem !important;
+}
+
+.auth-submit-btn:hover {
+  background: #2C2825 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15) !important;
+}
+
+.auth-card-footer {
+  margin-top: 2rem !important;
+  font-size: 0.88rem !important;
+  color: var(--color-text-muted, #706B65) !important;
+}
+
+.auth-switch-link {
+  color: var(--color-heading, #141311) !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  cursor: pointer !important;
+  margin-left: 0.35rem !important;
+  transition: color 0.2s ease !important;
+}
+
+.auth-switch-link:hover {
+  color: var(--color-gold, #C5A880) !important;
+}
+
+/* ==========================================================================
+   2. Stitch Luxury 2-Column Account Dashboard
+   ========================================================================== */
 .account-portal-page {
   padding: clamp(3.5rem, 6vw, 5.5rem) 0;
   background-color: #ffffff;
@@ -17,9 +225,6 @@
   align-items: start;
 }
 
-/* ==========================================================================
-   Left Vertical Navigation Sidebar
-   ========================================================================== */
 .account-sidebar {
   position: sticky;
   top: 100px;
@@ -107,9 +312,6 @@
   color: #B92525;
 }
 
-/* ==========================================================================
-   Right Main Content Area
-   ========================================================================== */
 .account-main-content {
   min-height: 500px;
 }
@@ -134,7 +336,6 @@
   }
 }
 
-/* Welcome Hero */
 .account-welcome-header {
   margin-bottom: 2.8rem;
 }
@@ -156,7 +357,6 @@
   margin: 0;
 }
 
-/* 3-Column Metrics Row */
 .account-metrics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -253,7 +453,6 @@
   pointer-events: none;
 }
 
-/* Recent Orders Section */
 .account-section-heading {
   font-family: var(--font-heading);
   font-size: 1.5rem;
@@ -335,7 +534,6 @@
   color: var(--color-heading);
 }
 
-/* Forms in Addresses & Account Details */
 .account-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -379,7 +577,6 @@
   box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.15);
 }
 
-/* Responsive */
 @media (max-width: 992px) {
   .account-portal-layout {
     grid-template-columns: 1fr;

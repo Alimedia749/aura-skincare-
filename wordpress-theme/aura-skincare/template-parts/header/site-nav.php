@@ -76,21 +76,7 @@ $cart_count = ( function_exists( 'WC' ) && WC()->cart ) ? WC()->cart->get_cart_c
 								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Botanical Oils', 'aura-skincare' ); ?></a></li>
 							</ul>
 						</li>
-						<li class="menu-item-has-children">
-							<a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>">
-								<span><?php esc_html_e( 'Shop', 'aura-skincare' ); ?></span>
-								<svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-									<polyline points="6 9 12 15 18 9"></polyline>
-								</svg>
-							</a>
-							<ul class="sub-menu">
-								<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>"><?php esc_html_e( 'All Products', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#bestsellers' ) ); ?>"><?php esc_html_e( 'Bestsellers', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>"><?php esc_html_e( 'New Arrivals', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>"><?php esc_html_e( 'Sets & Kits', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/gift-cards/' ) ); ?>"><?php esc_html_e( 'Gift Cards', 'aura-skincare' ); ?></a></li>
-							</ul>
-						</li>
+						<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>"><?php esc_html_e( 'Shop', 'aura-skincare' ); ?></a></li>
 						<li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>"><?php esc_html_e( 'About Us', 'aura-skincare' ); ?></a></li>
 						<li><a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" onclick="var c=document.getElementById('contact')||document.getElementById('colophon'); if(c){ c.scrollIntoView({behavior:'smooth'}); }"><?php esc_html_e( 'Contact Us', 'aura-skincare' ); ?></a></li>
 					</ul>

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * The footer template for Aura Skincare Theme
  * Fully connected to WordPress Customizer, Menus, and Widgets
@@ -13,6 +13,90 @@ $pin_url     = get_theme_mod( 'aura_social_pinterest', 'https://pinterest.com' )
 $email       = get_theme_mod( 'aura_concierge_email', 'concierge@aura-skincare.local' );
 $copyright   = get_theme_mod( 'aura_footer_copyright', 'AURA Skincare. All rights reserved.' );
 ?>
+	<!-- ── CONTACT & CONCIERGE SECTION ────────── -->
+	<section id="contact" class="aura-contact-section" style="background: #FAF7F2; padding: 5rem 0; border-top: 1px solid var(--color-border);">
+		<div class="aura-container-wide">
+			<div style="max-width: 720px; margin: 0 auto 3.5rem auto; text-align: center;">
+				<span class="section-eyebrow" style="color: var(--color-gold); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;"><?php esc_html_e( 'DIRECT CONCIERGE & SUPPORT', 'aura-skincare' ); ?></span>
+				<h2 class="section-title" style="font-family: var(--font-heading); font-size: clamp(2rem, 3.5vw, 2.75rem); color: var(--color-heading); margin: 0.75rem 0 1rem; font-weight: 400;"><?php esc_html_e( 'Connect with Our Skin Specialists', 'aura-skincare' ); ?></h2>
+				<p style="color: var(--color-text-light); font-size: 0.95rem; line-height: 1.7;"><?php esc_html_e( 'Have questions about botanical formulations, ritual pairings, or your current order? Our aesthetic advisors are here to assist you.', 'aura-skincare' ); ?></p>
+			</div>
+
+			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1120px; margin: 0 auto 3.5rem auto;">
+				
+				<!-- Card 1: Direct Support -->
+				<div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: 12px; padding: 2.2rem; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+					<div style="width: 52px; height: 52px; border-radius: 50%; background: var(--color-gold-light); color: var(--color-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+						<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+					</div>
+					<h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-heading); margin-bottom: 0.5rem;"><?php esc_html_e( 'Direct Client Care', 'aura-skincare' ); ?></h3>
+					<p style="font-size: 0.88rem; color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.6;"><?php esc_html_e( 'Available Mon-Fri 9:00 AM – 7:00 PM EST', 'aura-skincare' ); ?></p>
+					<a href="tel:+18002872754" style="color: var(--color-gold); font-weight: 600; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em;">+1 (800) 287-2754</a>
+				</div>
+
+				<!-- Card 2: Email Inquiries -->
+				<div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: 12px; padding: 2.2rem; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+					<div style="width: 52px; height: 52px; border-radius: 50%; background: var(--color-gold-light); color: var(--color-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+						<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+					</div>
+					<h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-heading); margin-bottom: 0.5rem;"><?php esc_html_e( 'Skin Consultation', 'aura-skincare' ); ?></h3>
+					<p style="font-size: 0.88rem; color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.6;"><?php esc_html_e( 'Detailed responses within 2 hours', 'aura-skincare' ); ?></p>
+					<a href="mailto:concierge@aura-skincare.local" style="color: var(--color-gold); font-weight: 600; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em;">concierge@aura-skincare.local</a>
+				</div>
+
+				<!-- Card 3: Flagship Studio -->
+				<div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: 12px; padding: 2.2rem; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+					<div style="width: 52px; height: 52px; border-radius: 50%; background: var(--color-gold-light); color: var(--color-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+						<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+					</div>
+					<h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-heading); margin-bottom: 0.5rem;"><?php esc_html_e( 'Botanical Lab & Studio', 'aura-skincare' ); ?></h3>
+					<p style="font-size: 0.88rem; color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.6;"><?php esc_html_e( '742 Evergreen Botanical Way, SoHo, NY', 'aura-skincare' ); ?></p>
+					<span style="color: var(--color-gold); font-weight: 600; font-size: 0.95rem;"><?php esc_html_e( 'Open Daily for Consultations', 'aura-skincare' ); ?></span>
+				</div>
+
+			</div>
+
+			<!-- Interactive Message Form -->
+			<div style="max-width: 720px; margin: 0 auto; background: #ffffff; border: 1px solid var(--color-border); border-radius: 16px; padding: clamp(2rem, 4vw, 3rem); box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+				<h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-heading); margin-bottom: 0.5rem; text-align: center;"><?php esc_html_e( 'Send a Direct Inquiry', 'aura-skincare' ); ?></h3>
+				<p style="font-size: 0.88rem; color: var(--color-text-light); text-align: center; margin-bottom: 2rem;"><?php esc_html_e( 'Our clinical advisors will respond with a tailored recommendation.', 'aura-skincare' ); ?></p>
+				
+				<form onsubmit="event.preventDefault(); showAuraToast('Thank you! Your message has been sent to our Skin Concierge.'); this.reset();" style="display: grid; gap: 1.25rem;">
+					<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
+						<div>
+							<label style="display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-heading); margin-bottom: 0.4rem;"><?php esc_html_e( 'Full Name', 'aura-skincare' ); ?></label>
+							<input type="text" required placeholder="Jane Doe" style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 0.9rem; background: #FAF7F2; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--color-gold)'" onblur="this.style.borderColor='var(--color-border)'">
+						</div>
+						<div>
+							<label style="display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-heading); margin-bottom: 0.4rem;"><?php esc_html_e( 'Email Address', 'aura-skincare' ); ?></label>
+							<input type="email" required placeholder="jane@example.com" style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 0.9rem; background: #FAF7F2; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--color-gold)'" onblur="this.style.borderColor='var(--color-border)'">
+						</div>
+					</div>
+
+					<div>
+						<label style="display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-heading); margin-bottom: 0.4rem;"><?php esc_html_e( 'Primary Skin Concern / Subject', 'aura-skincare' ); ?></label>
+						<select style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 0.9rem; background: #FAF7F2; outline: none;">
+							<option><?php esc_html_e( 'Formula Recommendation for My Skin Type', 'aura-skincare' ); ?></option>
+							<option><?php esc_html_e( 'Order Status & Tracking Inquiry', 'aura-skincare' ); ?></option>
+							<option><?php esc_html_e( 'Wholesale & Partnership Request', 'aura-skincare' ); ?></option>
+							<option><?php esc_html_e( 'Press & Editorial Inquiries', 'aura-skincare' ); ?></option>
+						</select>
+					</div>
+
+					<div>
+						<label style="display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-heading); margin-bottom: 0.4rem;"><?php esc_html_e( 'Your Message', 'aura-skincare' ); ?></label>
+						<textarea rows="4" required placeholder="How can we assist your ritual journey today?" style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; font-family: inherit; font-size: 0.9rem; background: #FAF7F2; outline: none; resize: vertical; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--color-gold)'" onblur="this.style.borderColor='var(--color-border)'"></textarea>
+					</div>
+
+					<button type="submit" class="aura-btn aura-btn-primary" style="justify-content: center; width: 100%; padding: 1rem; font-size: 0.9rem;">
+						<span><?php esc_html_e( 'Submit Message to Concierge', 'aura-skincare' ); ?></span>
+						<svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+					</button>
+				</form>
+			</div>
+
+		</div>
+	</section>
 
 	<!-- ── FOOTER ─────────────────────────────── -->
 	<footer id="colophon" class="site-footer" role="contentinfo">

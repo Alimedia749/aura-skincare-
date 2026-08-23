@@ -300,6 +300,30 @@ document.addEventListener('DOMContentLoaded', function() {
       mobileMenu.classList.toggle('is-active');
     });
   }
+
+  // ==========================================================================
+  // 7. Universal Smooth Scroll for Contact and Hash Links
+  // ==========================================================================
+  document.addEventListener('click', function(e) {
+    var anchor = e.target.closest('a[href*="#contact"]');
+    if (anchor) {
+      var contactEl = document.getElementById('contact');
+      if (contactEl) {
+        e.preventDefault();
+        contactEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+
+  // Check on initial page load if URL contains #contact
+  if (window.location.hash === '#contact') {
+    setTimeout(function() {
+      var contactEl = document.getElementById('contact');
+      if (contactEl) {
+        contactEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 400);
+  }
 });
 
 /**

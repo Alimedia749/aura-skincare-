@@ -459,7 +459,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-heading);
+  color: #8c6a38;
   position: relative;
   padding: 0.45rem 0;
   display: inline-flex;
@@ -483,7 +483,7 @@
 
 .primary-menu > li:hover > a,
 .primary-menu > li.current-menu-item > a {
-  color: var(--color-heading);
+  color: #8c6a38;
 }
 
 .primary-menu > li:hover > a::after,

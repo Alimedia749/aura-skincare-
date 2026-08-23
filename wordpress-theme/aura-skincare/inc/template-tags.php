@@ -358,34 +358,28 @@ function aura_render_category_showcase_section( $title, $category_slugs, $sectio
 	$all_products = aura_get_mock_products( 50 );
 	$slugs_array  = (array) $category_slugs;
 
-	// Filter products matching category slugs
-	$filtered = array_filter( $all_products, function( $p ) use ( $slugs_array ) {
-		if ( empty( $p['category_slug'] ) && empty( $p['category'] ) ) {
-			return false;
-		}
+	// STRICT Category Filter
+	$filtered = array();
+	foreach ( $all_products as $p ) {
+		$p_cat_slug = isset( $p['category_slug'] ) ? strtolower( trim( $p['category_slug'] ) ) : '';
+		$p_cat_name = isset( $p['category'] ) ? strtolower( trim( $p['category'] ) ) : '';
+		
+		$matches = false;
 		foreach ( $slugs_array as $slug ) {
-			if ( ! empty( $p['category_slug'] ) && stripos( $p['category_slug'], $slug ) !== false ) {
-				return true;
-			}
-			if ( ! empty( $p['category'] ) && stripos( $p['category'], $slug ) !== false ) {
-				return true;
-			}
-		}
-		return false;
-	} );
-
-	// Ensure at least 6 products for a rich 6-column showcase
-	if ( count( $filtered ) < 6 ) {
-		foreach ( $all_products as $p ) {
-			if ( count( $filtered ) >= 6 ) {
+			$slug = strtolower( trim( $slug ) );
+			if ( $p_cat_slug === $slug || stripos( $p_cat_slug, $slug ) !== false || stripos( $p_cat_name, $slug ) !== false ) {
+				$matches = true;
 				break;
 			}
-			if ( ! in_array( $p, $filtered, true ) ) {
-				$filtered[] = $p;
-			}
 		}
-	} else {
-		$filtered = array_slice( $filtered, 0, 6 );
+
+		if ( $matches ) {
+			$filtered[] = $p;
+		}
+	}
+
+	if ( empty( $filtered ) ) {
+		return;
 	}
 
 	$section_id_attr = ! empty( $section_id ) ? 'id="' . esc_attr( $section_id ) . '"' : '';

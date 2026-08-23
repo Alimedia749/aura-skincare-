@@ -58,16 +58,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=woocommerce-inline-inline-css */
 </style>
 <link rel='stylesheet' id='aura-google-fonts-css' href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&#038;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&#038;display=swap' media='all' />
-<link rel='stylesheet' id='aura-core-styles-css' href='assets/css/core.css?ver=1.3.3' media='all' />
-<link rel='stylesheet' id='aura-hero-banner-css' href='assets/css/hero-banner.css?ver=1.3.3' media='all' />
-<link rel='stylesheet' id='aura-product-grid-css' href='assets/css/product-grid.css?ver=1.3.3' media='all' />
-<link rel='stylesheet' id='aura-cart-drawer-css' href='assets/css/cart-drawer.css?ver=1.3.3' media='all' />
-<link rel='stylesheet' id='aura-product-detail-css' href='assets/css/product-detail.css?ver=1.3.3' media='all' />
-<link rel='stylesheet' id='aura-checkout-css' href='assets/css/checkout.css?ver=1.3.3' media='all' />
-<link rel='stylesheet' id='aura-shop-css' href='assets/css/shop.css?ver=1.3.3' media='all' />
-<link rel='stylesheet' id='aura-about-css' href='assets/css/about.css?ver=1.3.3' media='all' />
-<link rel='stylesheet' id='aura-account-css' href='assets/css/account.css?ver=1.3.3' media='all' />
-<link rel='stylesheet' id='aura-main-style-css' href='index.htmlwp-content/themes/aura-skincare/style.css?ver=1.3.3' media='all' />
+<link rel='stylesheet' id='aura-core-styles-css' href='assets/css/core.css?ver=1.3.4' media='all' />
+<link rel='stylesheet' id='aura-hero-banner-css' href='assets/css/hero-banner.css?ver=1.3.4' media='all' />
+<link rel='stylesheet' id='aura-product-grid-css' href='assets/css/product-grid.css?ver=1.3.4' media='all' />
+<link rel='stylesheet' id='aura-cart-drawer-css' href='assets/css/cart-drawer.css?ver=1.3.4' media='all' />
+<link rel='stylesheet' id='aura-product-detail-css' href='assets/css/product-detail.css?ver=1.3.4' media='all' />
+<link rel='stylesheet' id='aura-checkout-css' href='assets/css/checkout.css?ver=1.3.4' media='all' />
+<link rel='stylesheet' id='aura-shop-css' href='assets/css/shop.css?ver=1.3.4' media='all' />
+<link rel='stylesheet' id='aura-about-css' href='assets/css/about.css?ver=1.3.4' media='all' />
+<link rel='stylesheet' id='aura-account-css' href='assets/css/account.css?ver=1.3.4' media='all' />
+<link rel='stylesheet' id='aura-main-style-css' href='index.htmlwp-content/themes/aura-skincare/style.css?ver=1.3.4' media='all' />
 <script id="jquery-core-js" src="index.htmlwp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
 <script id="jquery-migrate-js" src="index.htmlwp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
 <script data-wp-strategy="defer" defer id="wc-jquery-blockui-js" src="index.htmlwp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.11.0.1"></script>
@@ -201,142 +201,331 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 </header>
 
 	<!-- ====================================================================
-	     LOGGED OUT STATE: STITCH LUXURY LOGIN & SIGN IN / CREATE ACCOUNT
+	     LOGGED IN STATE: STITCH 2-COLUMN LUXURY DASHBOARD
 	     ==================================================================== -->
-	<main id="main-content" class="account-auth-container">
-		
-		<!-- 1. Login Card (Default) -->
-		<div class="account-auth-card" id="auth-login-card">
-			<h1 class="auth-card-title">Welcome Back</h1>
-			<p class="auth-card-subtitle">Sign in to access your exclusive rituals and history.</p>
-
-			<form class="auth-form" method="post" action="index.htmlwp-login.php?redirect_to=http%3A%2F%2Frayyancosmetic.local%2Fmy-account%2F" onsubmit="if(this.checkValidity()){ window.location.href='my-account.html'; return false; }">
+	<main id="main-content" class="account-portal-page">
+		<div class="aura-container-wide">
+			<div class="account-portal-layout">
 				
-				<!-- Email Address -->
-				<div class="auth-field-group">
-					<label class="auth-label" for="login-email">EMAIL ADDRESS</label>
-					<input 
-						type="text" 
-						id="login-email" 
-						name="log" 
-						class="auth-input" 
-						placeholder="Enter your email" 
-						required
-						autocomplete="username"
-					>
-				</div>
+				<!-- Left Vertical Navigation Sidebar -->
+				<aside class="account-sidebar">
+					<h1 class="account-sidebar-title">My Account</h1>
+					
+					<ul class="account-nav-list" role="tablist">
+						
+						<!-- 1. Dashboard -->
+						<li class="account-nav-item">
+							<button type="button" class="account-nav-btn active" data-tab="dashboard" role="tab" aria-selected="true">
+								<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="3" y="3" width="7" height="7"></rect>
+									<rect x="14" y="3" width="7" height="7"></rect>
+									<rect x="14" y="14" width="7" height="7"></rect>
+									<rect x="3" y="14" width="7" height="7"></rect>
+								</svg>
+								<span>Dashboard</span>
+							</button>
+						</li>
 
-				<!-- Password -->
-				<div class="auth-field-group">
-					<div class="auth-field-header">
-						<label class="auth-label" for="login-password">PASSWORD</label>
-						<a href="my-account.htmllost-password/" class="auth-forgot-link">LOST YOUR PASSWORD?</a>
+						<!-- 2. Orders -->
+						<li class="account-nav-item">
+							<button type="button" class="account-nav-btn" data-tab="orders" role="tab" aria-selected="false">
+								<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+									<line x1="3" y1="6" x2="21" y2="6"></line>
+									<path d="M16 10a4 4 0 0 1-8 0"></path>
+								</svg>
+								<span>Orders</span>
+							</button>
+						</li>
+
+						<!-- 3. Addresses -->
+						<li class="account-nav-item">
+							<button type="button" class="account-nav-btn" data-tab="addresses" role="tab" aria-selected="false">
+								<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+									<circle cx="12" cy="10" r="3"></circle>
+								</svg>
+								<span>Addresses</span>
+							</button>
+						</li>
+
+						<!-- 4. Account Details -->
+						<li class="account-nav-item">
+							<button type="button" class="account-nav-btn" data-tab="details" role="tab" aria-selected="false">
+								<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<circle cx="12" cy="12" r="3"></circle>
+									<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+								</svg>
+								<span>Account Details</span>
+							</button>
+						</li>
+
+						<!-- 5. Logout -->
+						<li class="account-nav-item">
+							<a href="index.htmlwp-login.php?action=logout&#038;redirect_to=http%3A%2F%2Frayyancosmetic.local%2Fmy-account%2F&#038;_wpnonce=79c1761154" class="account-nav-btn logout-btn">
+								<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+									<polyline points="16 17 21 12 16 7"></polyline>
+									<line x1="21" y1="12" x2="9" y2="12"></line>
+								</svg>
+								<span>Logout</span>
+							</a>
+						</li>
+
+					</ul>
+				</aside>
+
+				<!-- Right Main Content Area -->
+				<section class="account-main-content">
+					
+					<!-- PANE 1: DASHBOARD -->
+					<div class="account-pane active" id="pane-dashboard">
+						
+						<!-- Welcome Hero Header -->
+						<div class="account-welcome-header">
+							<h2 class="account-welcome-title">Welcome back, Eleanor</h2>
+							<p class="account-welcome-subtitle">Manage your orders, addresses, and loyalty rewards.</p>
+						</div>
+
+						<!-- 3-Column Metrics Grid -->
+						<div class="account-metrics-grid">
+							
+							<!-- Card 1: Total Orders -->
+							<div class="account-metric-card">
+								<div class="metric-card-top">
+									<span class="metric-card-label">Total Orders</span>
+									<svg class="metric-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+										<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+										<line x1="16" y1="2" x2="16" y2="6"></line>
+										<line x1="8" y1="2" x2="8" y2="6"></line>
+										<line x1="3" y1="10" x2="21" y2="10"></line>
+									</svg>
+								</div>
+								<div class="metric-card-value">12</div>
+								<a href="javascript:void(0)" class="metric-card-action" onclick="document.querySelector('[data-tab=\'orders\']').click();">VIEW ALL</a>
+							</div>
+
+							<!-- Card 2: Aura Rewards -->
+							<div class="account-metric-card">
+								<svg class="metric-watermark-star" viewBox="0 0 24 24" fill="currentColor">
+									<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+								</svg>
+
+								<div class="metric-card-top">
+									<span class="metric-card-label">Aura Rewards</span>
+									<svg class="metric-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+										<circle cx="12" cy="12" r="10"></circle>
+										<polygon points="12 6 13.8 9.6 17.8 10.2 14.9 13 15.6 17 12 15.1 8.4 17 9.1 13 6.2 10.2 10.2 9.6 12 6"></polygon>
+									</svg>
+								</div>
+								<div class="metric-card-value">2,450</div>
+								<div class="metric-card-subtext">TIER: RADIANCE</div>
+							</div>
+
+							<!-- Card 3: Primary Address -->
+							<div class="account-metric-card">
+								<div class="metric-card-top">
+									<span class="metric-card-label">Primary Address</span>
+									<svg class="metric-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+										<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+										<polyline points="9 22 9 12 15 12 15 22"></polyline>
+									</svg>
+								</div>
+								<div class="metric-card-address">
+									<strong>Eleanor Vance</strong><br>
+									1284 Luxe Avenue, Apt 4B<br>
+									New York, NY 10012
+								</div>
+								<a href="javascript:void(0)" class="metric-card-action" onclick="document.querySelector('[data-tab=\'addresses\']').click();">EDIT</a>
+							</div>
+
+						</div>
+
+						<!-- Recent Orders Section -->
+						<h3 class="account-section-heading">Recent Orders</h3>
+						
+						<div class="orders-table-wrapper">
+							<table class="account-orders-table">
+								<thead>
+									<tr>
+										<th>ORDER #</th>
+										<th>DATE</th>
+										<th>STATUS</th>
+										<th style="text-align: right;">TOTAL</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="order-number">#AURA-8492</td>
+										<td class="order-date">Oct 24, 2026</td>
+										<td><span class="order-status-badge status-processing">PROCESSING</span></td>
+										<td class="order-total" style="text-align: right;">$245.00</td>
+									</tr>
+									<tr>
+										<td class="order-number">#AURA-8310</td>
+										<td class="order-date">Sep 12, 2026</td>
+										<td><span class="order-status-badge status-delivered">DELIVERED</span></td>
+										<td class="order-total" style="text-align: right;">$180.00</td>
+									</tr>
+									<tr>
+										<td class="order-number">#AURA-8104</td>
+										<td class="order-date">Aug 04, 2026</td>
+										<td><span class="order-status-badge status-delivered">DELIVERED</span></td>
+										<td class="order-total" style="text-align: right;">$120.00</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
 					</div>
-					<div class="auth-input-wrapper">
-						<input 
-							type="password" 
-							id="login-password" 
-							name="pwd" 
-							class="auth-input" 
-							placeholder="Enter your password" 
-							required
-							autocomplete="current-password"
-						>
-						<button type="button" class="auth-password-toggle" aria-label="Toggle password visibility" onclick="togglePasswordVisibility('login-password', this);">
-							<svg class="eye-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-								<circle cx="12" cy="12" r="3"></circle>
-							</svg>
-						</button>
+
+					<!-- PANE 2: ORDERS -->
+					<div class="account-pane" id="pane-orders">
+						<div class="account-welcome-header">
+							<h2 class="account-welcome-title">Order History</h2>
+							<p class="account-welcome-subtitle">Track active shipments and view past botanical rituals orders.</p>
+						</div>
+
+						<div class="orders-table-wrapper">
+							<table class="account-orders-table">
+								<thead>
+									<tr>
+										<th>ORDER #</th>
+										<th>DATE</th>
+										<th>ITEMS</th>
+										<th>STATUS</th>
+										<th style="text-align: right;">TOTAL</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="order-number">#AURA-8492</td>
+										<td class="order-date">Oct 24, 2026</td>
+										<td>Aurum Hydrating Serum (x2), Ceramide Cream (x1)</td>
+										<td><span class="order-status-badge status-processing">PROCESSING</span></td>
+										<td class="order-total" style="text-align: right;">$245.00</td>
+									</tr>
+									<tr>
+										<td class="order-number">#AURA-8310</td>
+										<td class="order-date">Sep 12, 2026</td>
+										<td>Cellular Shield Botanical Elixir (x1), Velvet Balm (x1)</td>
+										<td><span class="order-status-badge status-delivered">DELIVERED</span></td>
+										<td class="order-total" style="text-align: right;">$180.00</td>
+									</tr>
+									<tr>
+										<td class="order-number">#AURA-8104</td>
+										<td class="order-date">Aug 04, 2026</td>
+										<td>Silk Petal Brightening Essence (x1), Calming Mist (x1)</td>
+										<td><span class="order-status-badge status-delivered">DELIVERED</span></td>
+										<td class="order-total" style="text-align: right;">$120.00</td>
+									</tr>
+									<tr>
+										<td class="order-number">#AURA-7920</td>
+										<td class="order-date">Jun 19, 2026</td>
+										<td>The Ultimate Luminous Ritual Set (x1)</td>
+										<td><span class="order-status-badge status-delivered">DELIVERED</span></td>
+										<td class="order-total" style="text-align: right;">$195.00</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
-				</div>
 
-				<!-- Remember Me -->
-				<div class="auth-remember-row">
-					<input type="checkbox" id="rememberme" name="rememberme" value="forever" class="auth-checkbox" checked>
-					<label for="rememberme" class="auth-checkbox-label">Remember me</label>
-				</div>
+					<!-- PANE 3: ADDRESSES -->
+					<div class="account-pane" id="pane-addresses">
+						<div class="account-welcome-header">
+							<h2 class="account-welcome-title">Address Book</h2>
+							<p class="account-welcome-subtitle">The following addresses will be used on the checkout page by default.</p>
+						</div>
 
-				<!-- Sign In Button -->
-				<button type="submit" class="auth-submit-btn">
-					SIGN IN				</button>
+						<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+							
+							<div style="background: #FAF7F2; border: 1px solid #EBE7DF; border-radius: 12px; padding: 1.8rem;">
+								<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+									<h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-heading); margin: 0;">Shipping Address</h3>
+									<span style="background: #EBF7EE; color: #2B7A4B; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px;">DEFAULT</span>
+								</div>
+								<div style="font-size: 0.9rem; line-height: 1.6; color: var(--color-text); margin-bottom: 1.2rem;">
+									<strong>Eleanor Vance</strong><br>
+									1284 Luxe Avenue, Apt 4B<br>
+									New York, NY 10012<br>
+									United States<br>
+									Phone: +1 (555) 234-5678
+								</div>
+								<button type="button" class="aura-btn aura-btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8rem;" onclick="alert('Address edit form enabled.');">Edit Address</button>
+							</div>
 
-			</form>
+							<div style="background: #FAF7F2; border: 1px solid #EBE7DF; border-radius: 12px; padding: 1.8rem;">
+								<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+									<h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-heading); margin: 0;">Billing Address</h3>
+								</div>
+								<div style="font-size: 0.9rem; line-height: 1.6; color: var(--color-text); margin-bottom: 1.2rem;">
+									<strong>Eleanor Vance</strong><br>
+									1284 Luxe Avenue, Apt 4B<br>
+									New York, NY 10012<br>
+									United States
+								</div>
+								<button type="button" class="aura-btn aura-btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8rem;" onclick="alert('Address edit form enabled.');">Edit Address</button>
+							</div>
 
-			<div class="auth-card-footer">
-				<span>Don&#039;t have an account?</span>
-				<a href="javascript:void(0)" class="auth-switch-link" id="switch-to-register">Create one</a>
+						</div>
+					</div>
+
+					<!-- PANE 4: ACCOUNT DETAILS -->
+					<div class="account-pane" id="pane-details">
+						<div class="account-welcome-header">
+							<h2 class="account-welcome-title">Account Details</h2>
+							<p class="account-welcome-subtitle">Update your personal profile, email, and security credentials.</p>
+						</div>
+
+						<form onsubmit="event.preventDefault(); alert('Account details updated successfully!');" style="max-width: 680px;">
+							<div class="account-form-grid">
+								<div class="account-form-group">
+									<label class="account-form-label">First Name</label>
+									<input type="text" class="account-form-input" value="Eleanor" required>
+								</div>
+								<div class="account-form-group">
+									<label class="account-form-label">Last Name</label>
+									<input type="text" class="account-form-input" value="Vance" required>
+								</div>
+								<div class="account-form-group full-width">
+									<label class="account-form-label">Display Name</label>
+									<input type="text" class="account-form-input" value="Eleanor Vance" required>
+								</div>
+								<div class="account-form-group full-width">
+									<label class="account-form-label">Email Address</label>
+									<input type="email" class="account-form-input" value="eleanor.vance@example.com" required>
+								</div>
+							</div>
+
+							<h3 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--color-heading); margin: 2rem 0 1rem 0;">Password Change</h3>
+
+							<div class="account-form-grid">
+								<div class="account-form-group full-width">
+									<label class="account-form-label">Current Password</label>
+									<input type="password" class="account-form-input">
+								</div>
+								<div class="account-form-group">
+									<label class="account-form-label">New Password</label>
+									<input type="password" class="account-form-input">
+								</div>
+								<div class="account-form-group">
+									<label class="account-form-label">Confirm New Password</label>
+									<input type="password" class="account-form-input">
+								</div>
+							</div>
+
+							<button type="submit" class="aura-btn aura-btn-primary" style="padding: 0.9rem 2.2rem; font-size: 0.9rem; margin-top: 1rem;">
+								<span>Save Changes</span>
+							</button>
+						</form>
+					</div>
+
+				</section>
+
 			</div>
 		</div>
-
-		<!-- 2. Register / Sign Up Card -->
-		<div class="account-auth-card" id="auth-register-card" style="display: none;">
-			<h1 class="auth-card-title">Create Account</h1>
-			<p class="auth-card-subtitle">Join the Aura Society for exclusive rituals and rewards.</p>
-
-			<form class="auth-form" method="post" action="index.htmlwp-login.php?action=register" onsubmit="if(this.checkValidity()){ alert('Account created successfully! Redirecting to your ritual portal...'); window.location.href='my-account.html'; return false; }">
-				
-				<!-- Full Name -->
-				<div class="auth-field-group">
-					<label class="auth-label" for="reg-name">FULL NAME</label>
-					<input 
-						type="text" 
-						id="reg-name" 
-						name="full_name" 
-						class="auth-input" 
-						placeholder="Enter your full name" 
-						required
-					>
-				</div>
-
-				<!-- Email Address -->
-				<div class="auth-field-group">
-					<label class="auth-label" for="reg-email">EMAIL ADDRESS</label>
-					<input 
-						type="email" 
-						id="reg-email" 
-						name="user_email" 
-						class="auth-input" 
-						placeholder="Enter your email" 
-						required
-					>
-				</div>
-
-				<!-- Password -->
-				<div class="auth-field-group">
-					<label class="auth-label" for="reg-password">PASSWORD</label>
-					<div class="auth-input-wrapper">
-						<input 
-							type="password" 
-							id="reg-password" 
-							name="user_password" 
-							class="auth-input" 
-							placeholder="Create a password" 
-							required
-						>
-						<button type="button" class="auth-password-toggle" aria-label="Toggle password visibility" onclick="togglePasswordVisibility('reg-password', this);">
-							<svg class="eye-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-								<circle cx="12" cy="12" r="3"></circle>
-							</svg>
-						</button>
-					</div>
-				</div>
-
-				<!-- Create Account Button -->
-				<button type="submit" class="auth-submit-btn">
-					CREATE ACCOUNT				</button>
-
-			</form>
-
-			<div class="auth-card-footer">
-				<span>Already have an account?</span>
-				<a href="javascript:void(0)" class="auth-switch-link" id="switch-to-login">Sign in</a>
-			</div>
-		</div>
-
 	</main>
-
 
 <script>
 function togglePasswordVisibility(inputId, btn) {
@@ -731,7 +920,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			<div class="aura-search-section-title" id="aura-search-heading">
 				FEATURED BOTANICAL RITUALS			</div>
 			
-			<div id="aura-search-results-grid" class="aura-search-results-grid" data-products="[{&quot;id&quot;:69,&quot;title&quot;:&quot;Aurum Hydrating Serum&quot;,&quot;slug&quot;:&quot;aurum-hydrating-serum-50ml&quot;,&quot;subtitle&quot;:&quot;Multi-Molecular Hyaluronic Acid &amp; Snow Mushroom for deep 24H hydration&quot;,&quot;category&quot;:&quot;Serums&quot;,&quot;category_slug&quot;:&quot;serums&quot;,&quot;price&quot;:68,&quot;regular_price&quot;:78,&quot;discount_pct&quot;:13,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Best Seller&quot;,&quot;badge_type&quot;:&quot;award&quot;,&quot;volume&quot;:&quot;50 ml \/ 1.7 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/uploads\/2026\/08\/hero-slide-1.png&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-products.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=aurum-hydrating-serum-50ml&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:false,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Serums&quot;]},{&quot;id&quot;:26,&quot;title&quot;:&quot;Barrier Repair Ceramide Cream&quot;,&quot;slug&quot;:&quot;barrier-repair-ceramide-cream&quot;,&quot;subtitle&quot;:&quot;5-Ceramide &amp; Biomimetic Lipid Recovery Complex&quot;,&quot;category&quot;:&quot;Moisturizers&quot;,&quot;category_slug&quot;:&quot;moisturizers&quot;,&quot;price&quot;:78,&quot;regular_price&quot;:105,&quot;discount_pct&quot;:26,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Clinical Defense&quot;,&quot;badge_type&quot;:&quot;clinical&quot;,&quot;volume&quot;:&quot;50 ml \/ 1.7 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/uploads\/2026\/08\/hero-slide-2.png&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/promise-model.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=barrier-repair-ceramide-cream&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:false,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Moisturizers&quot;]},{&quot;id&quot;:25,&quot;title&quot;:&quot;Cellular Shield Botanical Elixir&quot;,&quot;slug&quot;:&quot;cellular-shield-botanical-elixir&quot;,&quot;subtitle&quot;:&quot;Cold-Pressed Bakuchiol &amp; Rosehip Antioxidant Shield&quot;,&quot;category&quot;:&quot;Botanical Oils&quot;,&quot;category_slug&quot;:&quot;botanical-oils&quot;,&quot;price&quot;:84,&quot;regular_price&quot;:92,&quot;discount_pct&quot;:9,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Cult Favorite&quot;,&quot;badge_type&quot;:&quot;cult&quot;,&quot;volume&quot;:&quot;30 ml \/ 1.0 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/uploads\/2026\/08\/hero-slide-3.png&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/ritual-banner.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=cellular-shield-botanical-elixir&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:false,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Botanical Oils&quot;]},{&quot;id&quot;:27,&quot;title&quot;:&quot;Silk Petal Brightening Essence&quot;,&quot;slug&quot;:&quot;silk-petal-brightening-essence&quot;,&quot;subtitle&quot;:&quot;Damask Rose Hydrosol &amp; 5% Niacinamide&quot;,&quot;category&quot;:&quot;Toners &amp; Mists&quot;,&quot;category_slug&quot;:&quot;toners-mists&quot;,&quot;price&quot;:52,&quot;regular_price&quot;:70,&quot;discount_pct&quot;:26,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;New Release&quot;,&quot;badge_type&quot;:&quot;new&quot;,&quot;volume&quot;:&quot;150 ml \/ 5.1 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/uploads\/2026\/08\/promise-model-1024x765.webp&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-products.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=silk-petal-brightening-essence&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:true,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Toners &amp; Mists&quot;]},{&quot;id&quot;:24,&quot;title&quot;:&quot;Velvet Cloud Cleansing Balm&quot;,&quot;slug&quot;:&quot;velvet-cloud-cleansing-balm&quot;,&quot;subtitle&quot;:&quot;Fermented Camellia &amp; Oat Lipid Melting Complex&quot;,&quot;category&quot;:&quot;Cleansers&quot;,&quot;category_slug&quot;:&quot;cleansers&quot;,&quot;price&quot;:46,&quot;regular_price&quot;:62,&quot;discount_pct&quot;:26,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Award Winner&quot;,&quot;badge_type&quot;:&quot;award&quot;,&quot;volume&quot;:&quot;100 ml \/ 3.4 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/uploads\/2026\/08\/hero-products-1024x765.webp&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/ritual-banner.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=velvet-cloud-cleansing-balm&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:false,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Cleansers&quot;]}]">
+			<div id="aura-search-results-grid" class="aura-search-results-grid" data-products="[{&quot;id&quot;:69,&quot;title&quot;:&quot;Aurum Hydrating Serum&quot;,&quot;slug&quot;:&quot;aurum-hydrating-serum-50ml&quot;,&quot;subtitle&quot;:&quot;Multi-Molecular Hyaluronic Acid &amp; Snow Mushroom for deep 24H hydration&quot;,&quot;category&quot;:&quot;Serums&quot;,&quot;category_slug&quot;:&quot;serums&quot;,&quot;price&quot;:68,&quot;regular_price&quot;:78,&quot;discount_pct&quot;:13,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Best Seller&quot;,&quot;badge_type&quot;:&quot;award&quot;,&quot;volume&quot;:&quot;50 ml \/ 1.7 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/uploads\/2026\/08\/hero-slide-1.png&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-products.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=aurum-hydrating-serum-50ml&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:false,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Serums&quot;]},{&quot;id&quot;:26,&quot;title&quot;:&quot;Barrier Repair Ceramide Cream&quot;,&quot;slug&quot;:&quot;barrier-repair-ceramide-cream&quot;,&quot;subtitle&quot;:&quot;Rich lipid-replenishing moisture cream with 5 essential ceramides, cholesterol, and centella asiatica.&quot;,&quot;category&quot;:&quot;Moisturizers&quot;,&quot;category_slug&quot;:&quot;moisturizers&quot;,&quot;price&quot;:105,&quot;regular_price&quot;:142,&quot;discount_pct&quot;:26,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Clinical Defense&quot;,&quot;badge_type&quot;:&quot;clinical&quot;,&quot;volume&quot;:&quot;50 ml \/ 1.7 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/uploads\/2026\/08\/hero-slide-2.png&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/promise-model.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=barrier-repair-ceramide-cream&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:false,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Moisturizers&quot;]},{&quot;id&quot;:162,&quot;title&quot;:&quot;Bio-Ferment Revitalizing Essence&quot;,&quot;slug&quot;:&quot;bio-ferment-revitalizing-essence&quot;,&quot;subtitle&quot;:&quot;Potent fermented galactomyces and niacinamide complex that accelerates cellular renewal and illuminates skin tone.&quot;,&quot;category&quot;:&quot;Serums&quot;,&quot;category_slug&quot;:&quot;serums&quot;,&quot;price&quot;:90,&quot;regular_price&quot;:122,&quot;discount_pct&quot;:26,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;New Arrival&quot;,&quot;badge_type&quot;:&quot;new&quot;,&quot;volume&quot;:&quot;100 ml \/ 3.4 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-slide-1.png&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-products.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=bio-ferment-revitalizing-essence&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:true,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Serums&quot;]},{&quot;id&quot;:167,&quot;title&quot;:&quot;Caffeine &amp; Green Tea Awakening Gel&quot;,&quot;slug&quot;:&quot;caffeine-green-tea-awakening-gel&quot;,&quot;subtitle&quot;:&quot;De-puffing cooling gel with organic caffeine, matcha extract, and cucumber hydrosol.&quot;,&quot;category&quot;:&quot;Eye Care&quot;,&quot;category_slug&quot;:&quot;eye-care&quot;,&quot;price&quot;:72,&quot;regular_price&quot;:97,&quot;discount_pct&quot;:26,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Instant Depuff&quot;,&quot;badge_type&quot;:&quot;award&quot;,&quot;volume&quot;:&quot;15 ml \/ 0.5 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/promise-model.webp&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-slide-2.png&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=caffeine-green-tea-awakening-gel&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:true,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Eye Care&quot;]},{&quot;id&quot;:168,&quot;title&quot;:&quot;Cellular Defense SPF 50 Mineral Veil&quot;,&quot;slug&quot;:&quot;cellular-defense-spf-50-mineral-veil&quot;,&quot;subtitle&quot;:&quot;100% non-nano zinc oxide mineral sun protection with transparent silky matte finish.&quot;,&quot;category&quot;:&quot;Sun Protection&quot;,&quot;category_slug&quot;:&quot;sun-protection&quot;,&quot;price&quot;:65,&quot;regular_price&quot;:88,&quot;discount_pct&quot;:26,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Broad Spectrum&quot;,&quot;badge_type&quot;:&quot;award&quot;,&quot;volume&quot;:&quot;50 ml \/ 1.7 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-slide-3.png&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-slide-1.png&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=cellular-defense-spf-50-mineral-veil&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:true,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Sun Protection&quot;]},{&quot;id&quot;:25,&quot;title&quot;:&quot;Cellular Shield Botanical Elixir&quot;,&quot;slug&quot;:&quot;cellular-shield-botanical-elixir&quot;,&quot;subtitle&quot;:&quot;100% natural bakuchiol, cold-pressed rosehip seed, and blue tansy lipid barrier treatment oil.&quot;,&quot;category&quot;:&quot;Botanical Oils&quot;,&quot;category_slug&quot;:&quot;botanical-oils&quot;,&quot;price&quot;:84,&quot;regular_price&quot;:92,&quot;discount_pct&quot;:9,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Cult Favorite&quot;,&quot;badge_type&quot;:&quot;cult&quot;,&quot;volume&quot;:&quot;30 ml \/ 1.0 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/uploads\/2026\/08\/hero-slide-3.png&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/ritual-banner.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=cellular-shield-botanical-elixir&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:false,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Botanical Oils&quot;]},{&quot;id&quot;:173,&quot;title&quot;:&quot;Clarifying Enzyme Powder Wash&quot;,&quot;slug&quot;:&quot;clarifying-enzyme-powder-wash&quot;,&quot;subtitle&quot;:&quot;Water-activated micro-exfoliating botanical enzyme powder with Papaya and Rice Ferment for instant clarity.&quot;,&quot;category&quot;:&quot;Cleansers&quot;,&quot;category_slug&quot;:&quot;cleansers&quot;,&quot;price&quot;:52,&quot;regular_price&quot;:70,&quot;discount_pct&quot;:26,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Best Seller&quot;,&quot;badge_type&quot;:&quot;award&quot;,&quot;volume&quot;:&quot;75 g \/ 2.6 oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-products.webp&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/ritual-banner.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=clarifying-enzyme-powder-wash&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:false,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Cleansers&quot;]},{&quot;id&quot;:172,&quot;title&quot;:&quot;Gentle Hydrating Milky Cleanser&quot;,&quot;slug&quot;:&quot;gentle-hydrating-milky-cleanser&quot;,&quot;subtitle&quot;:&quot;Comforting milky emulsion with Rice Bran and colloidal oatmeal that leaves sensitive skin clean and velvety soft.&quot;,&quot;category&quot;:&quot;Cleansers&quot;,&quot;category_slug&quot;:&quot;cleansers&quot;,&quot;price&quot;:55,&quot;regular_price&quot;:74,&quot;discount_pct&quot;:26,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Best Seller&quot;,&quot;badge_type&quot;:&quot;award&quot;,&quot;volume&quot;:&quot;120 ml \/ 4.0 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-products.webp&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/ritual-banner.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=gentle-hydrating-milky-cleanser&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:false,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Cleansers&quot;]},{&quot;id&quot;:178,&quot;title&quot;:&quot;Peptide Firming Day Cream SPF 20&quot;,&quot;slug&quot;:&quot;peptide-firming-day-cream&quot;,&quot;subtitle&quot;:&quot;Daily defending anti-aging cream with copper peptides and broad spectrum mineral filters.&quot;,&quot;category&quot;:&quot;Moisturizers&quot;,&quot;category_slug&quot;:&quot;moisturizers&quot;,&quot;price&quot;:95,&quot;regular_price&quot;:128,&quot;discount_pct&quot;:26,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Best Seller&quot;,&quot;badge_type&quot;:&quot;award&quot;,&quot;volume&quot;:&quot;50 ml \/ 1.7 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-slide-2.png&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/promise-model.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=peptide-firming-day-cream&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:false,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Moisturizers&quot;]},{&quot;id&quot;:175,&quot;title&quot;:&quot;Phyto-Retinol Night Renewal Serum&quot;,&quot;slug&quot;:&quot;phyto-retinol-night-renewal-serum&quot;,&quot;subtitle&quot;:&quot;Gentle overnight plant-based retinol serum that smooths fine lines and restores youthfulness without irritation.&quot;,&quot;category&quot;:&quot;Serums&quot;,&quot;category_slug&quot;:&quot;serums&quot;,&quot;price&quot;:110,&quot;regular_price&quot;:149,&quot;discount_pct&quot;:26,&quot;rating&quot;:4.9000000000000004,&quot;reviews&quot;:280,&quot;badge&quot;:&quot;Best Seller&quot;,&quot;badge_type&quot;:&quot;award&quot;,&quot;volume&quot;:&quot;30 ml \/ 1.0 fl. oz.&quot;,&quot;image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-slide-1.png&quot;,&quot;alt_image&quot;:&quot;http:\/\/rayyancosmetic.local\/wp-content\/themes\/aura-skincare\/assets\/images\/hero-products.webp&quot;,&quot;link&quot;:&quot;http:\/\/rayyancosmetic.local\/product-detail\/?product=phyto-retinol-night-renewal-serum&quot;,&quot;in_stock&quot;:true,&quot;is_featured&quot;:false,&quot;is_new&quot;:false,&quot;tags&quot;:[&quot;Clean&quot;,&quot;Botanical&quot;,&quot;Serums&quot;]}]">
 				<!-- Dynamically Rendered Results via JS -->
 			</div>
 
@@ -1220,12 +1409,12 @@ document.addEventListener('DOMContentLoaded', function() {
 var auraSiteData = {"siteUrl":"index.html","themeUri":"index.htmlwp-content/themes/aura-skincare","isHome":""};
 //# sourceURL=aura-main-js-js-extra
 </script>
-<script id="aura-main-js-js" src="assets/js/main.js?ver=1.3.3"></script>
+<script id="aura-main-js-js" src="assets/js/main.js?ver=1.3.4"></script>
 <script id="aura-ajax-cart-js-extra">
 var auraCartParams = {"ajaxUrl":"index.htmlwp-admin/admin-ajax.php","nonce":"c10ad5ca82","wc_ajax_url":"/?wc-ajax=%%endpoint%%","cartUrl":"index.htmlcart/","checkoutUrl":"index.htmlcheckout-2/","freeShippingThreshold":"75","currencySymbol":"$","cartCount":"0","subtotal":"\u003Cspan class=\"woocommerce-Price-amount amount\"\u003E\u003Cbdi\u003E\u003Cspan class=\"woocommerce-Price-currencySymbol\" translate=\"no\"\u003E$\u003C/span\u003E0.00\u003C/bdi\u003E\u003C/span\u003E","rawSubtotal":"0","strings":{"added":"Added to Bag","adding":"Adding...","error":"Could not update bag","freeShippingGoal":"Free shipping unlocked!","freeShippingAway":"away from free express shipping"}};
 //# sourceURL=aura-ajax-cart-js-extra
 </script>
-<script id="aura-ajax-cart-js" src="assets/js/ajax-cart.js?ver=1.3.3"></script>
+<script id="aura-ajax-cart-js" src="assets/js/ajax-cart.js?ver=1.3.4"></script>
 <script id="sourcebuster-js-js" src="index.htmlwp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=11.0.1"></script>
 <script id="wc-order-attribution-js-extra">
 var wc_order_attribution = {"params":{"lifetime":1.0000000000000001e-5,"session":30,"base64":false,"ajaxurl":"index.htmlwp-admin/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};

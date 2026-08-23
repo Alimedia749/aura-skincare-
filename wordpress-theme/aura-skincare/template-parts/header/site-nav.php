@@ -59,6 +59,24 @@ $cart_count = ( function_exists( 'WC' ) && WC()->cart ) ? WC()->cart->get_cart_c
 					<ul class="primary-menu">
 						<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'aura-skincare' ); ?></a></li>
 						<li class="menu-item-has-children">
+							<a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>">
+								<span><?php esc_html_e( 'Collections', 'aura-skincare' ); ?></span>
+								<svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<polyline points="6 9 12 15 18 9"></polyline>
+								</svg>
+							</a>
+							<ul class="sub-menu">
+								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'All Categories', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Cleansers', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Serums & Oils', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Moisturizers', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Eye Care', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Toners & Mists', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Sun Protection', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Botanical Oils', 'aura-skincare' ); ?></a></li>
+							</ul>
+						</li>
+						<li class="menu-item-has-children">
 							<a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>">
 								<span><?php esc_html_e( 'Shop', 'aura-skincare' ); ?></span>
 								<svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">

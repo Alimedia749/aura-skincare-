@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AURA_VERSION', '1.1.8' );
+define( 'AURA_VERSION', '1.1.9' );
 define( 'AURA_THEME_DIR', get_template_directory() );
 define( 'AURA_THEME_URI', get_template_directory_uri() );
 

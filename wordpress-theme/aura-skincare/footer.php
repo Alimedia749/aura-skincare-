@@ -215,11 +215,12 @@ $copyright   = get_theme_mod( 'aura_footer_copyright', 'AURA Skincare. All right
 					<div>
 						<div class="footer-col-title"><?php esc_html_e( 'COLLECTIONS', 'aura-skincare' ); ?></div>
 						<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem; margin:0; padding:0;">
-							<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Hydration', 'aura-skincare' ); ?></a></li>
-							<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Brightening', 'aura-skincare' ); ?></a></li>
-							<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Anti-Aging', 'aura-skincare' ); ?></a></li>
-							<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Sensitive Skin', 'aura-skincare' ); ?></a></li>
-							<li><a href="<?php echo esc_url( home_url( '/#promise' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Clean Standard', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Cleansers', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Serums & Oils', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Moisturizers', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Eye Care', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Toners & Mists', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Botanical Oils', 'aura-skincare' ); ?></a></li>
 						</ul>
 					</div>
 

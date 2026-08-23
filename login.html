@@ -5,13 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<title>Checkout &#8211; AURA SKINCARE</title>
+	<title>Sign In &#8211; AURA SKINCARE</title>
 <meta name='robots' content='max-image-preview:large' />
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 <link rel="alternate" type="application/rss+xml" title="AURA SKINCARE &raquo; Feed" href="index.htmlfeed/" />
 <link rel="alternate" type="application/rss+xml" title="AURA SKINCARE &raquo; Comments Feed" href="index.htmlcomments/feed/" />
-<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="index.htmlwp-json/oembed/1.0/embed?url=http%3A%2F%2Frayyancosmetic.local%2Fcheckout%2F" />
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="index.htmlwp-json/oembed/1.0/embed?url=http%3A%2F%2Frayyancosmetic.local%2Fcheckout%2F&#038;format=xml" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="index.htmlwp-json/oembed/1.0/embed?url=http%3A%2F%2Frayyancosmetic.local%2Flogin%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="index.htmlwp-json/oembed/1.0/embed?url=http%3A%2F%2Frayyancosmetic.local%2Flogin%2F&#038;format=xml" />
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -81,18 +81,18 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 //# sourceURL=woocommerce-js-extra
 </script>
 <script data-wp-strategy="defer" defer id="woocommerce-js" src="index.htmlwp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=11.0.1"></script>
-<link rel="https://api.w.org/" href="index.htmlwp-json/" /><link rel="alternate" title="JSON" type="application/json" href="index.htmlwp-json/wp/v2/pages/12" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="index.htmlxmlrpc.php?rsd" />
+<link rel="https://api.w.org/" href="index.htmlwp-json/" /><link rel="alternate" title="JSON" type="application/json" href="index.htmlwp-json/wp/v2/pages/171" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="index.htmlxmlrpc.php?rsd" />
 <meta name="generator" content="WordPress 7.1" />
 <meta name="generator" content="WooCommerce 11.0.1" />
-<link rel="canonical" href="checkout.html" />
-<link rel='shortlink' href='index.html?p=12' />
+<link rel="canonical" href="login.html" />
+<link rel='shortlink' href='index.html?p=171' />
 	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
 	<style class="wp-fonts-local">
 @font-face{font-family:Inter;font-style:normal;font-weight:300 900;font-display:fallback;src:url('index.htmlwp-content/plugins/woocommerce/assets/fonts/Inter-VariableFont_slnt,wght.woff2') format('woff2');font-stretch:normal;}
 @font-face{font-family:Cardo;font-style:normal;font-weight:400;font-display:fallback;src:url('index.htmlwp-content/plugins/woocommerce/assets/fonts/cardo_normal_400.woff2') format('woff2');}
 </style>
 </head>
-<body class="wp-singular page-template page-template-page-templates page-template-template-checkout page-template-page-templatestemplate-checkout-php page page-id-12 wp-embed-responsive wp-theme-aura-skincare theme-aura-skincare woocommerce-no-js aura-luxury-theme has-announcement-bar">
+<body class="wp-singular page-template page-template-page-templates page-template-template-login page-template-page-templatestemplate-login-php page page-id-171 wp-embed-responsive wp-theme-aura-skincare theme-aura-skincare woocommerce-no-js aura-luxury-theme has-announcement-bar">
 
 <a class="skip-link screen-reader-text" href="#main-content">Skip to content</a>
 
@@ -197,344 +197,179 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 </div>
 </header>
 
-<main id="main-content" class="checkout-page-section">
-	<div class="aura-container">
+<main id="main-content" class="account-auth-container">
+	
+	<!-- ====================================================================
+	     1. LOGIN CARD (Default View)
+	     ==================================================================== -->
+	<div class="account-auth-card" id="auth-login-card" style="">
+		
+		<h1 class="auth-card-title">Welcome Back</h1>
+		<p class="auth-card-subtitle">Sign in to access your exclusive rituals and history.</p>
 
-		<!-- Minimalist Checkout Header Branding -->
-		<div class="checkout-header-branding">
-			<a href="index.html" class="checkout-logo-link">
-				AURA
-			</a>
-		</div>
-
-		<form id="auraCheckoutForm" onsubmit="event.preventDefault(); handleAuraCheckoutSubmit();">
-			<div class="checkout-grid-layout">
-				
-				<!-- Left Column: Express & Checkout Information -->
-				<div class="checkout-form-column">
-					
-					<!-- Express Checkout -->
-					<div class="express-checkout-box">
-						<span class="express-title">Express Checkout</span>
-						<div class="express-buttons-grid">
-							<button type="button" class="express-btn express-btn-apple" onclick="showAuraToast('Apple Pay Express connected');">
-								<span> Pay</span>
-							</button>
-							<button type="button" class="express-btn express-btn-paypal" onclick="showAuraToast('PayPal Express connected');">
-								<span>PayPal</span>
-							</button>
-						</div>
-						<div class="checkout-divider">
-							<span>Or continue with standard checkout</span>
-						</div>
-					</div>
-
-					<!-- Shipping Information -->
-					<div class="checkout-section-card">
-						<h2 class="checkout-section-title">
-							<span>1. Shipping Information</span>
-						</h2>
-
-						<div class="checkout-fields-stack">
-							
-							<div class="checkout-field-group">
-								<label for="chk-email" class="checkout-label">Email Address for Order Confirmation</label>
-								<input type="email" id="chk-email" class="checkout-input" placeholder="you@example.com" required value="client@aura-rituals.com">
-							</div>
-
-							<div class="checkout-fields-row">
-								<div class="checkout-field-group">
-									<label for="chk-fname" class="checkout-label">First Name</label>
-									<input type="text" id="chk-fname" class="checkout-input" placeholder="First Name" required value="Sarah">
-								</div>
-								<div class="checkout-field-group">
-									<label for="chk-lname" class="checkout-label">Last Name</label>
-									<input type="text" id="chk-lname" class="checkout-input" placeholder="Last Name" required value="Mitchell">
-								</div>
-							</div>
-
-							<div class="checkout-field-group">
-								<label for="chk-address" class="checkout-label">Street Address</label>
-								<input type="text" id="chk-address" class="checkout-input" placeholder="123 Fifth Avenue" required value="742 Evergreen Terrace">
-							</div>
-
-							<div class="checkout-field-group">
-								<label for="chk-apt" class="checkout-label">Apartment, suite, unit (optional)</label>
-								<input type="text" id="chk-apt" class="checkout-input" placeholder="Suite 4B">
-							</div>
-
-							<div class="checkout-fields-row-3">
-								<div class="checkout-field-group">
-									<label for="chk-city" class="checkout-label">City</label>
-									<input type="text" id="chk-city" class="checkout-input" placeholder="New York" required value="New York">
-								</div>
-								<div class="checkout-field-group">
-									<label for="chk-state" class="checkout-label">State / Region</label>
-									<select id="chk-state" class="checkout-select">
-										<option value="NY">New York (NY)</option>
-										<option value="CA">California (CA)</option>
-										<option value="TX">Texas (TX)</option>
-										<option value="FL">Florida (FL)</option>
-										<option value="IL">Illinois (IL)</option>
-										<option value="OTHER">International / Other</option>
-									</select>
-								</div>
-								<div class="checkout-field-group">
-									<label for="chk-zip" class="checkout-label">ZIP / Postal Code</label>
-									<input type="text" id="chk-zip" class="checkout-input" placeholder="10001" required value="10001">
-								</div>
-							</div>
-
-						</div>
-					</div>
-
-					<!-- Shipping Method -->
-					<div class="checkout-section-card">
-						<h2 class="checkout-section-title">
-							<span>2. Shipping Method</span>
-						</h2>
-
-						<div class="shipping-options-grid">
-							<label class="shipping-option-card selected" id="shipOptStandard">
-								<div class="shipping-radio-label">
-									<input type="radio" name="shipping_method" value="0.00" checked onchange="updateCheckoutCalculations();">
-									<div>
-										<div class="shipping-title">Standard Insured Delivery</div>
-										<div class="shipping-time">3-5 business days via Carbon-Neutral Courier</div>
-									</div>
-								</div>
-								<span class="shipping-cost" style="color:var(--color-sage); font-weight:700;">FREE</span>
-							</label>
-
-							<label class="shipping-option-card" id="shipOptExpress">
-								<div class="shipping-radio-label">
-									<input type="radio" name="shipping_method" value="15.00" onchange="updateCheckoutCalculations();">
-									<div>
-										<div class="shipping-title">Expedited Express Delivery</div>
-										<div class="shipping-time">1-2 business days with Priority Tracking</div>
-									</div>
-								</div>
-								<span class="shipping-cost">$15.00</span>
-							</label>
-						</div>
-					</div>
-
-					<!-- Payment Details -->
-					<div class="checkout-section-card">
-						<h2 class="checkout-section-title">
-							<span>3. Payment Details</span>
-						</h2>
-
-						<div class="checkout-fields-stack">
-							
-							<div class="checkout-field-group">
-								<label for="chk-cardnum" class="checkout-label">Card Number</label>
-								<input type="text" id="chk-cardnum" class="checkout-input" placeholder="4242 •••• •••• 4242" required value="4242 •••• •••• 4242">
-							</div>
-
-							<div class="checkout-fields-row">
-								<div class="checkout-field-group">
-									<label for="chk-exp" class="checkout-label">Expiration Date</label>
-									<input type="text" id="chk-exp" class="checkout-input" placeholder="MM / YY" required value="12 / 28">
-								</div>
-								<div class="checkout-field-group">
-									<label for="chk-cvc" class="checkout-label">Security Code (CVC)</label>
-									<input type="text" id="chk-cvc" class="checkout-input" placeholder="123" required value="888">
-								</div>
-							</div>
-
-							<div class="checkout-field-group">
-								<label for="chk-cardname" class="checkout-label">Name on Card</label>
-								<input type="text" id="chk-cardname" class="checkout-input" placeholder="Full Name on Card" required value="Sarah Mitchell">
-							</div>
-
-						</div>
-					</div>
-
-				</div>
-
-				<!-- Right Column: Sticky Order Summary -->
-				<div class="checkout-summary-sticky">
-					<div class="order-summary-card">
-						<h3 class="summary-card-title">Order Summary</h3>
-
-						<!-- Items in Cart List -->
-						<div class="summary-items-list" id="checkoutItemsList">
-							
-							<!-- Item 1 (Default Aurum Hydrating Serum) -->
-							<div class="summary-product-item">
-								<div class="summary-product-thumb">
-									<img src="assets/images/hero-slide-1.png" alt="Aurum Serum">
-									<span class="summary-product-qty-badge">1</span>
-								</div>
-								<div class="summary-product-info">
-									<div class="title">Aurum Hydrating Serum</div>
-									<div class="variant">50 ml / 1.7 fl. oz.</div>
-								</div>
-								<div class="summary-product-price">$68.00</div>
-							</div>
-
-						</div>
-
-						<!-- Promo Code Box -->
-						<div class="summary-promo-row">
-							<input type="text" id="promoCodeInput" class="checkout-input promo-input" placeholder="Gift card or discount code (AURA15)">
-							<button type="button" class="aura-btn aura-btn-outline promo-apply-btn" onclick="applyPromoCode();">
-								<span>Apply</span>
-							</button>
-						</div>
-
-						<!-- Cost Calculations -->
-						<div class="summary-cost-breakdown">
-							<div class="summary-cost-line">
-								<span>Subtotal</span>
-								<span id="chkSubtotal">$68.00</span>
-							</div>
-
-							<div class="summary-cost-line" id="chkDiscountLine" style="display:none; color:var(--color-sage);">
-								<span>Discount (AURA15 - 15%)</span>
-								<span id="chkDiscount">-$10.20</span>
-							</div>
-
-							<div class="summary-cost-line">
-								<span>Shipping</span>
-								<span id="chkShipping" style="color:var(--color-sage); font-weight:600;">FREE</span>
-							</div>
-
-							<div class="summary-cost-line">
-								<span>Estimated Tax (8%)</span>
-								<span id="chkTax">$5.44</span>
-							</div>
-
-							<div class="summary-cost-line total-line">
-								<span>Total</span>
-								<span class="summary-total-amount" id="chkTotal">$73.44</span>
-							</div>
-						</div>
-
-						<!-- Complete Purchase CTA -->
-						<button type="submit" class="aura-btn aura-btn-primary complete-purchase-btn" id="completePurchaseBtn">
-							<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;">
-								<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-								<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-							</svg>
-							<span>Complete Purchase</span>
-						</button>
-
-						<div class="checkout-ssl-trust">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-							<span>Encrypted 256-Bit SSL Navigation &amp; Guaranteed Privacy</span>
-						</div>
-
-					</div>
-				</div>
-
+		<form class="auth-form" method="post" action="index.htmlwp-login.php?redirect_to=http%3A%2F%2Frayyancosmetic.local%2Fmy-account%2F" onsubmit="if(this.checkValidity()){ window.location.href='my-account.html'; return false; }">
+			
+			<!-- Email Address -->
+			<div class="auth-field-group">
+				<label class="auth-label" for="login-email">EMAIL ADDRESS</label>
+				<input 
+					type="text" 
+					id="login-email" 
+					name="log" 
+					class="auth-input" 
+					placeholder="Enter your email" 
+					required
+					autocomplete="username"
+				>
 			</div>
+
+			<!-- Password -->
+			<div class="auth-field-group">
+				<div class="auth-field-header">
+					<label class="auth-label" for="login-password">PASSWORD</label>
+					<a href="my-account.htmllost-password/" class="auth-forgot-link">LOST YOUR PASSWORD?</a>
+				</div>
+				<div class="auth-input-wrapper">
+					<input 
+						type="password" 
+						id="login-password" 
+						name="pwd" 
+						class="auth-input" 
+						placeholder="Enter your password" 
+						required
+						autocomplete="current-password"
+					>
+					<button type="button" class="auth-password-toggle" aria-label="Toggle password visibility" onclick="togglePasswordVisibility('login-password', this);">
+						<svg class="eye-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+							<circle cx="12" cy="12" r="3"></circle>
+						</svg>
+					</button>
+				</div>
+			</div>
+
+			<!-- Remember Me -->
+			<div class="auth-remember-row">
+				<input type="checkbox" id="rememberme" name="rememberme" value="forever" class="auth-checkbox" checked>
+				<label for="rememberme" class="auth-checkbox-label">Remember me</label>
+			</div>
+
+			<!-- Sign In Button -->
+			<button type="submit" class="auth-submit-btn">
+				SIGN IN			</button>
+
 		</form>
 
+		<div class="auth-card-footer">
+			<span>Don&#039;t have an account?</span>
+			<a href="javascript:void(0)" class="auth-switch-link" id="switch-to-register">Create one</a>
+		</div>
+
 	</div>
+
+	<!-- ====================================================================
+	     2. REGISTER / CREATE ACCOUNT CARD
+	     ==================================================================== -->
+	<div class="account-auth-card" id="auth-register-card" style="display: none;">
+		
+		<h1 class="auth-card-title">Create Account</h1>
+		<p class="auth-card-subtitle">Join the Aura Society for exclusive rituals and rewards.</p>
+
+		<form class="auth-form" method="post" action="index.htmlwp-login.php?action=register" onsubmit="if(this.checkValidity()){ alert('Account created successfully! Redirecting to your ritual portal...'); window.location.href='my-account.html'; return false; }">
+			
+			<!-- Full Name -->
+			<div class="auth-field-group">
+				<label class="auth-label" for="reg-name">FULL NAME</label>
+				<input 
+					type="text" 
+					id="reg-name" 
+					name="full_name" 
+					class="auth-input" 
+					placeholder="Enter your full name" 
+					required
+				>
+			</div>
+
+			<!-- Email Address -->
+			<div class="auth-field-group">
+				<label class="auth-label" for="reg-email">EMAIL ADDRESS</label>
+				<input 
+					type="email" 
+					id="reg-email" 
+					name="user_email" 
+					class="auth-input" 
+					placeholder="Enter your email" 
+					required
+				>
+			</div>
+
+			<!-- Password -->
+			<div class="auth-field-group">
+				<label class="auth-label" for="reg-password">PASSWORD</label>
+				<div class="auth-input-wrapper">
+					<input 
+						type="password" 
+						id="reg-password" 
+						name="user_password" 
+						class="auth-input" 
+						placeholder="Create a password" 
+						required
+					>
+					<button type="button" class="auth-password-toggle" aria-label="Toggle password visibility" onclick="togglePasswordVisibility('reg-password', this);">
+						<svg class="eye-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+							<circle cx="12" cy="12" r="3"></circle>
+						</svg>
+					</button>
+				</div>
+			</div>
+
+			<!-- Create Account Button -->
+			<button type="submit" class="auth-submit-btn">
+				CREATE ACCOUNT			</button>
+
+		</form>
+
+		<div class="auth-card-footer">
+			<span>Already have an account?</span>
+			<a href="javascript:void(0)" class="auth-switch-link" id="switch-to-login">Sign in</a>
+		</div>
+
+	</div>
+
 </main>
 
-<!-- ── ORDER SUCCESS CONFIRMATION MODAL ───────────── -->
-<div id="orderSuccessModal" class="order-success-modal" role="dialog" aria-modal="true" aria-label="Order Confirmed">
-	<div class="order-modal-card">
-		<div class="order-success-icon">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-				<polyline points="20 6 9 17 4 12"></polyline>
-			</svg>
-		</div>
-		<h3 class="order-modal-title">Thank You For Your Order!</h3>
-		<div class="order-modal-number" id="orderConfirmNumber">ORDER #AUR-88294</div>
-		<p class="order-modal-text">
-			Your sacred skincare ritual is being carefully prepared and packaged in our sustainable infinity glass. A confirmation email with tracking details has been sent to your address.
-		</p>
-		<a href="index.html" class="aura-btn aura-btn-primary" style="width:100%; justify-content:center;">
-			<span>Return to Homepage</span>
-		</a>
-	</div>
-</div>
-
 <script>
-var baseSubtotal = 68.00;
-var isDiscounted = false;
-
-function updateCheckoutCalculations() {
-	var shipVal = parseFloat(document.querySelector('input[name="shipping_method"]:checked').value) || 0;
-	
-	// Update styles on shipping cards
-	document.getElementById('shipOptStandard').classList.toggle('selected', shipVal === 0);
-	document.getElementById('shipOptExpress').classList.toggle('selected', shipVal > 0);
-
-	var shipText = shipVal === 0 ? 'FREE' : '$' + shipVal.toFixed(2);
-	document.getElementById('chkShipping').textContent = shipText;
-	document.getElementById('chkShipping').style.color = shipVal === 0 ? 'var(--color-sage)' : 'var(--color-heading)';
-
-	var effectiveSubtotal = isDiscounted ? (baseSubtotal * 0.85) : baseSubtotal;
-	var tax = effectiveSubtotal * 0.08;
-	var total = effectiveSubtotal + shipVal + tax;
-
-	document.getElementById('chkSubtotal').textContent = '$' + baseSubtotal.toFixed(2);
-	document.getElementById('chkTax').textContent = '$' + tax.toFixed(2);
-	document.getElementById('chkTotal').textContent = '$' + total.toFixed(2);
-}
-
-function applyPromoCode() {
-	var input = document.getElementById('promoCodeInput');
-	var code = input.value.trim().toUpperCase();
-	if (code === 'AURA15' || code === 'AURA') {
-		isDiscounted = true;
-		document.getElementById('chkDiscountLine').style.display = 'flex';
-		var discountAmount = (baseSubtotal * 0.15).toFixed(2);
-		document.getElementById('chkDiscount').textContent = '-$' + discountAmount;
-		updateCheckoutCalculations();
-		showAuraToast('Promo code AURA15 applied! 15% discount saved.');
-	} else if (code.length > 0) {
-		showAuraToast('Invalid promo code. Use code AURA15 for 15% off.');
+function togglePasswordVisibility(inputId, btn) {
+	var input = document.getElementById(inputId);
+	if (!input) return;
+	if (input.type === 'password') {
+		input.type = 'text';
+		btn.style.color = 'var(--color-gold)';
+	} else {
+		input.type = 'password';
+		btn.style.color = 'var(--color-text-muted)';
 	}
 }
 
-function handleAuraCheckoutSubmit() {
-	var btn = document.getElementById('completePurchaseBtn');
-	btn.disabled = true;
-	btn.innerHTML = '<span>Processing Order...</span>';
-
-	setTimeout(function() {
-		btn.disabled = false;
-		btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span>Complete Purchase</span>';
-		
-		var randomOrder = 'ORDER #AUR-' + Math.floor(10000 + Math.random() * 90000);
-		document.getElementById('orderConfirmNumber').textContent = randomOrder;
-		document.getElementById('orderSuccessModal').classList.add('is-active');
-	}, 1200);
-}
-
-// Sync with live AuraCart items if present
 document.addEventListener('DOMContentLoaded', function() {
-	if (window.AuraCart && window.AuraCart.items && window.AuraCart.items.length > 0) {
-		var list = document.getElementById('checkoutItemsList');
-		if (list) {
-			var html = '';
-			var total = 0;
-			window.AuraCart.items.forEach(function(item) {
-				total += (item.price * item.quantity);
-				html += '\
-					<div class="summary-product-item">\
-						<div class="summary-product-thumb">\
-							<img src="' + item.image + '" alt="' + item.title + '">\
-							<span class="summary-product-qty-badge">' + item.quantity + '</span>\
-						</div>\
-						<div class="summary-product-info">\
-							<div class="title">' + item.title + '</div>\
-							<div class="variant">' + item.volume + '</div>\
-						</div>\
-						<div class="summary-product-price">$' + (item.price * item.quantity).toFixed(2) + '</div>\
-					</div>\
-				';
-			});
-			list.innerHTML = html;
-			baseSubtotal = total;
-			updateCheckoutCalculations();
-		}
+	var loginCard = document.getElementById('auth-login-card');
+	var registerCard = document.getElementById('auth-register-card');
+	var switchToRegister = document.getElementById('switch-to-register');
+	var switchToLogin = document.getElementById('switch-to-login');
+
+	if (switchToRegister && switchToLogin) {
+		switchToRegister.addEventListener('click', function(e) {
+			e.preventDefault();
+			loginCard.style.display = 'none';
+			registerCard.style.display = 'block';
+		});
+
+		switchToLogin.addEventListener('click', function(e) {
+			e.preventDefault();
+			registerCard.style.display = 'none';
+			loginCard.style.display = 'block';
+		});
 	}
 });
 </script>

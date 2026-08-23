@@ -57,8 +57,17 @@ if ( 'gift-cards' === $page_slug || is_page( 'gift-cards' ) ) {
 	return;
 }
 
+if ( 'login' === $page_slug || 'signin' === $page_slug || 'sign-in' === $page_slug || 'register' === $page_slug || is_page( 'login' ) || is_page( 'signin' ) || is_page( 'sign-in' ) || is_page( 'register' ) ) {
+	require get_template_directory() . '/page-templates/template-login.php';
+	return;
+}
+
 if ( 'my-account' === $page_slug || 'account' === $page_slug || is_page( 'my-account' ) || is_page( 'account' ) || ( function_exists( 'is_account_page' ) && is_account_page() ) ) {
-	require get_template_directory() . '/page-templates/template-account.php';
+	if ( ! is_user_logged_in() && ! isset( $_GET['preview_dashboard'] ) ) {
+		require get_template_directory() . '/page-templates/template-login.php';
+	} else {
+		require get_template_directory() . '/page-templates/template-account.php';
+	}
 	return;
 }
 

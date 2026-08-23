@@ -13,6 +13,7 @@ $pin_url     = get_theme_mod( 'aura_social_pinterest', 'https://pinterest.com' )
 $email       = get_theme_mod( 'aura_concierge_email', 'concierge@aura-skincare.local' );
 $copyright   = get_theme_mod( 'aura_footer_copyright', 'AURA Skincare. All rights reserved.' );
 ?>
+<?php if ( is_front_page() || is_home() || is_page( 'contact' ) || is_page( 'contact-us' ) ) : ?>
 	<!-- ── CONTACT & CONCIERGE SECTION ────────── -->
 	<section id="contact" class="aura-contact-section" style="background: #FAF7F2; padding: 5rem 0; border-top: 1px solid var(--color-border);">
 		<div class="aura-container-wide">
@@ -97,6 +98,7 @@ $copyright   = get_theme_mod( 'aura_footer_copyright', 'AURA Skincare. All right
 
 		</div>
 	</section>
+<?php endif; ?>
 
 	<!-- ── FOOTER ─────────────────────────────── -->
 	<footer id="colophon" class="site-footer" role="contentinfo">

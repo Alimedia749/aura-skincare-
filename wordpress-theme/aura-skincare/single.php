@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Template Name: Product Detail Page
  * Template Post Type: page, product, post
@@ -57,6 +57,132 @@ $products_db = array(
 			),
 		),
 	),
+	'aurum-hydrating-serum-50ml' => array(
+		'id'          => '101',
+		'title'       => 'Aurum Hydrating Serum',
+		'category'    => 'THE RITUAL / HYDRATING SERUM',
+		'subtitle'    => 'Deep Hyaluronic Serum with Gold Peptides & Botanical Lipids',
+		'price'       => '68.00',
+		'volume'      => '50 ml / 1.7 fl. oz.',
+		'image'       => $theme_uri . '/assets/images/hero-slide-1.png',
+		'alt_image'   => $theme_uri . '/assets/images/hero-products.webp',
+		'badge'       => 'Bestseller No. 1',
+		'description' => 'A botanical blend of botanical purity and clinical precision. Formulated with multi-weight hyaluronic acid and cold-pressed bio-ferment for weightless deep penetration into skin layers to restore instant cellular vitality, leaving your complexion actively hydrated, luminous, and authentically breathable.',
+		'benefits'    => array(
+			'Deep cellular hydration across all dermal layers',
+			'Restores and locks in the lipid moisture barrier',
+			'Clinically proven 24H moisture retention',
+			'Non-comedogenic, lightweight dewy absorption',
+		),
+		'actives'     => array(
+			array(
+				'title' => 'Hyaluronic Acid',
+				'desc'  => 'Multi-molecular weights that pull moisture deep into the dermis for instant plumping.',
+			),
+			array(
+				'title' => 'Gold Peptides',
+				'desc'  => 'Actively formulated to firm and enhance the skin\'s natural radiant elasticity.',
+			),
+			array(
+				'title' => 'Bio-Ferment',
+				'desc'  => 'Ferment specifically to soothe inflammation and provide a delicate, balancing aroma.',
+			),
+		),
+		'quotes'      => array(
+			array(
+				'text'   => 'The texture is like nothing else: it absorbs instantly and leaves the skin feeling dewy, plump, and calm.',
+				'author' => 'Dr. Elena Vance, Board Dermatologist',
+			),
+			array(
+				'text'   => 'Finally, a serum that delivers on both the luxury sensorial experience and real clinical hydration results.',
+				'author' => 'VOGUE Beauty Editorial',
+			),
+		),
+	),
+	'velvet-cloud-cleansing-balm' => array(
+		'id'          => '102',
+		'title'       => 'Velvet Cloud Cleansing Balm',
+		'category'    => 'THE RITUAL / CLEANSER',
+		'subtitle'    => 'Fermented Camellia & Oat Lipid Complex',
+		'price'       => '46.00',
+		'volume'      => '100 ml / 3.4 fl. oz.',
+		'image'       => $theme_uri . '/assets/images/hero-products.webp',
+		'alt_image'   => $theme_uri . '/assets/images/ritual-banner.webp',
+		'badge'       => 'Award Winner',
+		'description' => 'A luxurious cleansing balm formulated with fermented camellia and soothing oat lipids that melts away water-resistant sunscreen, impurities, and long-wear makeup while supporting delicate moisture balance.',
+		'benefits'    => array(
+			'Melts stubborn makeup and impurities effortlessly',
+			'Non-stripping lipid-replenishing formula',
+			'Rinses completely clean with no cloudy residue',
+			'Calms stressed and sensitive complexions',
+		),
+		'actives'     => array(
+			array(
+				'title' => 'Fermented Camellia Oil',
+				'desc'  => 'Deep cellular cleansing without disruption to natural acid mantles.',
+			),
+			array(
+				'title' => 'Oat Lipid Complex',
+				'desc'  => 'Restores natural skin ceramides and replenishes soothing moisture.',
+			),
+			array(
+				'title' => 'Blue Tansy',
+				'desc'  => 'Cools and comforts visible skin redness and inflammation.',
+			),
+		),
+		'quotes'      => array(
+			array(
+				'text'   => 'The only balm that removes waterproof SPF while leaving skin moisturized and calm.',
+				'author' => 'Dr. Elena Vance, Board Dermatologist',
+			),
+			array(
+				'text'   => 'An absolute must-have luxury ritual for end-of-day decompression.',
+				'author' => 'Harper\'s BAZAAR',
+			),
+		),
+	),
+	'cellular-shield-botanical-elixir' => array(
+		'id'          => '103',
+		'title'       => 'Cellular Shield Botanical Elixir',
+		'category'    => 'THE RITUAL / FACE OIL',
+		'subtitle'    => 'Cold-Pressed Bakuchiol & Rosehip Antioxidant Shield',
+		'price'       => '84.00',
+		'volume'      => '30 ml / 1.0 fl. oz.',
+		'image'       => $theme_uri . '/assets/images/hero-slide-3.png',
+		'alt_image'   => $theme_uri . '/assets/images/promise-model.webp',
+		'badge'       => 'Cult Favorite',
+		'description' => 'A golden, antioxidant-rich botanical nectar that protects against pollution, free radicals, and blue light while promoting youthful skin renewal.',
+		'benefits'    => array(
+			'Gentle plant-derived alternative to retinol',
+			'Infused with 14 active organic cold-pressed botanicals',
+			'Protects against oxidative stress and environmental pollution',
+			'Fast-absorbing golden glow without silicone or pore clogging',
+		),
+		'actives'     => array(
+			array(
+				'title' => '1% Pure Bakuchiol',
+				'desc'  => 'Clinically proven botanical retinol alternative that smooths fine lines without peeling.',
+			),
+			array(
+				'title' => 'Wild Rosehip Seed',
+				'desc'  => 'Naturally rich in pro-vitamin A and omegas 3, 6, and 9 to enhance cellular radiance.',
+			),
+			array(
+				'title' => 'CoQ10 & Astaxanthin',
+				'desc'  => 'Supercharged antioxidant complex 6,000x stronger than Vitamin C at neutralizing free radicals.',
+			),
+		),
+		'quotes'      => array(
+			array(
+				'text'   => 'The most luxurious face oil on the market — feels like pure silk on the skin.',
+				'author' => 'Allure Best of Beauty',
+			),
+			array(
+				'text'   => 'Gives that enviable glass-skin lit-from-within finish instantly.',
+				'author' => 'Marie Claire UK',
+			),
+		),
+	),
 	'barrier-repair-ceramide-cream' => array(
 		'id'          => '104',
 		'title'       => 'Barrier Repair Ceramide Cream',
@@ -65,7 +191,7 @@ $products_db = array(
 		'price'       => '78.00',
 		'volume'      => '50 ml / 1.7 fl. oz.',
 		'image'       => $theme_uri . '/assets/images/hero-slide-2.png',
-		'alt_image'   => $theme_uri . '/assets/images/promise-model.webp',
+		'alt_image'   => $theme_uri . '/assets/images/ritual-banner.webp',
 		'badge'       => 'Clinical Defense',
 		'description' => 'A velvety, deeply nourishing moisturizer that repairs compromised skin barriers and shields against environmental stressors with 5 bio-identical ceramides.',
 		'benefits'    => array(
@@ -99,45 +225,45 @@ $products_db = array(
 			),
 		),
 	),
-	'cellular-shield-botanical-elixir' => array(
-		'id'          => '103',
-		'title'       => 'Cellular Shield Botanical Elixir',
-		'category'    => 'THE RITUAL / FACE OIL',
-		'subtitle'    => 'Cold-Pressed Bakuchiol & Rosehip Antioxidant Shield',
-		'price'       => '84.00',
-		'volume'      => '30 ml / 1.0 fl. oz.',
-		'image'       => $theme_uri . '/assets/images/hero-slide-3.png',
-		'alt_image'   => $theme_uri . '/assets/images/ritual-banner.webp',
-		'badge'       => 'Cult Favorite',
-		'description' => 'A golden, antioxidant-rich botanical nectar that protects against pollution, free radicals, and blue light while promoting youthful skin renewal.',
+	'silk-petal-brightening-essence' => array(
+		'id'          => '105',
+		'title'       => 'Silk Petal Brightening Essence',
+		'category'    => 'THE RITUAL / TONER & MIST',
+		'subtitle'    => 'Damask Rose Hydrosol & 5% Niacinamide',
+		'price'       => '52.00',
+		'volume'      => '150 ml / 5.1 fl. oz.',
+		'image'       => $theme_uri . '/assets/images/hero-slide-1.png',
+		'alt_image'   => $theme_uri . '/assets/images/promise-model.webp',
+		'badge'       => 'New Release',
+		'description' => 'A multi-corrective botanical essence combining pure micro-distilled Damask Rose hydrosol with 5% clinical Niacinamide to clarify pores, fade post-blemish discoloration, and impart glass-skin luminosity.',
 		'benefits'    => array(
-			'Gentle plant-derived alternative to retinol',
-			'Infused with 14 active organic cold-pressed botanicals',
-			'Protects against oxidative stress and environmental pollution',
-			'Fast-absorbing golden glow without silicone or pore clogging',
+			'Enhances natural radiance and refines skin texture',
+			'Fades dark spots and balances uneven pigmentation',
+			'Tightens enlarged pores and regulates sebum production',
+			'Prepares skin for maximum active serum absorption',
 		),
 		'actives'     => array(
 			array(
-				'title' => '1% Pure Bakuchiol',
-				'desc'  => 'Clinically proven botanical retinol alternative that smooths fine lines without peeling.',
+				'title' => '5% Pure Niacinamide',
+				'desc'  => 'Clinical concentration for pore clarity, tone evening, and cellular radiance.',
 			),
 			array(
-				'title' => 'Wild Rosehip Seed',
-				'desc'  => 'Naturally rich in pro-vitamin A and omegas 3, 6, and 9 to enhance cellular radiance.',
+				'title' => 'Damask Rose Hydrosol',
+				'desc'  => 'Micro-distilled floral water that floods skin cells with balancing hydration.',
 			),
 			array(
-				'title' => 'CoQ10 & Astaxanthin',
-				'desc'  => 'Supercharged antioxidant complex 6,000x stronger than Vitamin C at neutralizing free radicals.',
+				'title' => 'Centella Asiatica',
+				'desc'  => 'Botanical Tiger Grass that reinforces skin resilience against daily stress.',
 			),
 		),
 		'quotes'      => array(
 			array(
-				'text'   => 'The most luxurious face oil on the market — feels like pure silk on the skin.',
-				'author' => 'Allure Best of Beauty',
+				'text'   => 'Gives you that coveted radiant lit-from-within glow within 14 days.',
+				'author' => 'ELLE Magazine',
 			),
 			array(
-				'text'   => 'Gives that enviable glass-skin lit-from-within finish instantly.',
-				'author' => 'Marie Claire UK',
+				'text'   => 'The perfect pre-serum hydrating step for dewy, balanced skin.',
+				'author' => 'VOGUE Beauty',
 			),
 		),
 	),

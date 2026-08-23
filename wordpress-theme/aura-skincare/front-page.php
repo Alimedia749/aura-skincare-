@@ -13,10 +13,7 @@ get_header();
 	<!-- 1. Split Editorial Hero Showcase -->
 	<?php get_template_part( 'template-parts/hero/editorial-hero' ); ?>
 
-	<!-- 2. Category Navigation Pills -->
-	<?php get_template_part( 'template-parts/sections/category-pills' ); ?>
-
-	<!-- 3. Section 1: Bestsellers You'll Love Grid -->
+	<!-- 2. Section 1: Bestsellers You'll Love Grid -->
 	<?php get_template_part( 'template-parts/sections/bestsellers-grid' ); ?>
 
 	<!-- 4. Section 2: New Arrivals You'll Love Grid -->

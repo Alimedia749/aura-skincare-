@@ -345,3 +345,131 @@ function aura_get_category_pills() {
 		array( 'slug' => 'botanical-oils', 'name' => 'Botanical Oils', 'count' => 6, 'icon' => 'oil.svg', 'desc' => 'Cold-pressed elixirs' ),
 	);
 }
+
+/**
+ * Render a 6-column category product showcase section.
+ *
+ * @param string       $title          Section header title (e.g. "CLEANSERS YOU'LL LOVE").
+ * @param string|array $category_slugs Category slug(s) to pull products from.
+ * @param string       $section_id     HTML ID attribute.
+ * @param string       $bg_color       Background color CSS.
+ */
+function aura_render_category_showcase_section( $title, $category_slugs, $section_id = '', $bg_color = '#ffffff' ) {
+	$all_products = aura_get_mock_products( 50 );
+	$slugs_array  = (array) $category_slugs;
+
+	// Filter products matching category slugs
+	$filtered = array_filter( $all_products, function( $p ) use ( $slugs_array ) {
+		if ( empty( $p['category_slug'] ) && empty( $p['category'] ) ) {
+			return false;
+		}
+		foreach ( $slugs_array as $slug ) {
+			if ( ! empty( $p['category_slug'] ) && stripos( $p['category_slug'], $slug ) !== false ) {
+				return true;
+			}
+			if ( ! empty( $p['category'] ) && stripos( $p['category'], $slug ) !== false ) {
+				return true;
+			}
+		}
+		return false;
+	} );
+
+	// Ensure at least 6 products for a rich 6-column showcase
+	if ( count( $filtered ) < 6 ) {
+		foreach ( $all_products as $p ) {
+			if ( count( $filtered ) >= 6 ) {
+				break;
+			}
+			if ( ! in_array( $p, $filtered, true ) ) {
+				$filtered[] = $p;
+			}
+		}
+	} else {
+		$filtered = array_slice( $filtered, 0, 6 );
+	}
+
+	$section_id_attr = ! empty( $section_id ) ? 'id="' . esc_attr( $section_id ) . '"' : '';
+	?>
+	<section <?php echo $section_id_attr; ?> class="category-showcase-section" style="padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: <?php echo esc_attr( $bg_color ); ?>; border-top: 1px solid #EBE7DF;" aria-label="<?php echo esc_attr( $title ); ?>">
+		<div class="aura-container-wide">
+			
+			<!-- Section Header Title -->
+			<div class="section-header" style="text-align: center; margin-bottom: 2.5rem;">
+				<h2 class="showcase-section-title"><?php echo esc_html( $title ); ?></h2>
+			</div>
+
+			<!-- 6-Column Product Grid -->
+			<div class="bestsellers-grid">
+				<?php foreach ( $filtered as $product ) : 
+					$reg_price = isset( $product['regular_price'] ) && (float) $product['regular_price'] > 0 ? (float) $product['regular_price'] : round( $product['price'] * 1.35 );
+					$has_sale  = ( $reg_price > $product['price'] );
+				?>
+					<article 
+						class="aura-product-card" 
+						data-product-id="<?php echo esc_attr( $product['id'] ); ?>"
+						style="background: #ffffff; border: 1px solid #EBE7DF; border-radius: 8px; overflow: hidden; padding-bottom: 0.85rem;"
+					>
+						<!-- Product Image Frame -->
+						<div class="product-thumbnail-box" style="position: relative; aspect-ratio: 1/1; background: #F8F6F2; border-bottom: 1px solid #EBE7DF; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+							
+							<a href="<?php echo esc_url( $product['link'] ); ?>" class="product-card-img-link" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+								<img 
+									src="<?php echo esc_url( $product['image'] ); ?>" 
+									alt="<?php echo esc_attr( $product['title'] ); ?>" 
+									class="product-card-img primary-img"
+									loading="lazy"
+									style="max-height: 82%; width: auto; object-fit: contain; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.1)); margin: auto;"
+								>
+								<img 
+									src="<?php echo esc_url( $product['alt_image'] ); ?>" 
+									alt="<?php echo esc_attr( $product['title'] ); ?>" 
+									class="product-card-img alt-img"
+									loading="lazy"
+									style="max-height: 82%; width: auto; object-fit: contain; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.1)); margin: auto;"
+								>
+							</a>
+
+							<!-- Quick Add (+) Button -->
+							<button 
+								type="button" 
+								class="quick-add-btn" 
+								onclick="event.stopPropagation();"
+								data-add-to-cart="<?php echo esc_attr( $product['id'] ); ?>"
+								data-product-title="<?php echo esc_attr( $product['title'] ); ?>"
+								data-product-price="<?php echo esc_attr( $product['price'] ); ?>"
+								data-product-img="<?php echo esc_url( $product['image'] ); ?>"
+								data-product-vol="<?php echo esc_attr( $product['volume'] ); ?>"
+								aria-label="<?php printf( esc_attr__( 'Add %s to ritual bag', 'aura-skincare' ), esc_attr( $product['title'] ) ); ?>"
+								style="width: 32px; height: 32px; bottom: 8px; right: 8px;"
+							>
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+									<line x1="12" y1="5" x2="12" y2="19"></line>
+									<line x1="5" y1="12" x2="19" y2="12"></line>
+								</svg>
+							</button>
+						</div>
+
+						<!-- Centered Title & Price -->
+						<div class="product-card-details" style="padding: 0.85rem 0.65rem 0.2rem 0.65rem; text-align: center;">
+							<h3 class="card-title-centered">
+								<a href="<?php echo esc_url( $product['link'] ); ?>">
+									<?php echo esc_html( $product['title'] ); ?>
+								</a>
+							</h3>
+
+							<div class="card-price-centered">
+								<?php if ( $has_sale ) : ?>
+									<span class="price-strikethrough-red">$<?php echo esc_html( number_format( $reg_price, 2 ) ); ?></span>
+								<?php endif; ?>
+								<span class="price-active-bold">$<?php echo esc_html( number_format( $product['price'], 2 ) ); ?></span>
+							</div>
+						</div>
+
+					</article>
+				<?php endforeach; ?>
+			</div>
+
+		</div>
+	</section>
+	<?php
+}

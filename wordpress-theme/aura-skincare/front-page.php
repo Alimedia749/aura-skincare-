@@ -13,14 +13,20 @@ get_header();
 	<!-- 1. Split Editorial Hero Showcase -->
 	<?php get_template_part( 'template-parts/hero/editorial-hero' ); ?>
 
-	<!-- 2. Section 1: Bestsellers You'll Love Grid -->
-	<?php get_template_part( 'template-parts/sections/bestsellers-grid' ); ?>
+	<!-- 2. Category Section 1: Cleansers -->
+	<?php aura_render_category_showcase_section( "CLEANSERS YOU'LL LOVE", array( 'cleansers' ), 'cleansers-showcase', '#ffffff' ); ?>
 
-	<!-- 4. Section 2: New Arrivals You'll Love Grid -->
-	<?php get_template_part( 'template-parts/sections/new-arrivals-grid' ); ?>
+	<!-- 3. Category Section 2: Serums & Oils -->
+	<?php aura_render_category_showcase_section( "SERUMS & OILS YOU'LL LOVE", array( 'serums', 'botanical-oils' ), 'serums-showcase', '#FAF7F2' ); ?>
 
-	<!-- 5. Section 3: Ritual Sets & Kits You'll Love Grid -->
-	<?php get_template_part( 'template-parts/sections/ritual-kits-grid' ); ?>
+	<!-- 4. Category Section 3: Moisturizers -->
+	<?php aura_render_category_showcase_section( "MOISTURIZERS YOU'LL LOVE", array( 'moisturizers' ), 'moisturizers-showcase', '#ffffff' ); ?>
+
+	<!-- 5. Category Section 4: Eye Care & Toners -->
+	<?php aura_render_category_showcase_section( "EYE CARE & TONERS YOU'LL LOVE", array( 'eye-care', 'toners-mists', 'sun-protection' ), 'eyecare-showcase', '#FAF7F2' ); ?>
+
+	<!-- 6. Category Section 5: Ritual Sets & Kits -->
+	<?php aura_render_category_showcase_section( "RITUAL SETS & KITS YOU'LL LOVE", array( 'sets-kits' ), 'sets-showcase', '#ffffff' ); ?>
 
 	<!-- 6. The Ritual & Clean Promise Story Banners -->
 	<?php get_template_part( 'template-parts/sections/editorial-banners' ); ?>

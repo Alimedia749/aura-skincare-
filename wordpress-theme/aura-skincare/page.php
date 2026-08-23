@@ -22,8 +22,38 @@ if ( 'checkout' === $page_slug || is_page( 'checkout' ) ) {
 	return;
 }
 
-if ( 'product-detail' === $page_slug || is_page( 'product-detail' ) ) {
-	require get_template_directory() . '/page-templates/template-product-detail.php';
+if ( 'faq' === $page_slug || is_page( 'faq' ) ) {
+	require get_template_directory() . '/page-templates/template-faq.php';
+	return;
+}
+
+if ( 'shipping-returns' === $page_slug || is_page( 'shipping-returns' ) ) {
+	require get_template_directory() . '/page-templates/template-shipping.php';
+	return;
+}
+
+if ( 'track-order' === $page_slug || is_page( 'track-order' ) || 'track' === $page_slug ) {
+	require get_template_directory() . '/page-templates/template-track.php';
+	return;
+}
+
+if ( 'privacy-policy' === $page_slug || is_page( 'privacy-policy' ) ) {
+	require get_template_directory() . '/page-templates/template-privacy.php';
+	return;
+}
+
+if ( 'terms' === $page_slug || is_page( 'terms' ) ) {
+	require get_template_directory() . '/page-templates/template-terms.php';
+	return;
+}
+
+if ( 'careers' === $page_slug || is_page( 'careers' ) ) {
+	require get_template_directory() . '/page-templates/template-careers.php';
+	return;
+}
+
+if ( 'gift-cards' === $page_slug || is_page( 'gift-cards' ) ) {
+	require get_template_directory() . '/page-templates/template-giftcards.php';
 	return;
 }
 

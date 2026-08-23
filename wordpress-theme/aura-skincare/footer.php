@@ -202,118 +202,61 @@ $copyright   = get_theme_mod( 'aura_footer_copyright', 'AURA Skincare. All right
 					<!-- Column 2: Shop Menu -->
 					<div>
 						<div class="footer-col-title"><?php esc_html_e( 'SHOP', 'aura-skincare' ); ?></div>
-						<?php
-						if ( has_nav_menu( 'footer_shop' ) ) {
-							wp_nav_menu(
-								array(
-									'theme_location' => 'footer_shop',
-									'menu_class'     => 'footer-links-list',
-									'container'      => false,
-									'depth'          => 1,
-								)
-							);
-						} else {
-							?>
-							<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem;">
-								<li><a href="<?php echo esc_url( home_url( '/#bestsellers' ) ); ?>"><?php esc_html_e( 'All Products', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#bestsellers' ) ); ?>"><?php esc_html_e( 'Bestsellers', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'New Arrivals', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Sets & Kits', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#newsletter' ) ); ?>"><?php esc_html_e( 'Gift Cards', 'aura-skincare' ); ?></a></li>
-							</ul>
-							<?php
-						}
-						?>
+						<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem; margin:0; padding:0;">
+							<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'All Products', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/#bestsellers' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Bestsellers', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'New Arrivals', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Sets & Kits', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/gift-cards/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Gift Cards', 'aura-skincare' ); ?></a></li>
+						</ul>
 					</div>
 
 					<!-- Column 3: Collections Menu -->
 					<div>
 						<div class="footer-col-title"><?php esc_html_e( 'COLLECTIONS', 'aura-skincare' ); ?></div>
-						<?php
-						if ( has_nav_menu( 'footer_collections' ) ) {
-							wp_nav_menu(
-								array(
-									'theme_location' => 'footer_collections',
-									'menu_class'     => 'footer-links-list',
-									'container'      => false,
-									'depth'          => 1,
-								)
-							);
-						} else {
-							?>
-							<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem;">
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Hydration', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Brightening', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Anti-Aging', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Sensitive Skin', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#promise' ) ); ?>"><?php esc_html_e( 'Clean Skin', 'aura-skincare' ); ?></a></li>
-							</ul>
-							<?php
-						}
-						?>
+						<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem; margin:0; padding:0;">
+							<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Hydration', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Brightening', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Anti-Aging', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Sensitive Skin', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/#promise' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Clean Standard', 'aura-skincare' ); ?></a></li>
+						</ul>
 					</div>
 
 					<!-- Column 4: About Menu -->
 					<div>
 						<div class="footer-col-title"><?php esc_html_e( 'ABOUT', 'aura-skincare' ); ?></div>
-						<?php
-						if ( has_nav_menu( 'footer_about' ) ) {
-							wp_nav_menu(
-								array(
-									'theme_location' => 'footer_about',
-									'menu_class'     => 'footer-links-list',
-									'container'      => false,
-									'depth'          => 1,
-								)
-							);
-						} else {
-							?>
-							<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem;">
-								<li><a href="<?php echo esc_url( home_url( '/#ritual' ) ); ?>"><?php esc_html_e( 'Our Story', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#promise' ) ); ?>"><?php esc_html_e( 'Ingredients', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#promise' ) ); ?>"><?php esc_html_e( 'Sustainability', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#press' ) ); ?>"><?php esc_html_e( 'Press', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>"><?php esc_html_e( 'Careers', 'aura-skincare' ); ?></a></li>
-							</ul>
-							<?php
-						}
-						?>
+						<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem; margin:0; padding:0;">
+							<li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Our Story', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Ingredients & Science', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Sustainability', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/#press' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Press & Editorial', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/careers/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Careers', 'aura-skincare' ); ?></a></li>
+						</ul>
 					</div>
 
 					<!-- Column 5: Help Menu -->
 					<div>
 						<div class="footer-col-title"><?php esc_html_e( 'HELP', 'aura-skincare' ); ?></div>
-						<?php
-						if ( has_nav_menu( 'footer_help' ) ) {
-							wp_nav_menu(
-								array(
-									'theme_location' => 'footer_help',
-									'menu_class'     => 'footer-links-list',
-									'container'      => false,
-									'depth'          => 1,
-								)
-							);
-						} else {
-							?>
-							<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem;">
-								<li><a href="<?php echo esc_url( home_url( '/#faq' ) ); ?>"><?php esc_html_e( 'FAQ', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#shipping' ) ); ?>"><?php esc_html_e( 'Shipping & Returns', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#track' ) ); ?>"><?php esc_html_e( 'Track Order', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>"><?php esc_html_e( 'Contact Us', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>"><?php esc_html_e( 'Privacy Policy', 'aura-skincare' ); ?></a></li>
-							</ul>
-							<?php
-						}
-						?>
+						<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem; margin:0; padding:0;">
+							<li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'FAQ', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/shipping-returns/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Shipping & Returns', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/track-order/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Track Order', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Contact Us', 'aura-skincare' ); ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;"><?php esc_html_e( 'Privacy Policy', 'aura-skincare' ); ?></a></li>
+						</ul>
 					</div>
 
-					<!-- Column 6: Concierge Support -->
+					<!-- Column 6: Concierge & Contact Details -->
 					<div>
-						<div class="footer-col-title"><?php esc_html_e( 'CONCIERGE', 'aura-skincare' ); ?></div>
-						<p style="font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.5; margin-bottom:1rem;">
-							<?php esc_html_e( 'Need advice matching formulas to your skin type?', 'aura-skincare' ); ?>
-						</p>
-						<a href="mailto:<?php echo esc_attr( $email ); ?>" class="aura-btn aura-btn-gold aura-btn-sm" style="width:100%; justify-content:center;">
+						<div class="footer-col-title"><?php esc_html_e( 'CONCIERGE & CONTACT', 'aura-skincare' ); ?></div>
+						<div style="font-size:0.85rem; color:rgba(255,255,255,0.7); line-height:1.6; margin-bottom:1.25rem; display:flex; flex-direction:column; gap:0.5rem;">
+							<div><strong style="color:var(--color-gold);"><?php esc_html_e( 'Call:', 'aura-skincare' ); ?></strong> <a href="tel:+18002872754" style="color:inherit; text-decoration:none;">+1 (800) 287-2754</a></div>
+							<div><strong style="color:var(--color-gold);"><?php esc_html_e( 'Email:', 'aura-skincare' ); ?></strong> <a href="mailto:<?php echo esc_attr( $email ); ?>" style="color:inherit; text-decoration:none;"><?php echo esc_html( $email ); ?></a></div>
+							<div><strong style="color:var(--color-gold);"><?php esc_html_e( 'Hours:', 'aura-skincare' ); ?></strong> Mon-Sat 9AM – 8PM EST</div>
+							<div><strong style="color:var(--color-gold);"><?php esc_html_e( 'Studio:', 'aura-skincare' ); ?></strong> SoHo, New York, NY</div>
+						</div>
+						<a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="aura-btn aura-btn-gold aura-btn-sm" style="width:100%; justify-content:center;">
 							<span><?php esc_html_e( 'Consult Skin Expert', 'aura-skincare' ); ?></span>
 						</a>
 					</div>
@@ -327,23 +270,9 @@ $copyright   = get_theme_mod( 'aura_footer_copyright', 'AURA Skincare. All right
 			<div class="aura-container-wide" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
 				<div>© <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( $copyright ); ?></div>
 				<div style="display: flex; gap: 1.5rem;">
-					<?php
-					if ( has_nav_menu( 'footer_legal' ) ) {
-						wp_nav_menu(
-							array(
-								'theme_location' => 'footer_legal',
-								'container'      => false,
-								'depth'          => 1,
-							)
-						);
-					} else {
-						?>
-						<a href="<?php echo esc_url( home_url( '/#terms' ) ); ?>" style="color: inherit;">Terms of Service</a>
-						<a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" style="color: inherit;">Privacy Policy</a>
-						<a href="<?php echo esc_url( home_url( '/#cookies' ) ); ?>" style="color: inherit;">Cookie Settings</a>
-						<?php
-					}
-					?>
+					<a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>" style="color: inherit; text-decoration: none;">Terms of Service</a>
+					<a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" style="color: inherit; text-decoration: none;">Privacy Policy</a>
+					<a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>" style="color: inherit; text-decoration: none;">Help & FAQ</a>
 				</div>
 			</div>
 		</div>

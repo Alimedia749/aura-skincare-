@@ -57,15 +57,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=woocommerce-inline-inline-css */
 </style>
 <link rel='stylesheet' id='aura-google-fonts-css' href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&#038;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&#038;display=swap' media='all' />
-<link rel='stylesheet' id='aura-core-styles-css' href='assets/css/core.css?ver=1.1.5' media='all' />
-<link rel='stylesheet' id='aura-hero-banner-css' href='assets/css/hero-banner.css?ver=1.1.5' media='all' />
-<link rel='stylesheet' id='aura-product-grid-css' href='assets/css/product-grid.css?ver=1.1.5' media='all' />
-<link rel='stylesheet' id='aura-cart-drawer-css' href='assets/css/cart-drawer.css?ver=1.1.5' media='all' />
-<link rel='stylesheet' id='aura-product-detail-css' href='assets/css/product-detail.css?ver=1.1.5' media='all' />
-<link rel='stylesheet' id='aura-checkout-css' href='assets/css/checkout.css?ver=1.1.5' media='all' />
-<link rel='stylesheet' id='aura-shop-css' href='assets/css/shop.css?ver=1.1.5' media='all' />
-<link rel='stylesheet' id='aura-about-css' href='assets/css/about.css?ver=1.1.5' media='all' />
-<link rel='stylesheet' id='aura-main-style-css' href='index.htmlwp-content/themes/aura-skincare/style.css?ver=1.1.5' media='all' />
+<link rel='stylesheet' id='aura-core-styles-css' href='assets/css/core.css?ver=1.1.6' media='all' />
+<link rel='stylesheet' id='aura-hero-banner-css' href='assets/css/hero-banner.css?ver=1.1.6' media='all' />
+<link rel='stylesheet' id='aura-product-grid-css' href='assets/css/product-grid.css?ver=1.1.6' media='all' />
+<link rel='stylesheet' id='aura-cart-drawer-css' href='assets/css/cart-drawer.css?ver=1.1.6' media='all' />
+<link rel='stylesheet' id='aura-product-detail-css' href='assets/css/product-detail.css?ver=1.1.6' media='all' />
+<link rel='stylesheet' id='aura-checkout-css' href='assets/css/checkout.css?ver=1.1.6' media='all' />
+<link rel='stylesheet' id='aura-shop-css' href='assets/css/shop.css?ver=1.1.6' media='all' />
+<link rel='stylesheet' id='aura-about-css' href='assets/css/about.css?ver=1.1.6' media='all' />
+<link rel='stylesheet' id='aura-main-style-css' href='index.htmlwp-content/themes/aura-skincare/style.css?ver=1.1.6' media='all' />
 <script id="jquery-core-js" src="index.htmlwp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
 <script id="jquery-migrate-js" src="index.htmlwp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
 <script data-wp-strategy="defer" defer id="wc-jquery-blockui-js" src="index.htmlwp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.11.0.1"></script>
@@ -1322,49 +1322,61 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 					<!-- Column 2: Shop Menu -->
 					<div>
 						<div class="footer-col-title">SHOP</div>
-						<ul id="menu-footer-shop" class="footer-links-list"><li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-34"><a href="index.html#bestsellers" aria-current="page">All Products</a></li>
-<li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-35"><a href="index.html#bestsellers" aria-current="page">Bestsellers</a></li>
-<li id="menu-item-36" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-36"><a href="index.html#categories" aria-current="page">New Arrivals</a></li>
-<li id="menu-item-37" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-37"><a href="index.html#categories" aria-current="page">Sets &amp; Kits</a></li>
-<li id="menu-item-38" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-38"><a href="index.html#newsletter" aria-current="page">Gift Cards</a></li>
-</ul>					</div>
+						<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem; margin:0; padding:0;">
+							<li><a href="shop.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">All Products</a></li>
+							<li><a href="index.html#bestsellers" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Bestsellers</a></li>
+							<li><a href="shop.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">New Arrivals</a></li>
+							<li><a href="shop.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Sets &amp; Kits</a></li>
+							<li><a href="gift-cards.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Gift Cards</a></li>
+						</ul>
+					</div>
 
 					<!-- Column 3: Collections Menu -->
 					<div>
 						<div class="footer-col-title">COLLECTIONS</div>
-						<ul id="menu-footer-collections" class="footer-links-list"><li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-39"><a href="index.html#categories" aria-current="page">Hydration</a></li>
-<li id="menu-item-40" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-40"><a href="index.html#categories" aria-current="page">Brightening</a></li>
-<li id="menu-item-41" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-41"><a href="index.html#categories" aria-current="page">Anti-Aging</a></li>
-<li id="menu-item-42" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-42"><a href="index.html#categories" aria-current="page">Sensitive Skin</a></li>
-<li id="menu-item-43" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-43"><a href="index.html#promise" aria-current="page">Clean Skin</a></li>
-</ul>					</div>
+						<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem; margin:0; padding:0;">
+							<li><a href="shop.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Hydration</a></li>
+							<li><a href="shop.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Brightening</a></li>
+							<li><a href="shop.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Anti-Aging</a></li>
+							<li><a href="shop.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Sensitive Skin</a></li>
+							<li><a href="index.html#promise" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Clean Standard</a></li>
+						</ul>
+					</div>
 
 					<!-- Column 4: About Menu -->
 					<div>
 						<div class="footer-col-title">ABOUT</div>
-						<ul id="menu-footer-about" class="footer-links-list"><li id="menu-item-44" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-44"><a href="index.html#ritual" aria-current="page">Our Story</a></li>
-<li id="menu-item-45" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-45"><a href="index.html#promise" aria-current="page">Ingredients</a></li>
-<li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-46"><a href="index.html#promise" aria-current="page">Sustainability</a></li>
-<li id="menu-item-47" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-47"><a href="index.html#press" aria-current="page">Press</a></li>
-<li id="menu-item-48" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-48"><a href="index.html#contact" aria-current="page">Careers</a></li>
-</ul>					</div>
+						<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem; margin:0; padding:0;">
+							<li><a href="about-us.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Our Story</a></li>
+							<li><a href="about-us.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Ingredients &amp; Science</a></li>
+							<li><a href="about-us.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Sustainability</a></li>
+							<li><a href="index.html#press" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Press &amp; Editorial</a></li>
+							<li><a href="careers.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Careers</a></li>
+						</ul>
+					</div>
 
 					<!-- Column 5: Help Menu -->
 					<div>
 						<div class="footer-col-title">HELP</div>
-						<ul id="menu-footer-help" class="footer-links-list"><li id="menu-item-49" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-49"><a href="index.html#faq" aria-current="page">FAQ</a></li>
-<li id="menu-item-50" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-50"><a href="index.html#shipping" aria-current="page">Shipping &amp; Returns</a></li>
-<li id="menu-item-51" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-51"><a href="index.html#track" aria-current="page">Track Order</a></li>
-<li id="menu-item-52" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-52"><a href="index.html#contact" aria-current="page">Contact Us</a></li>
-<li id="menu-item-53" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53"><a href="index.htmlprivacy-policy/">Privacy Policy</a></li>
-</ul>					</div>
+						<ul style="list-style:none; display:flex; flex-direction:column; gap:0.65rem; font-size:0.88rem; margin:0; padding:0;">
+							<li><a href="faq.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">FAQ</a></li>
+							<li><a href="shipping-returns.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Shipping &amp; Returns</a></li>
+							<li><a href="track-order.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Track Order</a></li>
+							<li><a href="index.html#contact" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Contact Us</a></li>
+							<li><a href="privacy-policy.html" style="color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s;">Privacy Policy</a></li>
+						</ul>
+					</div>
 
-					<!-- Column 6: Concierge Support -->
+					<!-- Column 6: Concierge & Contact Details -->
 					<div>
-						<div class="footer-col-title">CONCIERGE</div>
-						<p style="font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.5; margin-bottom:1rem;">
-							Need advice matching formulas to your skin type?						</p>
-						<a href="mailto:concierge@aura-skincare.local" class="aura-btn aura-btn-gold aura-btn-sm" style="width:100%; justify-content:center;">
+						<div class="footer-col-title">CONCIERGE &amp; CONTACT</div>
+						<div style="font-size:0.85rem; color:rgba(255,255,255,0.7); line-height:1.6; margin-bottom:1.25rem; display:flex; flex-direction:column; gap:0.5rem;">
+							<div><strong style="color:var(--color-gold);">Call:</strong> <a href="tel:+18002872754" style="color:inherit; text-decoration:none;">+1 (800) 287-2754</a></div>
+							<div><strong style="color:var(--color-gold);">Email:</strong> <a href="mailto:concierge@aura-skincare.local" style="color:inherit; text-decoration:none;">concierge@aura-skincare.local</a></div>
+							<div><strong style="color:var(--color-gold);">Hours:</strong> Mon-Sat 9AM – 8PM EST</div>
+							<div><strong style="color:var(--color-gold);">Studio:</strong> SoHo, New York, NY</div>
+						</div>
+						<a href="index.html#contact" class="aura-btn aura-btn-gold aura-btn-sm" style="width:100%; justify-content:center;">
 							<span>Consult Skin Expert</span>
 						</a>
 					</div>
@@ -1378,10 +1390,10 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 			<div class="aura-container-wide" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
 				<div>© 2026 AURA Skincare. All rights reserved.</div>
 				<div style="display: flex; gap: 1.5rem;">
-					<ul id="menu-footer-legal" class="menu"><li id="menu-item-54" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-54"><a href="index.html#terms" aria-current="page">Terms of Service</a></li>
-<li id="menu-item-55" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-55"><a href="index.htmlprivacy-policy/">Privacy Policy</a></li>
-<li id="menu-item-56" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-56"><a href="index.html#cookies" aria-current="page">Cookie Settings</a></li>
-</ul>				</div>
+					<a href="terms.html" style="color: inherit; text-decoration: none;">Terms of Service</a>
+					<a href="privacy-policy.html" style="color: inherit; text-decoration: none;">Privacy Policy</a>
+					<a href="faq.html" style="color: inherit; text-decoration: none;">Help & FAQ</a>
+				</div>
 			</div>
 		</div>
 
@@ -1526,12 +1538,12 @@ var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/
 var auraSiteData = {"siteUrl":"index.html","themeUri":"index.htmlwp-content/themes/aura-skincare","isHome":"1"};
 //# sourceURL=aura-main-js-js-extra
 </script>
-<script id="aura-main-js-js" src="assets/js/main.js?ver=1.1.5"></script>
+<script id="aura-main-js-js" src="assets/js/main.js?ver=1.1.6"></script>
 <script id="aura-ajax-cart-js-extra">
 var auraCartParams = {"ajaxUrl":"index.htmlwp-admin/admin-ajax.php","nonce":"c10ad5ca82","wc_ajax_url":"/?wc-ajax=%%endpoint%%","cartUrl":"index.htmlcart/","checkoutUrl":"index.htmlcheckout-2/","freeShippingThreshold":"75","currencySymbol":"$","cartCount":"0","subtotal":"\u003Cspan class=\"woocommerce-Price-amount amount\"\u003E\u003Cbdi\u003E\u003Cspan class=\"woocommerce-Price-currencySymbol\" translate=\"no\"\u003E$\u003C/span\u003E0.00\u003C/bdi\u003E\u003C/span\u003E","rawSubtotal":"0","strings":{"added":"Added to Bag","adding":"Adding...","error":"Could not update bag","freeShippingGoal":"Free shipping unlocked!","freeShippingAway":"away from free express shipping"}};
 //# sourceURL=aura-ajax-cart-js-extra
 </script>
-<script id="aura-ajax-cart-js" src="assets/js/ajax-cart.js?ver=1.1.5"></script>
+<script id="aura-ajax-cart-js" src="assets/js/ajax-cart.js?ver=1.1.6"></script>
 <script id="sourcebuster-js-js" src="index.htmlwp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=11.0.1"></script>
 <script id="wc-order-attribution-js-extra">
 var wc_order_attribution = {"params":{"lifetime":1.0000000000000001e-5,"session":30,"base64":false,"ajaxurl":"index.htmlwp-admin/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};

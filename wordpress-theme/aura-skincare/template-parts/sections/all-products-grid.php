@@ -1,6 +1,6 @@
 ﻿<?php
 /**
- * 6-Column Ritual Sets & Kits Showcase Grid Template Part
+ * 6-Column All Products / All Formulas Showcase Grid Template Part
  *
  * @package Aura_Skincare
  */
@@ -10,27 +10,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $all_products = aura_get_mock_products();
-// Curated sets, kits and pairings
-$sets_products = array_filter( $all_products, function( $p ) {
-	return ( isset( $p['category_slug'] ) && ( $p['category_slug'] === 'sets-kits' || $p['category_slug'] === 'botanical-oils' || $p['category_slug'] === 'moisturizers' ) );
-} );
-
-if ( count( $sets_products ) < 6 ) {
-	$sets_products = array_slice( $all_products, 2, 6 );
-}
 ?>
 
-<section id="ritual-sets" class="ritual-sets-section" style="padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: #FAF7F2; border-top: 1px solid var(--color-border);" aria-label="<?php esc_attr_e( 'Ritual Sets & Kits You\'ll Love', 'aura-skincare' ); ?>">
+<section id="all-products" class="all-products-section" style="padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: #ffffff;" aria-label="<?php esc_attr_e( 'All Products', 'aura-skincare' ); ?>">
 	<div class="aura-container-wide">
 		
 		<!-- Section Header -->
 		<div class="section-header" style="text-align: center; margin-bottom: 2.5rem;">
-			<h2 class="showcase-section-title">RITUAL SETS & KITS YOU’LL LOVE</h2>
+			<h2 class="showcase-section-title">ALL PRODUCTS</h2>
 		</div>
 
 		<!-- 6-Column Product Grid -->
 		<div class="bestsellers-grid">
-			<?php foreach ( $sets_products as $product ) : 
+			<?php foreach ( $all_products as $product ) : 
 				$reg_price = isset( $product['regular_price'] ) ? (float) $product['regular_price'] : 0;
 				$has_sale  = ( $reg_price > $product['price'] );
 			?>

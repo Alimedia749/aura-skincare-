@@ -318,9 +318,9 @@ document.addEventListener('DOMContentLoaded', function() {
       var catNameEl = this.querySelector('.category-pill-name');
       var label = catNameEl ? catNameEl.textContent.trim() : targetCat;
 
-      var bestsellersEl = document.getElementById('bestsellers');
-      if (bestsellersEl) {
-        bestsellersEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      var targetEl = document.getElementById('all-products') || document.getElementById('bestsellers');
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
       applyProductFilter(targetCat, label);

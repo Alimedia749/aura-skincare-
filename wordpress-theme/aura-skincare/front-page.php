@@ -16,13 +16,16 @@ get_header();
 	<!-- 2. Category Navigation Pills -->
 	<?php get_template_part( 'template-parts/sections/category-pills' ); ?>
 
-	<!-- 3. 6-Column Bestsellers Showcase Grid -->
+	<!-- 3. Section 1: All Products Grid -->
+	<?php get_template_part( 'template-parts/sections/all-products-grid' ); ?>
+
+	<!-- 4. Section 2: Bestsellers You'll Love Grid -->
 	<?php get_template_part( 'template-parts/sections/bestsellers-grid' ); ?>
 
-	<!-- 4. 6-Column New Arrivals Showcase Grid -->
+	<!-- 5. Section 3: New Arrivals You'll Love Grid -->
 	<?php get_template_part( 'template-parts/sections/new-arrivals-grid' ); ?>
 
-	<!-- 5. 6-Column Ritual Sets & Kits Showcase Grid -->
+	<!-- 6. Section 4: Ritual Sets & Kits You'll Love Grid -->
 	<?php get_template_part( 'template-parts/sections/ritual-kits-grid' ); ?>
 
 	<!-- 6. The Ritual & Clean Promise Story Banners -->

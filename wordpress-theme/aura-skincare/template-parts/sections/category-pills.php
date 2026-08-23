@@ -18,7 +18,7 @@ $theme_uri  = get_template_directory_uri();
 		<div class="category-pills-container" role="tablist">
 			
 			<!-- All Rituals Pill -->
-			<a href="#bestsellers" class="category-pill-item active" data-category="all" role="tab" aria-selected="true">
+			<a href="#all-products" class="category-pill-item active" data-category="all" role="tab" aria-selected="true">
 				<svg class="category-pill-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6">
 					<circle cx="12" cy="12" r="9"/>
 					<path d="M12 3v18M3 12h18"/>
@@ -28,7 +28,7 @@ $theme_uri  = get_template_directory_uri();
 
 			<?php foreach ( $categories as $cat ) : ?>
 				<a 
-					href="#bestsellers" 
+					href="#all-products" 
 					class="category-pill-item" 
 					data-category="<?php echo esc_attr( $cat['slug'] ); ?>"
 					role="tab"

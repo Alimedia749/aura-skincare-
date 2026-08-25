@@ -102,9 +102,16 @@
 }
 
 .price-active-bold {
-  color: #1B365D !important;
+  color: #9c7a4b !important;
   font-weight: 800 !important;
   font-size: 1.05rem !important;
+}
+
+.shop-price-current,
+.product-card-price,
+.aura-card-price,
+.card-price-centered .price-active-bold {
+  color: #9c7a4b !important;
 }
 
 /* ==========================================================================

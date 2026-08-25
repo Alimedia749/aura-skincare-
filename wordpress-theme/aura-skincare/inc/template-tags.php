@@ -989,7 +989,7 @@ function aura_render_category_showcase_section( $title, $category_slugs, $sectio
 			</div>
 
 			<!-- Responsive 4-Column Product Grid -->
-			<div class="category-4col-grid">
+			<div class="category-4col-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.25rem, 2vw, 2rem); width: 100%;">
 				<?php foreach ( $products as $product ) : 
 					$reg_price = isset( $product['regular_price'] ) && (float) $product['regular_price'] > 0 ? (float) $product['regular_price'] : round( $product['price'] * 1.35 );
 					$has_sale  = ( $reg_price > $product['price'] );

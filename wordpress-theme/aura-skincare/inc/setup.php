@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Theme Setup, Support Declarations, Menus and Sidebars
  *
@@ -143,3 +143,37 @@ function aura_skincare_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'aura_skincare_content_width', 1280 );
 }
 add_action( 'after_setup_theme', 'aura_skincare_content_width', 0 );
+
+/**
+ * Ensure category navigation menu items have direct anchor links to dedicated sections.
+ */
+function aura_filter_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
+	$title = trim( wp_strip_all_tags( $item->title ) );
+	$title_lower = strtolower( html_entity_decode( $title ) );
+
+	$category_map = array(
+		'all categories'  => array( 'slug' => 'all',            'anchor' => 'cleansers-section' ),
+		'cleansers'       => array( 'slug' => 'cleansers',      'anchor' => 'cleansers-section' ),
+		'serums & oils'   => array( 'slug' => 'serums',         'anchor' => 'serums-section' ),
+		'serums and oils' => array( 'slug' => 'serums',         'anchor' => 'serums-section' ),
+		'serums'          => array( 'slug' => 'serums',         'anchor' => 'serums-section' ),
+		'moisturizers'    => array( 'slug' => 'moisturizers',   'anchor' => 'moisturizers-section' ),
+		'eye care'        => array( 'slug' => 'eye-care',       'anchor' => 'eyecare-section' ),
+		'toners & mists'  => array( 'slug' => 'toners-mists',   'anchor' => 'toners-section' ),
+		'toners and mists'=> array( 'slug' => 'toners-mists',   'anchor' => 'toners-section' ),
+		'toners'          => array( 'slug' => 'toners-mists',   'anchor' => 'toners-section' ),
+		'sun protection'  => array( 'slug' => 'sun-protection', 'anchor' => 'sunprotection-section' ),
+		'botanical oils'  => array( 'slug' => 'botanical-oils', 'anchor' => 'botanicaloils-section' ),
+	);
+
+	if ( isset( $category_map[ $title_lower ] ) ) {
+		$info = $category_map[ $title_lower ];
+		$atts['data-nav-category']  = $info['slug'];
+		$atts['data-category-name'] = $title;
+		$atts['data-target-anchor'] = $info['anchor'];
+		$atts['href']               = home_url( '/#' . $info['anchor'] );
+	}
+
+	return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'aura_filter_nav_menu_link_attributes', 10, 4 );

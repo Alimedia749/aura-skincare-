@@ -241,6 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var categoryPills = document.querySelectorAll('.category-pill-item');
   var homeTabs = document.querySelectorAll('.home-tab-btn');
   var productCards = document.querySelectorAll('#homeProductsGrid .aura-product-card, .bestsellers-grid .aura-product-card');
+  var navCategoryLinks = document.querySelectorAll('[data-nav-category]');
 
   function applyProductFilter(targetFilter, activeLabel) {
     if (!targetFilter) return;
@@ -248,8 +249,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var filterNormalized = targetFilter.toLowerCase().trim();
 
     productCards.forEach(function(card) {
-      var cardCat = (card.getAttribute('data-category') || '').toLowerCase();
-      var cardCatName = (card.getAttribute('data-category-name') || '').toLowerCase();
+      var cardCat = (card.getAttribute('data-category') || '').toLowerCase().trim();
+      var cardCatName = (card.getAttribute('data-category-name') || '').toLowerCase().trim();
       var isBs = card.getAttribute('data-is-bestseller') === 'true';
       var isNew = card.getAttribute('data-is-new') === 'true';
 
@@ -261,8 +262,10 @@ document.addEventListener('DOMContentLoaded', function() {
         shouldShow = isBs;
       } else if (filterNormalized === 'new' || filterNormalized === 'new-arrivals') {
         shouldShow = isNew;
+      } else if (filterNormalized === 'serums' || filterNormalized === 'serums-oils') {
+        shouldShow = (cardCat.indexOf('serum') !== -1 || cardCat.indexOf('oil') !== -1 || cardCatName.indexOf('serum') !== -1 || cardCatName.indexOf('oil') !== -1);
       } else {
-        shouldShow = (cardCat.indexOf(filterNormalized) !== -1 || cardCatName.indexOf(filterNormalized) !== -1);
+        shouldShow = (cardCat === filterNormalized || cardCat.indexOf(filterNormalized) !== -1 || cardCatName.indexOf(filterNormalized) !== -1);
       }
 
       if (shouldShow) {
@@ -305,27 +308,96 @@ document.addEventListener('DOMContentLoaded', function() {
       var targetCat = this.getAttribute('data-category');
       if (!targetCat || targetCat === '#') return;
 
-      e.preventDefault();
+      var anchorMap = {
+        'cleansers': 'cleansers-section',
+        'serums': 'serums-section',
+        'moisturizers': 'moisturizers-section',
+        'eye-care': 'eyecare-section',
+        'toners-mists': 'toners-section',
+        'sun-protection': 'sunprotection-section',
+        'botanical-oils': 'botanicaloils-section'
+      };
 
-      categoryPills.forEach(function(p) { p.classList.remove('active'); });
-      this.classList.add('active');
+      var targetAnchorId = anchorMap[targetCat];
+      var targetSectionEl = targetAnchorId ? document.getElementById(targetAnchorId) : null;
 
-      // Sync home tabs if matching
-      homeTabs.forEach(function(t) {
-        t.classList.toggle('active', t.getAttribute('data-filter') === targetCat);
-      });
+      if (targetSectionEl) {
+        e.preventDefault();
+        categoryPills.forEach(function(p) { p.classList.remove('active'); });
+        this.classList.add('active');
 
-      var catNameEl = this.querySelector('.category-pill-name');
-      var label = catNameEl ? catNameEl.textContent.trim() : targetCat;
-
-      var targetEl = document.getElementById('all-products') || document.getElementById('bestsellers');
-      if (targetEl) {
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var catNameEl = this.querySelector('.category-pill-name');
+        var label = catNameEl ? catNameEl.textContent.trim() : targetCat;
+        
+        targetSectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        showAuraToast('Viewing ' + label);
+      } else {
+        var targetEl = document.getElementById('all-products') || document.getElementById('bestsellers');
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          applyProductFilter(targetCat, targetCat);
+        }
       }
-
-      applyProductFilter(targetCat, label);
     });
   });
+
+  // Header Dropdown "Collections" Category Links Handler (If on homepage)
+  navCategoryLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var targetCat = this.getAttribute('data-nav-category');
+      var targetAnchor = this.getAttribute('data-target-anchor');
+
+      var anchorMap = {
+        'cleansers': 'cleansers-section',
+        'serums': 'serums-section',
+        'moisturizers': 'moisturizers-section',
+        'eye-care': 'eyecare-section',
+        'toners-mists': 'toners-section',
+        'sun-protection': 'sunprotection-section',
+        'botanical-oils': 'botanicaloils-section'
+      };
+
+      var targetId = targetAnchor || anchorMap[targetCat];
+      var targetSection = targetId ? document.getElementById(targetId) : null;
+
+      if (targetSection) {
+        e.preventDefault();
+        var catName = this.getAttribute('data-category-name') || this.textContent.trim();
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        showAuraToast('Viewing ' + catName);
+      }
+    });
+  });
+
+  // Check URL category query param or hash on homepage load
+  var homeUrlParams = new URLSearchParams(window.location.search);
+  var initialCat = homeUrlParams.get('category') || homeUrlParams.get('cat');
+  if (!initialCat && window.location.hash) {
+    var rawHash = window.location.hash.replace('#', '').replace('category=', '').replace('categories?cat=', '');
+    if (rawHash && rawHash !== 'categories' && rawHash !== 'bestsellers' && rawHash !== 'contact') {
+      initialCat = rawHash;
+    }
+  }
+
+  if (initialCat) {
+    var anchorMap = {
+      'cleansers': 'cleansers-section',
+      'serums': 'serums-section',
+      'moisturizers': 'moisturizers-section',
+      'eye-care': 'eyecare-section',
+      'toners-mists': 'toners-section',
+      'sun-protection': 'sunprotection-section',
+      'botanical-oils': 'botanicaloils-section'
+    };
+    var targetSecId = anchorMap[initialCat] || initialCat;
+    var targetSec = document.getElementById(targetSecId);
+    if (targetSec) {
+      setTimeout(function() {
+        targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 350);
+    }
+  }
 
   // ==========================================================================
   // 5. Product Card Direct Click to Product Detail

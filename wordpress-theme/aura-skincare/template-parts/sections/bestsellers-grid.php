@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * 6-Column Bestsellers Showcase Grid Template Part
  *
@@ -33,10 +33,15 @@ if ( count( $bestsellers ) < 6 ) {
 			<?php foreach ( $bestsellers as $product ) : 
 				$reg_price = isset( $product['regular_price'] ) ? (float) $product['regular_price'] : round( $product['price'] * 1.35 );
 				$has_sale  = ( $reg_price > $product['price'] );
+				$cat_slug  = ! empty( $product['category_slug'] ) ? $product['category_slug'] : sanitize_title( $product['category'] );
 			?>
 				<article 
 					class="aura-product-card" 
 					data-product-id="<?php echo esc_attr( $product['id'] ); ?>"
+					data-category="<?php echo esc_attr( $cat_slug ); ?>"
+					data-category-name="<?php echo esc_attr( $product['category'] ); ?>"
+					data-is-bestseller="true"
+					data-is-new="<?php echo ( ! empty( $product['is_new'] ) || stripos( $product['badge'] ?? '', 'new' ) !== false ) ? 'true' : 'false'; ?>"
 					style="background: #ffffff; border: 1px solid #EBE7DF; border-radius: 8px; overflow: hidden; padding-bottom: 0.85rem;"
 				>
 					<!-- Product Image Box -->

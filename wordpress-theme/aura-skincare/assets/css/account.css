@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Aura Skincare Luxury My Account Portal & Auth Stylesheet (Stitch Design)
  *
  * @package Aura_Skincare
@@ -519,6 +519,7 @@
   color: #B26A10;
 }
 
+.status-completed,
 .status-delivered {
   background: #EBF7EE;
   color: #2B7A4B;
@@ -529,9 +530,166 @@
   color: #2B5A7A;
 }
 
+.status-on-hold,
+.status-pending {
+  background: #FFF8E1;
+  color: #8D6E63;
+}
+
+.status-cancelled,
+.status-failed {
+  background: #FDF2F2;
+  color: #C53030;
+}
+
+.status-refunded {
+  background: #F5F0EB;
+  color: #706B65;
+}
+
 .order-total {
   font-weight: 600;
   color: var(--color-heading);
+}
+
+.order-action-link {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.order-action-link:hover {
+  color: var(--color-gold);
+}
+
+/* Account Notices */
+.account-notice {
+  padding: 1rem 1.4rem;
+  border-radius: 8px;
+  margin-bottom: 1.8rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.account-notice.notice-success {
+  background-color: #EBF7EE;
+  color: #1E633B;
+  border: 1px solid #C3E6CB;
+}
+
+.account-notice.notice-error {
+  background-color: #FDF2F2;
+  color: #9C2626;
+  border: 1px solid #F5C6CB;
+}
+
+/* Empty States */
+.account-empty-state {
+  text-align: center;
+  padding: 3.5rem 2rem;
+  background: #FAF7F2;
+  border: 1px dashed #E0D9CE;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.account-empty-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-gold);
+  margin: 0 auto 1.2rem auto;
+  opacity: 0.85;
+}
+
+.account-empty-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--color-heading);
+  margin: 0 0 0.5rem 0;
+}
+
+.account-empty-text {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  max-width: 420px;
+  margin: 0 auto 1.8rem auto;
+  line-height: 1.6;
+}
+
+/* Address Cards & Forms */
+.address-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.address-box {
+  background: #FAF7F2;
+  border: 1px solid #EBE7DF;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.address-box:hover {
+  border-color: #D9D2C5;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.address-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.address-box-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-heading);
+  margin: 0;
+}
+
+.address-badge-default {
+  background: #EBF7EE;
+  color: #2B7A4B;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+}
+
+.address-box-content {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  min-height: 80px;
+}
+
+.address-edit-panel {
+  display: none;
+  background: #ffffff;
+  border: 1px solid #EBE7DF;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  animation: fadeInPane 0.3s ease;
+}
+
+.address-edit-panel.active {
+  display: block;
 }
 
 .account-form-grid {
@@ -600,6 +758,9 @@
     border-radius: 8px;
   }
   .account-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .account-form-grid {
     grid-template-columns: 1fr;
   }
 }

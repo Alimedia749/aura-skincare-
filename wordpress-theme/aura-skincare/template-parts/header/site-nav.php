@@ -55,25 +55,30 @@ $cart_count = ( function_exists( 'WC' ) && WC()->cart ) ? WC()->cart->get_cart_c
 					);
 				} else {
 					// Editorial luxury default menu
+					$nav_categories = function_exists( 'aura_get_category_pills' ) ? aura_get_category_pills() : array();
 					?>
 					<ul class="primary-menu">
 						<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'aura-skincare' ); ?></a></li>
 						<li class="menu-item-has-children">
-							<a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>">
+							<a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" class="nav-collections-toggle">
 								<span><?php esc_html_e( 'Collections', 'aura-skincare' ); ?></span>
 								<svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 									<polyline points="6 9 12 15 18 9"></polyline>
 								</svg>
 							</a>
 							<ul class="sub-menu">
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'All Categories', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Cleansers', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Serums & Oils', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Moisturizers', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Eye Care', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Toners & Mists', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Sun Protection', 'aura-skincare' ); ?></a></li>
-								<li><a href="<?php echo esc_url( home_url( '/#categories' ) ); ?>"><?php esc_html_e( 'Botanical Oils', 'aura-skincare' ); ?></a></li>
+								<li>
+									<a href="<?php echo esc_url( home_url( '/#cleansers-section' ) ); ?>" data-nav-category="all">
+										<?php esc_html_e( 'All Categories', 'aura-skincare' ); ?>
+									</a>
+								</li>
+								<li><a href="<?php echo esc_url( home_url( '/#cleansers-section' ) ); ?>" data-nav-category="cleansers" data-target-anchor="cleansers-section"><?php esc_html_e( 'Cleansers', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#serums-section' ) ); ?>" data-nav-category="serums" data-target-anchor="serums-section"><?php esc_html_e( 'Serums & Oils', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#moisturizers-section' ) ); ?>" data-nav-category="moisturizers" data-target-anchor="moisturizers-section"><?php esc_html_e( 'Moisturizers', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#eyecare-section' ) ); ?>" data-nav-category="eye-care" data-target-anchor="eyecare-section"><?php esc_html_e( 'Eye Care', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#toners-section' ) ); ?>" data-nav-category="toners-mists" data-target-anchor="toners-section"><?php esc_html_e( 'Toners & Mists', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#sunprotection-section' ) ); ?>" data-nav-category="sun-protection" data-target-anchor="sunprotection-section"><?php esc_html_e( 'Sun Protection', 'aura-skincare' ); ?></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/#botanicaloils-section' ) ); ?>" data-nav-category="botanical-oils" data-target-anchor="botanicaloils-section"><?php esc_html_e( 'Botanical Oils', 'aura-skincare' ); ?></a></li>
 							</ul>
 						</li>
 						<li><a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>"><?php esc_html_e( 'Shop', 'aura-skincare' ); ?></a></li>

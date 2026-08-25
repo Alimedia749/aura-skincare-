@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Template Name: Luxury FAQ & Client Support
  * Template Post Type: page
@@ -73,7 +73,7 @@ get_header();
 					<span style="font-size: 1.5rem; line-height: 1; color: var(--color-gold); font-weight: 300;">+</span>
 				</button>
 				<div class="faq-answer" style="display: none; padding: 0 1.75rem 1.5rem; color: var(--color-text-main); font-size: 0.95rem; line-height: 1.8; border-top: 1px solid #FAF7F2;">
-					<p><?php esc_html_e( 'You can email our concierge team directly at concierge@aura-skincare.local or call +1 (800) 287-2754 Mon-Sat from 9am to 8pm EST.', 'aura-skincare' ); ?></p>
+					<p><?php esc_html_e( 'You can email our concierge team directly at inteligentboy021@gmail.com or call 03283486855 Mon-Sat from 9am to 8pm EST.', 'aura-skincare' ); ?></p>
 				</div>
 			</div>
 

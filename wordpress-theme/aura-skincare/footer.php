@@ -10,7 +10,8 @@ $brand_desc  = get_theme_mod( 'aura_footer_brand_desc', 'Elevated skincare made 
 $insta_url   = get_theme_mod( 'aura_social_instagram', 'https://instagram.com' );
 $tiktok_url  = get_theme_mod( 'aura_social_tiktok', 'https://tiktok.com' );
 $pin_url     = get_theme_mod( 'aura_social_pinterest', 'https://pinterest.com' );
-$email       = get_theme_mod( 'aura_concierge_email', 'concierge@aura-skincare.local' );
+$phone       = get_theme_mod( 'aura_concierge_phone', '03283486855' );
+$email       = get_theme_mod( 'aura_concierge_email', 'inteligentboy021@gmail.com' );
 $copyright   = get_theme_mod( 'aura_footer_copyright', 'AURA Skincare. All rights reserved.' );
 ?>
 <?php if ( is_front_page() || is_home() || is_page( 'contact' ) || is_page( 'contact-us' ) ) : ?>
@@ -32,7 +33,7 @@ $copyright   = get_theme_mod( 'aura_footer_copyright', 'AURA Skincare. All right
 					</div>
 					<h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-heading); margin-bottom: 0.5rem;"><?php esc_html_e( 'Direct Client Care', 'aura-skincare' ); ?></h3>
 					<p style="font-size: 0.88rem; color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.6;"><?php esc_html_e( 'Available Mon-Fri 9:00 AM – 7:00 PM EST', 'aura-skincare' ); ?></p>
-					<a href="tel:+18002872754" style="color: var(--color-gold); font-weight: 600; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em;">+1 (800) 287-2754</a>
+					<a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>" style="color: var(--color-gold); font-weight: 600; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em;"><?php echo esc_html( $phone ); ?></a>
 				</div>
 
 				<!-- Card 2: Email Inquiries -->
@@ -42,7 +43,7 @@ $copyright   = get_theme_mod( 'aura_footer_copyright', 'AURA Skincare. All right
 					</div>
 					<h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-heading); margin-bottom: 0.5rem;"><?php esc_html_e( 'Skin Consultation', 'aura-skincare' ); ?></h3>
 					<p style="font-size: 0.88rem; color: var(--color-text-light); margin-bottom: 1rem; line-height: 1.6;"><?php esc_html_e( 'Detailed responses within 2 hours', 'aura-skincare' ); ?></p>
-					<a href="mailto:concierge@aura-skincare.local" style="color: var(--color-gold); font-weight: 600; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em;">concierge@aura-skincare.local</a>
+					<a href="mailto:<?php echo esc_attr( $email ); ?>" style="color: var(--color-gold); font-weight: 600; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em;"><?php echo esc_html( $email ); ?></a>
 				</div>
 
 				<!-- Card 3: Flagship Studio -->
@@ -254,7 +255,7 @@ $copyright   = get_theme_mod( 'aura_footer_copyright', 'AURA Skincare. All right
 					<div>
 						<div class="footer-col-title"><?php esc_html_e( 'CONCIERGE & CONTACT', 'aura-skincare' ); ?></div>
 						<div style="font-size:0.85rem; color:rgba(255,255,255,0.7); line-height:1.6; margin-bottom:1.25rem; display:flex; flex-direction:column; gap:0.5rem;">
-							<div><strong style="color:var(--color-gold);"><?php esc_html_e( 'Call:', 'aura-skincare' ); ?></strong> <a href="tel:+18002872754" style="color:inherit; text-decoration:none;">+1 (800) 287-2754</a></div>
+							<div><strong style="color:var(--color-gold);"><?php esc_html_e( 'Call:', 'aura-skincare' ); ?></strong> <a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>" style="color:inherit; text-decoration:none;"><?php echo esc_html( $phone ); ?></a></div>
 							<div><strong style="color:var(--color-gold);"><?php esc_html_e( 'Email:', 'aura-skincare' ); ?></strong> <a href="mailto:<?php echo esc_attr( $email ); ?>" style="color:inherit; text-decoration:none;"><?php echo esc_html( $email ); ?></a></div>
 							<div><strong style="color:var(--color-gold);"><?php esc_html_e( 'Hours:', 'aura-skincare' ); ?></strong> Mon-Sat 9AM – 8PM EST</div>
 							<div><strong style="color:var(--color-gold);"><?php esc_html_e( 'Studio:', 'aura-skincare' ); ?></strong> SoHo, New York, NY</div>

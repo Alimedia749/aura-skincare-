@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Template Name: Luxury Shipping & Returns Policy
  * Template Post Type: page
@@ -53,7 +53,7 @@ get_header();
 			<div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
 				<h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-heading); margin-bottom: 1rem;"><?php esc_html_e( '2. 30-Day Ritual Return Guarantee', 'aura-skincare' ); ?></h2>
 				<p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;"><?php esc_html_e( 'We stand completely behind the transformative results of our botanical formulations. If your skin does not love an Aura formula, return it within 30 days of receipt for a 100% refund, no questions asked.', 'aura-skincare' ); ?></p>
-				<p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.8;"><?php esc_html_e( 'To start a return, email concierge@aura-skincare.local with your order number. A pre-paid return label will be provided instantly.', 'aura-skincare' ); ?></p>
+				<p style="color: var(--color-text-main); font-size: 0.95rem; line-height: 1.8;"><?php esc_html_e( 'To start a return, email inteligentboy021@gmail.com with your order number. A pre-paid return label will be provided instantly.', 'aura-skincare' ); ?></p>
 			</div>
 
 		</div>

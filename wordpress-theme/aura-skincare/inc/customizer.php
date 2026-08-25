@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Aura Skincare Theme Customizer Settings & Controls
  *
@@ -504,9 +504,25 @@ function aura_skincare_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
+		'aura_concierge_phone',
+		array(
+			'default'           => '03283486855',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		'aura_concierge_phone',
+		array(
+			'label'    => esc_html__( 'Concierge Support Phone', 'aura-skincare' ),
+			'section'  => 'aura_footer_section',
+			'type'     => 'text',
+		)
+	);
+
+	$wp_customize->add_setting(
 		'aura_concierge_email',
 		array(
-			'default'           => 'concierge@aura-skincare.local',
+			'default'           => 'inteligentboy021@gmail.com',
 			'sanitize_callback' => 'sanitize_email',
 		)
 	);

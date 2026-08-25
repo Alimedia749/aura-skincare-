@@ -205,19 +205,35 @@ function aura_add_dropdown_icon_to_menu_items( $title, $item, $args, $depth ) {
 add_filter( 'nav_menu_item_title', 'aura_add_dropdown_icon_to_menu_items', 10, 4 );
 
 /**
+ * Disable WooCommerce Coming Soon mode so store catalog & products are always live.
+ */
+add_filter( 'pre_option_woocommerce_coming_soon', '__return_empty_string' );
+add_filter( 'pre_option_woocommerce_store_pages_only', '__return_empty_string' );
+add_filter( 'woocommerce_coming_soon_exclude', '__return_true' );
+add_filter( 'woocommerce_is_coming_soon', '__return_false' );
+add_action( 'init', function() {
+	if ( 'yes' === get_option( 'woocommerce_coming_soon' ) ) {
+		update_option( 'woocommerce_coming_soon', 'no' );
+	}
+	if ( 'yes' === get_option( 'woocommerce_store_pages_only' ) ) {
+		update_option( 'woocommerce_store_pages_only', 'no' );
+	}
+} );
+
+/**
  * Route custom templates for Shop and About Us
  */
 function aura_custom_page_templates( $template ) {
 	$page_id = get_queried_object_id();
-	$req_uri = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
+	$req_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
 
-	if ( 14 === $page_id || is_page( 'shop' ) || ( function_exists( 'is_shop' ) && is_shop() ) || is_post_type_archive( 'product' ) || strpos( $req_uri, '/shop' ) !== false ) {
+	if ( 14 === $page_id || is_page( 'shop' ) || is_page( 'products' ) || ( function_exists( 'is_shop' ) && is_shop() ) || is_post_type_archive( 'product' ) || ( function_exists( 'is_product_taxonomy' ) && is_product_taxonomy() ) || preg_match( '#^/shop(/|\?|$)#i', $req_uri ) ) {
 		$shop_file = get_template_directory() . '/page-templates/template-shop.php';
 		if ( file_exists( $shop_file ) ) {
 			return $shop_file;
 		}
 	}
-	if ( 70 === $page_id || is_page( 'about-us' ) || is_page( 'about' ) || strpos( $req_uri, '/about-us' ) !== false || strpos( $req_uri, '/about' ) !== false ) {
+	if ( 70 === $page_id || is_page( 'about-us' ) || is_page( 'about' ) || preg_match( '#^/about(-us)?(/|\?|$)#i', $req_uri ) ) {
 		$about_file = get_template_directory() . '/page-templates/template-about.php';
 		if ( file_exists( $about_file ) ) {
 			return $about_file;
@@ -225,7 +241,7 @@ function aura_custom_page_templates( $template ) {
 	}
 	return $template;
 }
-add_filter( 'template_include', 'aura_custom_page_templates', 9999 );
+add_filter( 'template_include', 'aura_custom_page_templates', 999999 );
 
 /**
  * Filter WooCommerce template loader for archive-product.php

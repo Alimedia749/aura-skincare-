@@ -43,46 +43,66 @@
   gap: clamp(1rem, 1.4vw, 1.5rem);
 }
 
+.category-4col-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.25rem, 2vw, 2rem);
+}
+
+@media (max-width: 1024px) {
+  .category-4col-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .category-4col-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+}
+
 /* ==========================================================================
-   6-Column Showcase Category Section (Like Reference Design)
+   4-Column Showcase Category Section
    ========================================================================== */
 .showcase-section-title {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-style: italic;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  color: #141414;
-  text-align: center;
-  margin: 0 0 2.5rem 0;
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif) !important;
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem) !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: var(--color-heading, #141311) !important;
+  text-align: center !important;
+  margin: 0 0 2.5rem 0 !important;
 }
 
 .card-title-centered {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif) !important;
   text-align: center !important;
   font-size: 0.95rem !important;
-  font-weight: 700 !important;
-  line-height: 1.35 !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
   min-height: 2.7rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin: 0.7rem 0 0.4rem 0 !important;
-  color: #1A1A1A !important;
+  color: var(--color-heading, #141311) !important;
 }
 
 .card-title-centered a {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  font-weight: 700 !important;
-  color: #1A1A1A !important;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif) !important;
+  font-weight: 600 !important;
+  color: var(--color-heading, #141311) !important;
   text-decoration: none !important;
   transition: color 0.2s ease;
 }
 
 .card-title-centered a:hover {
-  color: #C5A880 !important;
+  color: var(--color-gold, #c5a880) !important;
 }
 
 .card-price-centered {
@@ -91,20 +111,29 @@
   align-items: center !important;
   gap: 0.55rem !important;
   margin-top: auto;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif) !important;
 }
 
 .price-strikethrough-red {
-  color: #C24545 !important;
+  color: var(--color-text-muted, #96918a) !important;
   text-decoration: line-through !important;
-  font-size: 0.9rem !important;
-  font-weight: 500 !important;
+  font-size: 0.88rem !important;
+  font-weight: 400 !important;
 }
 
 .price-active-bold {
-  color: #1B365D !important;
-  font-weight: 800 !important;
-  font-size: 1.05rem !important;
+  color: #9c7a4b !important;
+  font-weight: 700 !important;
+  font-size: 1.08rem !important;
+  letter-spacing: -0.01em;
+}
+
+.shop-price-current,
+.product-card-price,
+.aura-card-price,
+.card-price-centered .price-active-bold {
+  color: #9c7a4b !important;
+  font-weight: 700 !important;
 }
 
 /* ==========================================================================

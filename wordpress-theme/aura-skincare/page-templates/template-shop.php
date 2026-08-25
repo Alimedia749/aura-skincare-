@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Template Name: Luxury Shop Catalog
  * Template Post Type: page
@@ -8,9 +8,10 @@
 
 get_header();
 
-$theme_uri  = get_template_directory_uri();
-$products   = aura_get_mock_products();
-$categories = aura_get_category_pills();
+$theme_uri    = get_template_directory_uri();
+$products     = aura_get_mock_products();
+$categories   = aura_get_category_pills();
+$selected_cat = isset( $_GET['category'] ) ? sanitize_key( $_GET['category'] ) : 'all';
 ?>
 
 <div class="shop-page-wrapper">
@@ -32,15 +33,33 @@ $categories = aura_get_category_pills();
 			<div class="shop-controls-inner">
 				
 				<!-- Category Filter Pills -->
+				<?php
+				$category_counts = array();
+				foreach ( $products as $p ) {
+					$c_slug = ! empty( $p['category_slug'] ) ? $p['category_slug'] : sanitize_title( $p['category'] );
+					$category_counts[ $c_slug ] = ( isset( $category_counts[ $c_slug ] ) ? $category_counts[ $c_slug ] : 0 ) + 1;
+				}
+
+				$initial_visible_count = 0;
+				foreach ( $products as $p ) {
+					$c_slug = ! empty( $p['category_slug'] ) ? $p['category_slug'] : sanitize_title( $p['category'] );
+					if ( 'all' === $selected_cat || empty( $selected_cat ) || $selected_cat === $c_slug || ( 'serums' === $selected_cat && ( 'serums' === $c_slug || 'serums-oils' === $c_slug ) ) ) {
+						$initial_visible_count++;
+					}
+				}
+				?>
 				<div class="shop-filter-tabs" id="shopFilterTabs">
-					<button type="button" class="shop-tab-btn active" data-filter="all">
+					<button type="button" class="shop-tab-btn <?php echo ( 'all' === $selected_cat || empty( $selected_cat ) ) ? 'active' : ''; ?>" data-filter="all">
 						<span><?php esc_html_e( 'All Formulas', 'aura-skincare' ); ?></span>
 						<span class="tab-count">(<?php echo esc_html( count( $products ) ); ?>)</span>
 					</button>
-					<?php foreach ( $categories as $cat ) : ?>
-						<button type="button" class="shop-tab-btn" data-filter="<?php echo esc_attr( $cat['slug'] ); ?>">
+					<?php foreach ( $categories as $cat ) : 
+						$c_count   = isset( $category_counts[ $cat['slug'] ] ) ? $category_counts[ $cat['slug'] ] : ( isset( $cat['count'] ) ? $cat['count'] : 0 );
+						$is_active = ( $selected_cat === $cat['slug'] || ( 'serums' === $selected_cat && ( $cat['slug'] === 'serums' || $cat['slug'] === 'serums-oils' ) ) );
+					?>
+						<button type="button" class="shop-tab-btn <?php echo $is_active ? 'active' : ''; ?>" data-filter="<?php echo esc_attr( $cat['slug'] ); ?>">
 							<span><?php echo esc_html( $cat['name'] ); ?></span>
-							<span class="tab-count">(<?php echo esc_html( $cat['count'] ); ?>)</span>
+							<span class="tab-count">(<?php echo esc_html( $c_count ); ?>)</span>
 						</button>
 					<?php endforeach; ?>
 				</div>
@@ -48,7 +67,7 @@ $categories = aura_get_category_pills();
 				<!-- Right Toolbar: Counter & Sorter -->
 				<div class="shop-toolbar-right">
 					<span class="shop-results-count" id="shopResultsCount">
-						<?php printf( esc_html__( 'Showing %d of %d rituals', 'aura-skincare' ), count( $products ), count( $products ) ); ?>
+						<?php printf( esc_html__( 'Showing %d of %d rituals', 'aura-skincare' ), $initial_visible_count, count( $products ) ); ?>
 					</span>
 					<select class="shop-sort-select" id="shopSortSelect" aria-label="<?php esc_attr_e( 'Sort products', 'aura-skincare' ); ?>">
 						<option value="featured"><?php esc_html_e( 'Featured Rituals', 'aura-skincare' ); ?></option>
@@ -68,11 +87,19 @@ $categories = aura_get_category_pills();
 			<div class="shop-catalog-grid" id="shopGrid">
 				
 				<?php foreach ( $products as $product ) : 
-					$p_slug = sanitize_title( $product['title'] );
-					$p_url  = home_url( '/product-detail/?product=' . $p_slug );
-					$cat_slug = sanitize_title( $product['category'] );
+					$p_slug    = sanitize_title( $product['title'] );
+					$p_url     = home_url( '/product-detail/?product=' . $p_slug );
+					$cat_slug  = ! empty( $product['category_slug'] ) ? $product['category_slug'] : sanitize_title( $product['category'] );
+					$is_initial_visible = ( 'all' === $selected_cat || empty( $selected_cat ) || $selected_cat === $cat_slug || ( 'serums' === $selected_cat && ( $cat_slug === 'serums' || $cat_slug === 'serums-oils' ) ) );
 				?>
-					<article class="shop-product-card" data-category="<?php echo esc_attr( $cat_slug ); ?>" data-price="<?php echo esc_attr( $product['price'] ); ?>" data-rating="<?php echo esc_attr( $product['rating'] ); ?>">
+					<article 
+						class="shop-product-card" 
+						data-category="<?php echo esc_attr( $cat_slug ); ?>" 
+						data-category-name="<?php echo esc_attr( $product['category'] ); ?>"
+						data-price="<?php echo esc_attr( $product['price'] ); ?>" 
+						data-rating="<?php echo esc_attr( $product['rating'] ); ?>"
+						style="<?php echo $is_initial_visible ? 'display: flex;' : 'display: none;'; ?>"
+					>
 						
 						<!-- Card Media -->
 						<a href="<?php echo esc_url( $p_url ); ?>" class="shop-card-media">
@@ -89,7 +116,9 @@ $categories = aura_get_category_pills();
 						<!-- Card Content -->
 						<div class="shop-card-content">
 							<div>
-								<div class="shop-card-cat"><?php echo esc_html( $product['category'] ); ?></div>
+								<a href="<?php echo esc_url( home_url( '/shop/?category=' . $cat_slug ) ); ?>" class="shop-card-cat" style="text-decoration: none; cursor: pointer;">
+									<?php echo esc_html( $product['category'] ); ?>
+								</a>
 								<a href="<?php echo esc_url( $p_url ); ?>" class="shop-card-title"><?php echo esc_html( $product['title'] ); ?></a>
 								<p class="shop-card-desc"><?php echo esc_html( $product['subtitle'] ); ?></p>
 							</div>
@@ -172,29 +201,76 @@ document.addEventListener('DOMContentLoaded', function() {
 	var sortSelect = document.getElementById('shopSortSelect');
 	var grid = document.getElementById('shopGrid');
 
-	// Filter Tabs Handler
+	function filterShopProducts(targetFilter) {
+		if (!targetFilter) targetFilter = 'all';
+		var filterNorm = targetFilter.toLowerCase().trim();
+		var visibleCount = 0;
+
+		tabs.forEach(function(t) {
+			var tabFilter = (t.getAttribute('data-filter') || '').toLowerCase().trim();
+			if (tabFilter === filterNorm || (filterNorm === 'all' && tabFilter === 'all') || (filterNorm === 'serums' && (tabFilter === 'serums' || tabFilter === 'serums-oils'))) {
+				t.classList.add('active');
+			} else {
+				t.classList.remove('active');
+			}
+		});
+
+		cards.forEach(function(card) {
+			var cardCat = (card.getAttribute('data-category') || '').toLowerCase().trim();
+			var cardCatName = (card.getAttribute('data-category-name') || '').toLowerCase().trim();
+
+			var matches = false;
+			if (filterNorm === 'all') {
+				matches = true;
+			} else if (filterNorm === 'serums' || filterNorm === 'serums-oils') {
+				matches = (cardCat === 'serums' || cardCat === 'serums-oils' || cardCat.indexOf('serum') !== -1 || cardCatName.indexOf('serum') !== -1);
+			} else {
+				matches = (cardCat === filterNorm || cardCat.indexOf(filterNorm) !== -1 || cardCatName.indexOf(filterNorm) !== -1);
+			}
+
+			if (matches) {
+				card.style.display = 'flex';
+				visibleCount++;
+			} else {
+				card.style.display = 'none';
+			}
+		});
+
+		if (counter) {
+			counter.textContent = 'Showing ' + visibleCount + ' of ' + cards.length + ' rituals';
+		}
+	}
+
+	// Filter Tabs Click Handler
 	tabs.forEach(function(tab) {
-		tab.addEventListener('click', function() {
-			tabs.forEach(function(t) { t.classList.remove('active'); });
-			this.classList.add('active');
+		tab.addEventListener('click', function(e) {
+			e.preventDefault();
 			var filter = this.getAttribute('data-filter');
-			var visibleCount = 0;
+			filterShopProducts(filter);
 
-			cards.forEach(function(card) {
-				var cardCat = card.getAttribute('data-category');
-				if (filter === 'all' || cardCat === filter || cardCat.indexOf(filter) !== -1) {
-					card.style.display = 'flex';
-					visibleCount++;
+			if (history.pushState) {
+				var url = new URL(window.location);
+				if (filter === 'all') {
+					url.searchParams.delete('category');
 				} else {
-					card.style.display = 'none';
+					url.searchParams.set('category', filter);
 				}
-			});
-
-			if (counter) {
-				counter.textContent = 'Showing ' + visibleCount + ' of ' + cards.length + ' rituals';
+				history.pushState(null, '', url);
 			}
 		});
 	});
+
+	// Check URL query parameters or hash on load
+	var urlParams = new URLSearchParams(window.location.search);
+	var initialCategory = urlParams.get('category');
+	if (initialCategory) {
+		filterShopProducts(initialCategory);
+	} else if (window.location.hash) {
+		var hashCat = window.location.hash.replace('#', '').replace('category=', '');
+		if (hashCat) {
+			filterShopProducts(hashCat);
+		}
+	}
 
 	// Sorter Handler
 	if (sortSelect && grid) {

@@ -459,14 +459,14 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #8c6a38;
+  color: #9c7a4b !important;
   position: relative;
   padding: 0.45rem 0;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   text-decoration: none;
-  transition: color 0.25s ease;
+  transition: color 0.25s ease, opacity 0.25s ease;
 }
 
 .primary-menu > li > a::after {
@@ -476,18 +476,22 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--color-gold);
+  background-color: #9c7a4b;
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   border-radius: var(--radius-pill);
 }
 
 .primary-menu > li:hover > a,
-.primary-menu > li.current-menu-item > a {
-  color: #8c6a38;
+.primary-menu > li.current-menu-item > a,
+.primary-menu > li.current_page_item > a,
+.primary-menu > li.current-menu-ancestor > a {
+  color: #7a5c30 !important;
 }
 
 .primary-menu > li:hover > a::after,
-.primary-menu > li.current-menu-item > a::after {
+.primary-menu > li.current-menu-item > a::after,
+.primary-menu > li.current_page_item > a::after,
+.primary-menu > li.current-menu-ancestor > a::after {
   width: 100%;
 }
 
@@ -503,13 +507,15 @@
 .primary-menu .menu-item-has-children > a .dropdown-chevron {
   width: 10px;
   height: 10px;
-  opacity: 0.75;
+  opacity: 0.85;
+  color: #9c7a4b;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .primary-menu .menu-item-has-children:hover > a .dropdown-chevron {
   transform: rotate(180deg);
   opacity: 1;
+  color: #7a5c30;
 }
 
 .primary-menu .sub-menu {
@@ -532,6 +538,20 @@
   pointer-events: none;
   transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
   z-index: 1000;
+}
+
+.primary-menu .sub-menu a {
+  color: #9c7a4b !important;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.5rem 0.85rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.primary-menu .sub-menu a:hover {
+  color: #7a5c30 !important;
+  background-color: rgba(197, 168, 128, 0.12);
 }
 
 .primary-menu .sub-menu::before {

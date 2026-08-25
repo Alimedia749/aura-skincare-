@@ -5,9 +5,10 @@
  * @package Aura_Skincare
  */
 
-$page_slug = get_post_field( 'post_name', get_post() );
+$page_slug   = get_post_field( 'post_name', get_post() );
+$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
 
-if ( 'shop' === $page_slug || is_page( 'shop' ) || ( function_exists( 'is_shop' ) && is_shop() ) || is_post_type_archive( 'product' ) ) {
+if ( 'shop' === $page_slug || 'products' === $page_slug || is_page( 'shop' ) || is_page( 'products' ) || ( function_exists( 'is_shop' ) && is_shop() ) || is_post_type_archive( 'product' ) || preg_match( '#^/shop(/|\?|$)#i', $request_uri ) ) {
 	require get_template_directory() . '/page-templates/template-shop.php';
 	return;
 }
@@ -63,7 +64,7 @@ if ( 'login' === $page_slug || 'signin' === $page_slug || 'sign-in' === $page_sl
 }
 
 if ( 'my-account' === $page_slug || 'account' === $page_slug || is_page( 'my-account' ) || is_page( 'account' ) || ( function_exists( 'is_account_page' ) && is_account_page() ) ) {
-	if ( ! is_user_logged_in() && ! isset( $_GET['preview_dashboard'] ) ) {
+	if ( ! is_user_logged_in() ) {
 		require get_template_directory() . '/page-templates/template-login.php';
 	} else {
 		require get_template_directory() . '/page-templates/template-account.php';
